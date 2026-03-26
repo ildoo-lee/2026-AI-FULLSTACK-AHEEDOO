@@ -38,6 +38,7 @@ TODO2:  JAVA SETTING
      ```
      cd  D:\hyojung2
      git clone  https://github.com/sally03915/2026-AI-FULLSTACK.git
+
      ```
  
 - 이미 만든 프로젝트를 올리고 싶다면: 
@@ -84,6 +85,11 @@ TODO2:  JAVA SETTING
 
 
 ■2. eclipse
+
+1. eclipse.org/downroad
+2. 다운로드
+3. 워크스페이스 - [깃허브저장소] - track003_java
+4. 
 
 
 
