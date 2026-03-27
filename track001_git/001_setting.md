@@ -17,7 +17,7 @@
  
 2. 사용자 정보 설정
 
-   git config --global user.name "깃허브아이디"
+   git config --global user.name "깃허브아이디"``
    git config --global user.email "깃허브이메일"
 
  
