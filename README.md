@@ -12,7 +12,7 @@
 
 ### 📌 Contact & Links
 
-<img src="you.png" alt="멋진남자" style="width:100px">
+<img src="ildoo_lee.jpg" alt="멋진남자" style="width:100px">
 
 |NAME|	이일두|
 |-|-|
