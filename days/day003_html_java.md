@@ -29,9 +29,21 @@
 
 ### Part003.. Todo3: java 자료형/입력
 
+1. 자료형의 구분
+- 기본형 : 실제값   저장 (1 : int)
+- 참조형 : 주소값   저장 ("abc" : String)
+
+2. 기본자료형
+논리형 : boolean (true/false)
+정수형 : byte(1byte) - short(2) - ★int(4) - long(8 : 4f) (10, 1,2)
+실수형 : float(4: 3.14f) - ★double(8:3.14)               (1.1, 3.14)
+
+  - ★정수 < 실수
 
 
 
+
+---
 
 ### Part004. 복습문제
 1. html/css/js 역할
