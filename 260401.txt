@@ -1,0 +1,107 @@
+## STEP1) markup / validator 검사
+여행 티켓 
+
+ICN ✈️ SFO  
+출발: 인천 | 2026-04-15 10:30  
+도착: 샌프란시스코 | 2026-04-15 18:00  
+탑승객: Sally An  
+좌석: 12A | Economy  
+항공사 사이트 보기  
+
+
+## STEP2) CSS 작성 규칙
+✅ `<body>` 태그  
+1) 바깥쪽 여백 없음 → 0  
+2) 안쪽 여백 30px  
+3) 글꼴 → "Segoe UI", sans-serif  
+4) 배경 → 135도 방향 그라디언트 (#fdfbfb → #ebedee)  
+
+✅ `<div>` 카드  
+1) 배경색 흰색 → #fff  
+2) 너비 250px  
+3) 가운데 정렬 → 0 auto  
+4) 아래 여백 20px  
+5) 모서리 둥글게 → 20px  
+6) 그림자 효과 → 0 4px 12px rgba(0,0,0,0.1)  
+7) 텍스트 가운데 정렬 → center  
+8) 안쪽 여백 20px  
+
+✅ `<h1>` 태그  
+9) 텍스트 가운데 정렬  
+10) 글자 색상 → #2c3e50  
+11) 아래 여백 40px  
+
+✅ `<h2>` 태그  
+12) 위쪽 여백 10px, 아래 여백 5px  
+13) 글자 크기 18px  
+14) 글자 색상 → #333  
+15) 텍스트 가운데 정렬 
+
+✅ `<p>` 태그 (설명 텍스트)  
+16) 글자 크기 14px  
+17) 글자 색상 → #666  
+18) 아래 여백 10px  
+
+✅ `<hr>` 태그 (절취선)  
+19) border-top: 2px dashed #ccc  
+20) 위아래 여백 → margin: 15px 0  
+
+✅ `<a>` 태그 (항공사 링크)  
+21) 위쪽 여백 5px  
+22) 글자 크기 13px  
+23) 글자 색상 → #2c3e50  
+24) 밑줄 제거  
+25) 텍스트 오른쪽 정렬 
+
+
+### ■4.  복습문제
+
+1. 배경을 파란색으로 설정하는 속성은? background-color: blue;  
+2. 글자색상을 빨간색으로 지정하는 속성은? color: red; 
+3. 글자 크기를 20px로 지정하는 속성은? font-size: 20px;
+4. 글자를 가운데 정렬하는 속성은? text-align: center; 
+5. 글자에 밑줄을 추가하는 속성은? text-decoration: none; 
+6. 글꼴을 Arial로 지정하는 속성은? font-family: Arial; 
+7. 글자를 굵게 표시하는 속성은? font-weight: 800;
+8. 요소의 가로 길이를 300px로 지정하는 속성은? width: 300px; 
+9. 요소의 바깥쪽 여백을 10px로 지정하는 속성은? margin: 10px; 
+10. 요소의 안쪽 여백을 15px로 지정하는 속성은? padding: 15px; 
+11. 요소에 1px 실선 테두리를 추가하는 속성은? border 
+12. 모서리를 둥글게 10px로 만드는 속성은? border-radius: 10px; 
+13. 그림자 효과를 추가하는 속성은? box-shadow: 0 4px 12px rgba(0,0,0,0.5); 
+14. 천천히 움직이는 장면전환효과를 주는 속성은? transition: all 5s;
+
+
+> 정리문제 (2)
+
+15.  가로 사이즈 지정가능한것은 인라인   block   /    inline
+16.  a태그에 margin-top 줄 수 없다     o   /   x
+17.  css 적용방법 3가지 (  인라인 / 내부  / 외부   )
+18.  css 적용 내부적용방법은 (  head  ) 태그안에 ( style  ) 태그 적용해서 사용
+
+
+> 정리문제 (3)
+1.  연산자의 우선순위를 적으시오. 
+()   값                         비교                  조건                   대입
+()   ++ -- + - *  /  %      > <  !=  ==         &&   ||   ?:           =
+  
+
+
+2.  다음오류 해결
+short sh1 = 1 , sh2 = 2;
+short result = sh1 + sh2; -> short result = (short)(sh1 + sh2);
+
+3. 필수조건
+q1-1 int형 변수 x가 3보다 크고 10보다 작을때 true인 조건식 
+System.out.println( x>3 && x<10 );
+
+q1-2 char형 변수 ch가 'a' 또는 'A'일때   true인 조건식   
+System.out.println( ch == 'a' || ch == 'A' );
+ 
+q1-3 char형 변수 ch가 숫자('0'~'9')일때   true인 조건식     
+System.out.println( ch >= '0' || ch <= '9' );
+
+q1-4 char형 변수 ch가 영문자(대문자 또는 소문자) 일때   true인 조건식
+System.out.println(ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z');
+
+
