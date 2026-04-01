@@ -1,0 +1,62 @@
+Todo1: html 기본테그
+Todo2: html 자료형/입력
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+html
+
+연습문제1)    ※ DataType002  참고
+패키지명 : com.the703.basic003_ex
+클래스명 : DataTypeEx001
+출력내용 : 
+   1-1.  나이를 입력받을 자료형 선택후  변수명  age로 하시오.  예) 10,20
+   1-2.  Scanner이용해서 나이 입력받고 출력하시오.
+  
+    당신의 나이를 입력하시오 > _입력받기
+    내 나이는 ** 입니다.
+
+연습문제2)
+패키지명 : com.the703.basic003_ex
+클래스명 : DataTypeEx002
+출력내용 :  Scanner이용해서 나이 입력받고 출력하시오.
+    좋아하는 수(정수)   입력하시오 > _입력받기
+    좋아하는 숫자는 ** 입니다.
+
+
+연습문제3)
+패키지명 : com.the703.basic003_ex
+클래스명 : DataTypeEx003
+출력내용 :  Scanner이용해서 태어난 년도를 입력받아 나이 계산하기
+태어난 년도를 입력하세요. >
+2000
+당신의 나이는 25살 입니다.
+
+
+연습문제4)
+패키지명 : com.the703.basic003_ex
+클래스명 : DataTypeEx004
+출력내용 :  Scanner이용해서 파이값을 입력받고 출력하시오. 
+     파이값을 입력하시오 > _입력받기    3.141592    ( 자료형선택 )
+     파이값은 **입니다.
+  
+연습문제5)
+패키지명 : com.the703.basic003_ex
+클래스명 : DataTypeEx005
+출력내용 :  Scanner이용해서  성적처리를 입력받고 출력하시오.
+   국어점수를 입력하시오.  _입력받기    100 
+   영어점수를 입력하시오.  _입력받기    100 
+   수학점수를 입력하시오.  _입력받기    99
+
+   총점 :  299
+   평균 :  99.67 
