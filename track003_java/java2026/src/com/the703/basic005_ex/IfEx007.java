@@ -28,7 +28,7 @@ public class IfEx007 {
 		     if(opr == '+') {System.out.println(num1 + "+" + num2 + "=" + (num1 + num2));}
 		else if(opr == '-') {System.out.println(num1 + "-" + num2 + "=" + (num1 - num2));}
 		else if(opr == '*') {System.out.println(num1 + "*" + num2 + "=" + (num1 * num2));}
-		else if(opr == '/') {System.out.printf("%d/%d=%.2f", num1, num2, result);}
+		else if(opr == '/') {System.out.printf("%.0f/%.0f = %.2f", num1, num2, result);}
 			
 		// 5+10=15
 		// 나누기는 소숫점 나오게     
