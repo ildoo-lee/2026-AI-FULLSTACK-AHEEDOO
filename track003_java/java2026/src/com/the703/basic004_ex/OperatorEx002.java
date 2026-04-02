@@ -25,7 +25,8 @@ public class OperatorEx002 {
 				
 		System.out.println();
 		// q1-3 char형 변수 ch가 숫자('0'~'9')일때   true인 조건식
-		System.out.println( ch >= '0' || ch <= '9' );
+		// System.out.println( ch >= '0' || ch <= '9' );
+		System.out.println( ch >= '0' && ch <= '9' );
 		
 		
 		System.out.println();
