@@ -30,9 +30,11 @@ public class IfEx007_lid {
 		else if(opr == '*') {System.out.println(num1 + "*" + num2 + "=" + (num1 * num2));}
 		else if(opr == '/') {System.out.printf("%.0f/%.0f = %.2f", num1, num2, result);}
 		
-		else if(num2 == 0)  {System.out.println("0으로 나눌 수 없습니다.");} 
+		// else if(num2 != 0 && opr == '/')  {System.out.println("0으로 나눌 수 없습니다.");}
+		// else if(num2 != 0 && opr == '/')  {"%.0f/%.0f = %.2f", num1, num2, result);}
 	                    
 		
+		     
 			
 		// 5+10=15
 		// 나누기는 소숫점 나오게     

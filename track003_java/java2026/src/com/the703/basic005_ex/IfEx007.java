@@ -7,7 +7,7 @@ public class IfEx007 {
 	public static void main(String[] args) {
 		// 변수
 		double num1 = 0, num2 = 0, result = 0;
-		char opr;
+		char opr='\u0000';
 		Scanner sc = new Scanner(System.in);
 		
 		
@@ -19,7 +19,7 @@ public class IfEx007 {
 		num2 = sc.nextInt();
 		
 		System.out.print("연산자를 입력해 주세요(+ - * /)>");
-		opr = sc.next().charAt(0);
+		opr = sc.next().charAt(0); // "a(0)b(1)c(2)"
 		
 		// 처리 + 출력
 		result = num1 / (double)num2;
