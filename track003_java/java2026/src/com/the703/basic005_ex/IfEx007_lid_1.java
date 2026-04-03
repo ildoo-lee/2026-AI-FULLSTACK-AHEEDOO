@@ -2,7 +2,7 @@ package com.the703.basic005_ex;
 
 import java.util.Scanner;
 
-public class IfEx007 {
+public class IfEx007_lid_1 {
 
 	public static void main(String[] args) {
 		// 변수
@@ -29,6 +29,7 @@ public class IfEx007 {
 		else if(opr == '-') {System.out.println(num1 + "-" + num2 + "=" + (num1 - num2));}
 		else if(opr == '*') {System.out.println(num1 + "*" + num2 + "=" + (num1 * num2));}
 		else if(opr == '/') {System.out.printf("%.0f/%.0f = %.2f", num1, num2, result);}
+	    	 
 			
 		// 5+10=15
 		// 나누기는 소숫점 나오게     

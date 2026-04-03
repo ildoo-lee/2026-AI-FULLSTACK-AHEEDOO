@@ -2,7 +2,7 @@ package com.the703.basic005_ex;
 
 import java.util.Scanner;
 
-public class IfEx007 {
+public class IfEx007_lid {
 
 	public static void main(String[] args) {
 		// 변수
