@@ -13,7 +13,7 @@ public class BankProjectV1 {
 				
 		for(;;){
 			System.out.println("🌟💰 WELCOME TO BANK SYSTEM 💰🌟\n"
-			                 + "[1] ➕ 계좌 추가\n"
+			                 + "[1] ➕ 계좌 추가\n" // 가입개념, 또 1번하면 다시 ID와 PASS를 새로 생성하는 개념
 			                 + "[2] 🔍 계좌 조회\n"
 			                 + "[3] 💵 입금하기\n"
 			                 + "[4] 💸 출금하기\n"
@@ -79,12 +79,12 @@ public class BankProjectV1 {
 			//      	:     avg >= 70   ? "미"
 			//     	:     avg >= 60   ? "양" : "가";
 			        	
-	             if(a == 1) {System.out.println("추가기능입니다.");}
-	 	    else if(a == 2) {System.out.println("조회기능입니다.");}
-	 	    else if(a == 3) {System.out.println("입금기능입니다.");}
-	 	    else if(a == 4) {System.out.println("출금기능입니다.");}
-	 	    else if(a == 5) {System.out.println("삭제기능입니다.");}
-	 	    else if(a == 9) {System.out.println("종료합니다."); break;}     
+	        //     if(a == 1) {System.out.println("추가기능입니다.");}
+	 	    //else if(a == 2) {System.out.println("조회기능입니다.");}
+	 	    //else if(a == 3) {System.out.println("입금기능입니다.");}
+	 	    //else if(a == 4) {System.out.println("출금기능입니다.");}
+	 	    //else if(a == 5) {System.out.println("삭제기능입니다.");}
+	 	    //else if(a == 9) {System.out.println("종료합니다."); break;}     
 			
 			System.out.println();
 				
