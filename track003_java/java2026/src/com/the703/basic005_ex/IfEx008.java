@@ -7,7 +7,7 @@ public class IfEx008 {
 	public static void main(String[] args) {
 		       // 변수
 		       int kor = -1, eng = -1, math = -1, total = -1;
-		       double avg;
+		       double avg; // double은 쓰레기값이 없음
                String no;
                String pass = ""; // "초기값" <- 아무것도 값이 없으면 보여주는 값
                String level = ""; // 수,우,미,양,가
@@ -37,26 +37,18 @@ public class IfEx008 {
 				// avg = total / 3.0;
 				// avg = total / 3f;
 				
-				avg = (double)total / 3;
+				// avg = (double)total / 3;
 				// avg = total / 3.0;
-				// avg = total / 3f;
+				avg = total / 3f;
 				
-				pass = avg < 60 ? "불합격" : kor < 40 || eng < 40 || math < 40 ? "불합격":"합격";
+				pass = avg < 60                            ? "불합격" 
+				   :   kor < 40 || eng < 40 || math < 40   ? "불합격" : "합격";
 					
-				// 출력
-				
-			    
-		        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
-				
-		             if ( avg >= 60 && kor >= 40 && eng >= 40 && math >= 40 ) {pass = "합격";}
-		        else                                                            {pass = "불합격";}
-
+								
 		        //     if ( avg >= 60 && kor >= 40 && eng >= 40 && math >= 40 ) {pass = "합격";}
-			    //else                                                            {pass = "불합격";}
-				        
-     
-		             
-		             
+		        //else                                                            {pass = "불합격";}
+
+		        
 		        //     if ( avg <= 100 && avg >= 90 ) {level = "수";}
 		        //else if ( avg < 90 && avg >= 80 )   {level = "우";}
 		        //else if ( avg < 80 && avg >= 70 )   {level = "미";}
@@ -80,12 +72,13 @@ public class IfEx008 {
 		        //System.out.println( avg >= 95   ? "장학생" 
 		        //		:           avg >= 80   ? "우"
 		             
-		         
-		        
-		        System.out.printf("학번\t국어\t영어\t수학\t총점\t평균\t합격여부\t레벨\t장학생\n");
-		        System.out.printf("%s\t%d\t%d\t%d\t%d\t%.2f\t%s\t%s\t%s\n", no, kor, eng, math, total, avg, pass, level, jang);
+		        // 출력 
 		        
 		        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		        System.out.printf("학번\t국어\t영어\t수학\t총점\t평균\t합격여부\t레벨\t장학생\n");
+		        System.out.println(":::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::");
+		        System.out.printf("%s\t%d\t%d\t%d\t%d\t%.2f\t%s\t%s\t%s\n", no, kor, eng, math, total, avg, pass, level, jang);
+		        
 	}
 
 }
