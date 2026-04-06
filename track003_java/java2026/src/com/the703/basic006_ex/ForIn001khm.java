@@ -2,7 +2,7 @@ package com.the703.basic006_ex;
 
 import java.util.Scanner;
 
-public class ForIn001_1 {
+public class ForIn001khm {
 	public static void main(String[] args) {
 		// 변수
 		Scanner scanner = new Scanner(System.in);

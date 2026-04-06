@@ -2,7 +2,7 @@ package com.the703.basic006_ex;
 
 import java.util.Scanner;
 
-public class ForIn001 {
+public class ForIn001_lid {
 
 	public static void main(String[] args) {
 		

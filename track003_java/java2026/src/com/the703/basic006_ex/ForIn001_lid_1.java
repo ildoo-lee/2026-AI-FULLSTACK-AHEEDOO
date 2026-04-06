@@ -2,7 +2,7 @@ package com.the703.basic006_ex;
 
 import java.util.Scanner;
 
-public class ForIn001_2 {
+public class ForIn001_lid_1 {
 
 	public static void main(String[] args) {
 		
@@ -90,24 +90,3 @@ public class ForIn001_2 {
 std111   100   100   99   299   99.67   합격   수   장학생
 
 */
-
-/*   초기값 0~100사이가 아니게  */
-//입력
-/*    
- *    for(;;){  //무한반복
- *           if(국어점수의 범위가 아니라면){  //-1     (0~100 사이가 아니므로)
- *             1. 국어점수 입력 > 100    입력받기
- *             2. 건너뛰기  (continue)
- *          }
- *           if(영어점수의 범위가 아니라면){
- *             1. 영어점수 입력 > 100    입력받기
- *             2. 건너뛰기(continue)
- *          }
- * 
- *           if(수학점수의 범위가 아니라면){
- *             1. 수학점수 입력 > 100    입력받기
- *             2. 건너뛰기(continue)
- *          }
- *          // break; 나오기  -  이위치까지 왔다면 잘입력한것!
-	             } 
- */

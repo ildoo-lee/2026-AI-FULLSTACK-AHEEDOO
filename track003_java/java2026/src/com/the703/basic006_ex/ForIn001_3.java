@@ -2,7 +2,7 @@ package com.the703.basic006_ex;
 
 import java.util.Scanner;
 
-public class ForIn001_2 {
+public class ForIn001_3 {
 
 	public static void main(String[] args) {
 		
@@ -17,27 +17,30 @@ public class ForIn001_2 {
 		
 		
 		
-		for (;;) {
-			if(step == 1) {
-				System.out.println("국어점수 입력>"); kor = sc.nextInt();
-				if (kor >= 0 && kor <= 100) {step = 2;}
-				else {System.out.println("다시 입력하세요");continue;}
-				}
-		     
-		    	    
-		    if(step == 2) {	    		    	    
-		    	System.out.println("영어점수 입력>"); eng = sc.nextInt();
-		    	if (eng >= 0 && eng <= 100) {step = 3;}
-		    	else {System.out.println("다시 입력하세요");continue;} 
-		    	} 
-		    
-		    if(step == 3) {
-		    	System.out.println("수학점수 입력>"); math = sc.nextInt();
-		    	if (math >= 0 && math <= 100) {break;}
-		    	else {System.out.println("다시 입력하세요");continue;} 
-		    	} 
-		
-		 }
+		for(;;){
+
+			switch(step){
+
+				case 1:
+					System.out.print("국어점수 입력>"); kor = sc.nextInt();
+					if (kor >= 0 && kor <= 100) {step = 2;}
+					else System.out.println("다시 입력하세요");
+					break;// break; // switch 나감 -> for 최상단으로 이동
+	
+				case 2:
+		     		System.out.print("영어점수 입력>"); eng = sc.nextInt();
+					if (eng >= 0 && eng <= 100) {step = 3;}
+					else System.out.println("다시 입력하세요");
+					break;
+	
+				case 3:
+					System.out.print("수학점수 입력>"); math = sc.nextInt();
+					if (math >= 0 && math <= 100) {break exit_loop;} // Return 하면 메서드를 나가버림. 모든 입력 완료 시 종료
+					else System.out.println("다시 입력하세요");
+					break;
+			}
+2
+		} 
 		    
 		    
 		
