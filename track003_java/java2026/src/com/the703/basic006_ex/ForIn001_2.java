@@ -8,15 +8,15 @@ public class ForIn001_2 {
 		
 		Scanner sc = new Scanner(System.in);
 		// 변수
-		int kor = -1, eng = -1, math = -1, total = -1, step = 1;
+		// 자료형 : 기본형 / 참조형
+		// 기본형 - 정수: byte(1)<short/char(2)<int★(4)<long(8) / 실수 : float(4)<double★(8) / boolean 빼고 타입형변환가능
+		int kor = -1, eng = -1, math = -1, total = -1, step = 1; // 1) 0 ~ 100사이가 아닌값
 		double avg;
 		String no = "", pass = "", level = "", jang = "";
 		
 		// 입력
 		System.out.println("학번 입력>"); no = sc.next();
-		
-		
-		
+			
 		for (;;) {
 			if(step == 1) {
 				System.out.println("국어점수 입력>"); kor = sc.nextInt();

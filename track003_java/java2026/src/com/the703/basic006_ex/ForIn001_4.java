@@ -2,55 +2,49 @@ package com.the703.basic006_ex;
 
 import java.util.Scanner;
 
-public class ForIn001_lid {
+public class ForIn001_4 {
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		// 변수
-		// 자료형 : 기본형 / 참조형
-		// 기본형 - 정수: byte(1)<short/char(2)<int★(4)<long(8) / 실수 : float(4)<double★(8) / boolean 빼고 타입형변환가능
 		int kor = -1, eng = -1, math = -1, total = -1;
 		double avg;
 		String no = "", pass = "", level = "", jang = "";
 		
 		// 입력
-		// 0. 국어, 영어, 수학(0~100만 입력받기) 무한반복
-		// 문자열: next() / 정수형(10) : nextInt() / 실수형 : nextDouble() . 문자 : next().charAT(0)
 		System.out.println("학번 입력>");
 		no = sc.next();
 		
 		
-		for (;;) {
+		for (;!(kor >= 0 && kor <= 100);) {
 		    System.out.println("국어점수 입력>");
 		    kor = sc.nextInt();
-		    if (kor >= 0 && kor <= 100) break;
-		    System.out.println("다시 입력하세요");
+		    // if (kor >= 0 && kor <= 100) break;
+		    // System.out.println("다시 입력하세요");
 		    }
 		    
 		    
-		for (;;) {
+		for (;!(eng >= 0 && eng <= 100);) {
 		    System.out.println("영어점수 입력>");
 		    eng = sc.nextInt();
-		    if (eng >= 0 && eng <= 100) break;
-		    System.out.println("다시 입력하세요");
+		    //if (eng >= 0 && eng <= 100) break;
+		    //System.out.println("다시 입력하세요");
 		    }
 		    
-		for (;;) {
+		for (;!(math >= 0 && math <= 100);) {
 		    System.out.println("수학점수 입력>");
 		    math = sc.nextInt();
-		    if (math >= 0 && math <= 100) break;
-		    System.out.println("다시 입력하세요");
+		    //if (math >= 0 && math <= 100) break;
+		    //System.out.println("다시 입력하세요");
 		    }
 		    
 		    
 		
 		
-		// 처리 - 연산자 먼저() 값(++,--,산술)  비교(<, >)   (&&  || 삼항) 대입(=)
-		//     - 제어문 (#if / switch) 반복(#for/while/do while)
-		
-		total = kor + eng + math; // 1. 총점 구하기
-		avg = total / 3f;         // 2. 평균 구하기
+		// 처리
+		total = kor + eng + math;
+		avg = total / 3f;
 		
 		pass = avg >=60 && kor >= 40 && eng >= 40 && math >= 40 ? "합격" : "불합격" ;
 		
