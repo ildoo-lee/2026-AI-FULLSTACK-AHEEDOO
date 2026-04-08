@@ -19,7 +19,8 @@
         .container{  width: 50%; margin: 50px auto; 
                      background-color: #fff;
                      padding: 20px;
-                     box-shadow: 0 0 10px rgsba(0, 0, 0, 0.2);
+                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                     /* text-align: left; */
         }
 
         .item{
@@ -31,6 +32,9 @@
         .f1{float: left;background-color: rgb(60, 172, 106);}
         .f2{float: right; background-color: blueviolet;}
         .f3{clear:both}
+
+        .p{   position: relative;}
+        .me{  position: absolute; bottom: 0; right: 10px;}
 
     </style>
 
@@ -62,6 +66,20 @@
         <p class="item f2">RIGHT<span>(오른쪽)</span></p>
         <p class="item f3">float속성끊기-clear:both / overflow:hidden </p>
     </div>
+
+    <div class="container p">
+        <h3>4. 배치(2) - position - relative(누구안에) + absolute(어디) 좌표</h3>
+        <p class="item">WHERE I AM</p>
+        <p>종류 :static(기본값), relative(박스위 위치가 남는다), 
+                absolute(박스 위지 남지 않는다), fixed(브라우저 고정), 
+                sticky(스크롤할때 특점지정에 붍기)
+        </p>
+
+        <p>부모 : relative(공간확보) / 자식 : (원하는 위치 배치) - 좌표</p>
+
+    </div>
+
+
 
 
 </body>
