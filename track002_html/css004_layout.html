@@ -14,7 +14,7 @@
         h3{
             border-left: 10px solid black;
             border-bottom: 1px solid black;
-            margin: 30px; padding-left: 20px;
+            margin-top: 30px; margin-bottom: 30px; padding-left: 20px;
         }
         .container{  width: 50%; margin: 50px auto; 
                      background-color: #fff;
@@ -36,18 +36,30 @@
         .p{   position: relative;}
         .me{  position: absolute; bottom: 0; right: 10px;}
 
+        div.di p.item{ background-color: rgb(97, 168, 26); text-align: center; }
+        div.di p.item a{color: white; display: block; width: 100%; background-color: red;} 
+        /* a(인라인) display: block - 인라인을 블록 */
+        div.di p.item a:last-child{display: none;}
+        /* display: none  화면상에 안보이게 숨기기(h태그에서 주의)*/
+
+        .d1{background-color: blueviolet; text-align: center; margin: 10px 0; padding: 10px;}
+        .d1 li{background-color: rgb(207, 196, 31); display: inline;} 
+        /* display:inline 블록을 인라인으로 - 한줄 배치*/
+
+        .d2{background-color: aqua;text-align: center; margin: 10px 0; padding: 10px;}
+        .d2 li{background-color: rgb(166, 182, 21); display: inline-block;}
     </style>
 
 </head>
 <body>
     <div class="container">
         <h3>1. block vs inline</h3>
-        <dl>
+        <d1>
             <dt>block</dt>
             <p> width o , 줄바꿈 o </p>
             <dt>inline</dt>
             <p> width x , 줄바꿈 x </p>
-        </dl>
+        </d1>
     </div>
 
     <div class="container">
@@ -79,6 +91,20 @@
 
     </div>
 
+        <div class="container di">
+            <h3>5. 배치(3) - display</h3>
+            <p>속성바꾸기 : display:block, inline, inline-block, none</p>
+            <p>배치 - 박스들이 어떻게 놓일지 정하는 규칙(정리 도우미 배치 도우미) display:flex</p>
+            <p class="item">
+                <a href="http://www.naver.com">NAVER</a> <!--- display:block [box]box확대 -->
+                <a href="http://www.daum.net">DAUM</a> <!--- display:none [숨기기]-->
+            </p>
+            <!---display: inline[콘텐츠]-->
+            <ul class="d1"><li>APPLE</li><li>BABANA</li><li>COCONUT</li></ul>
+            <!---display: inline-block[콘텐츠-width:0]-->
+            <ul class="d2"><li>APPLE</li><li>BABANA</li><li>COCONUT</li></ul>
+
+        </div>
 
 
 
