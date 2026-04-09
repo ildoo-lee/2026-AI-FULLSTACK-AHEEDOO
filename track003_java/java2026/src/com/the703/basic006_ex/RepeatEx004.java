@@ -7,23 +7,44 @@ public class RepeatEx004 {
 
 //		int count_1 = 0, n = 5;
 //		for(;;) {
-			for(char a = 'A'; a <='Z'; a++){
-				if(count_1 > n) {System.out.print(a); count_1 = count_1 + 1;
-				}
-				count_1 = n;
-			}
+//			for(char a = 'A'; a <='Z'; a++){
+//				if(count_1 > n) {System.out.print(a); count_1 = count_1 + 1;
+//				}
+//				count_1 = n;
+//			}
 			
 			
+//
+//		int count_2 = 1;
+//		for(int m = 5 ; m <= 30 ; m += 5) {
+//			
+//			for(char a = 'A'; a <='Z'; a++){
+//				if(count_2 <= m) {System.out.print(a);count_2 += 1;}
+//			}
+//			
+//			count_2 += 5;
+//			System.out.println();
+//			
+//
+//		}
 
-		int count_2 = 1;
-		for(int m = 5 ; m <= 30 ; m += 5) {
-			for(char a = 'A'; a <='Z'; a++){
-				if(count_1 <= m) {System.out.print(a);count_1 += 1;}
-			}
-			System.out.println();
-			//count_1 += 5;
-
-		}
+		//System.out.print('A'); System.out.print('B'); System.out.print('C'); System.out.print('D'); System.out.print('E'); System.out.println();
+		//System.out.print('F'); System.out.print('G'); System.out.print('H'); System.out.print('I'); System.out.print('J'); System.out.println();
+		
+		int cnt=0;
+		
+		for(char ch='A'; ch<='Z'; ch++) {  
+			System.out.print(ch);  cnt++;
+				//if(cnt%5==0) {System.out.println();}
+				// 만약e 줄바꿈
+				// 만약J
+				// e : System.out.println();
+				// j : System.out.println();	
+		}   
+ 
+		
+		
+		
 		
 	}
 
