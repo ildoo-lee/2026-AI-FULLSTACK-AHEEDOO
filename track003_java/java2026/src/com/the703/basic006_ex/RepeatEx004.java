@@ -4,12 +4,15 @@ public class RepeatEx004 {
 
 	public static void main(String[] args) {
 		
-		int count_1 = 1, n = 5;
+		int count_1 = 0, n = 5;
 		for(;;) {
 			for(char a = 'A'; a <='Z'; a++){
-				if(count_1 <= n) {System.out.print(a); count_1 += 1;}
+				if(count_1 > n) {System.out.print(a); count_1 = count_1 + 1;
+				}
+				count_1 = n;
 			}
-			n += 5;
+			
+			
 		}
 		
 	}
