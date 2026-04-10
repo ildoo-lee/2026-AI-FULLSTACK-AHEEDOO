@@ -49,17 +49,17 @@ public class IfEx008 {
 		        //else                                                            {pass = "불합격";}
 
 		        
-		        //     if ( avg <= 100 && avg >= 90 ) {level = "수";}
-		        //else if ( avg < 90 && avg >= 80 )   {level = "우";}
-		        //else if ( avg < 80 && avg >= 70 )   {level = "미";}
-		        //else if ( avg < 70 && avg >= 60 )   {level = "양";}
-		        //else                                {level = "가";}
+		             if ( avg <= 100 && avg >= 90 ) {level = "수";}
+		        else if ( avg <= 90 && avg >= 80 )   {level = "우";}
+		        else if ( avg <= 80 && avg >= 70 )   {level = "미";}
+		        else if ( avg <= 70 && avg >= 60 )   {level = "양";}
+		        else                                {level = "가";}
 		             
 		        // 삼항연산자
-		        level = avg >= 90   ? "수" 
-		        	:   avg >= 80   ? "우"
-		        	:   avg >= 70   ? "미"
-		        	:   avg >= 60   ? "양" : "가";
+		        //level = avg >= 90   ? "수" 
+		        	//:   avg >= 80   ? "우"
+		        	//:   avg >= 70   ? "미"
+		        	//:   avg >= 60   ? "양" : "가";
 		        
 		        
 		        
