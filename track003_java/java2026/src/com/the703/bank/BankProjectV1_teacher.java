@@ -1,8 +1,8 @@
-package com.the703.v1;
+package com.the703.bank;
 
 import java.util.Scanner;
 
-public class BankProjectV1 {
+public class BankProjectV1_teacher {
 	public static void main(String[] args) {
 		//변수
 		int menu = -1; int id   = -1, pass=-1 , balance=-1;

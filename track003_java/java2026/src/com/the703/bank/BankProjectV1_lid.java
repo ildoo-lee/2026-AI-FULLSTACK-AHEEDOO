@@ -2,7 +2,7 @@ package com.the703.bank;
 
 import java.util.Scanner;
 
-public class Bank_lid {
+public class BankProjectV1_lid {
 
 	public static void main(String[] args) {
 
@@ -46,7 +46,7 @@ public class Bank_lid {
 
 			// 계좌 조회 ( 임시공간에 아이디와 비번입력받기)
 			else if (no == 2) {
-				int tid = -1, tpass = -1; // 위에서 고정된 아이디와 비번과 비교하여 일치하는지 알아볼 정보
+				//int tid = -1, tpass = -1; // 위에서 고정된 아이디와 비번과 비교하여 일치하는지 알아볼 정보
 				// 11번째 줄에 있는 아이디와 임시아이디가 같고, 11번째 줄에 있는 비번과 임시 비번이 같으면 정보출력
 				// 아니라면 비밀번호를 확인해주세요.
 

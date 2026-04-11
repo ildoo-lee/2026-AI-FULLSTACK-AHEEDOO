@@ -2,7 +2,7 @@ package com.the703.bank;
 
 import java.util.Scanner;
 
-public class Bank_lid_001 {
+public class BankProjectV1_lid_1 {
 
 	public static void main(String[] args) {
         // 불필요한 ID PW 재확인 등 삭제
