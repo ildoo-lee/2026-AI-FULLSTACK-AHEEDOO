@@ -33,7 +33,7 @@ public class BankProjectV1_lid_3 {
 			            	 System.out.print("ID: ");  id = scanner.nextInt();
 			            	 System.out.print("PW: ");  pass = scanner.nextInt();
 			            	 System.out.print("금액: "); balance = scanner.nextInt();
-			            	 System.out.println(balance+"원이 입급되었습니다!");			            	           	 
+			            	 System.out.println("가입되셨습니다. " + balance + "원이 입급되었습니다!");			            	           	 
 			             } // m1
 			             
 			             
