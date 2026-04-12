@@ -2,7 +2,7 @@ package com.the703.days;
 
 import java.util.Scanner;
 
-public class Day011 {
+public class Day011_lid {
 
 	public static void main(String[] args) {
 		
