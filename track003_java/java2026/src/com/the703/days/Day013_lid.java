@@ -16,13 +16,7 @@ public class Day013_lid {
 		if(day >= 1 && day <= 5) {System.out.println(days[day-1]+"\n");
 		} else{System.out.println("주말\n");}
 		
-//		     if(day == 1) {System.out.println("월요일" + "\n");}
-//		else if(day == 2) {System.out.println("화요일" + "\n");}
-//		else if(day == 3) {System.out.println("수요일" + "\n");}
-//		else if(day == 4) {System.out.println("목요일" + "\n");}
-//		else if(day == 5) {System.out.println("금요일" + "\n");}
-//		else              {System.out.println("주말" + "\n");}
-		
+
 		// 2. switch 버번 위 문제를 switch로
 		
 		String  x = "";
@@ -35,14 +29,7 @@ public class Day013_lid {
 		default : x = "주말";break;
 		} System.out.println(x+"\n");
 		
-//		switch(day) {
-//		case 1 : System.out.println("월요일" + "\n");break;
-//		case 2 : System.out.println("화요일" + "\n");break;
-//		case 3 : System.out.println("수요일" + "\n");break;
-//		case 4 : System.out.println("목요일" + "\n");break;
-//		case 5 : System.out.println("금요일" + "\n");break;
-//		default : System.out.println("주말" + "\n");break;
-//		} // switch     
+
 		     
 		// 3. for, while, do while 버전 1 ~ 10 출력
 		
