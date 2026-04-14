@@ -13,7 +13,7 @@ public class ArrayEx006_lid {
             if(ch[i] == 'A' || ch[i] == 'E' || ch[i] == 'I' || ch[i] == 'O' || ch[i] == 'U') {count1++;}
             ch[i] = (char) ('A' + i);
 		}
-        
+        System.out.println();
         
         // 3. 소문자(26번 방부터 'a')
         for (int i = 0; i < 26; i++) {
@@ -26,8 +26,10 @@ public class ArrayEx006_lid {
         }
         System.out.println();
         
-    	System.out.println(count1++);
-		System.out.println(count2++);
+    	System.out.println(count1);
+		System.out.println(count2);
+		
+		System.out.println(count1 + count2);
 		
 		
 		
