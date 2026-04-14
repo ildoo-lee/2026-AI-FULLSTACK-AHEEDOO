@@ -14,13 +14,12 @@ public class Day014_lid {
 			 
 		
 		// 1. if 버전
+		     if (day == 1) {System.out.println("1이다");} 
+		else if (day == 2) {System.out.println("2이다");} 
+		else if (day == 3) {System.out.println("3이다");} 
+		else               {System.out.println("1,2,3이 아니다");}
         
-		     
-			      
-			      
-			 
-			      
-			      
+				      
 	    // 2. switch 버전
 		     
 		     
@@ -44,8 +43,3 @@ public class Day014_lid {
 	} // main
 
 } // class
-
-//if (day == 1) {System.out.println("1이다");} 
-//else if (day == 2) {System.out.println("2이다");} 
-//else if (day == 3) {System.out.println("3이다");} 
-//else               {System.out.println("1,2,3이 아니다");}
