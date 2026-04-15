@@ -9,20 +9,41 @@ public class Array2Ex004_lid {
                         };  // 3층 4칸                                  
           
         int[][] result = new int[datas.length+1][datas[0].length+1]; 
-		//#1. result 에 datas데이터 복사하기
+        
+        for(int ch=0;ch<datas.length;ch++) {
+        	for(int kan=0; kan<datas[ch].length;kan++) {
+        		System.out.print(datas[ch][kan]+"\t"); 
+        		//#1. result 에 datas데이터 복사하기
+        		result[ch][kan] = datas[ch][kan];
+        		
+        	} // in for
+        	System.out.println();
+        } // out for
+        System.out.println();
+        
+        
+        for(int ch=0;ch<result.length;ch++) {
+        	for(int kan=0; kan<result[ch].length;kan++) {
+        		System.out.print(result[ch][kan]+"\t"); 
+        		
+        	} // in for
+        	
+        	System.out.println();
+        } // out for
+        
+
         //#2. 가로방향누적데이터
+        //result[ch][kan] = result[ch][kan-1] + datas[ch][kan];
+        
+
+        
+        
         //#3. 세로방향데이터누적
+        
         //#4. 총합
         
-        int total=0;
+        
 		
-		for(int a=0;a<result.length;a++) {
-			for(int b=0; b<result[a].length;b++) {result[a][b]++;
-			} // in for
-			System.out.print(result[a][0]); //System.out.println(result[a][0]);
-			
-		} // out for
-		//System.out.println("총합은 "  + total);
         
 
 	} // main

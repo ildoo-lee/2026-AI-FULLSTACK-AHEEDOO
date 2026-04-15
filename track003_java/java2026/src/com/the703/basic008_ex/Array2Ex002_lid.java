@@ -9,7 +9,7 @@ public class Array2Ex002_lid {
 		
 	
 		int data = 101;
-		for(int ch=0;ch<arr2.length;ch++,data=201) { // ,data=201 ch++ 이 증가할 때, data=201도 함께 증가
+		for(int ch=0;ch<arr2.length;ch++) { // ,data=201 ch++ 이 증가할 때, data=201도 함께 증가
 			for(int kan=0; kan<arr2[ch].length;kan++) {arr2[ch][kan] = data;
 			System.out.print(data+"\t");
 			data+=1;
