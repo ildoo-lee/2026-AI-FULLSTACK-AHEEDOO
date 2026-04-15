@@ -1,0 +1,36 @@
+영역1 - header - h1     nav - h2
+
+
+
+
+영역2- section - h3  슬라이딩 윈도우
+
+
+
+영역3 - header
+           h3   
+           div    div     div
+
+
+
+
+
+
+영역3 - section  
+           h3
+   
+           div
+                 div    div     div
+
+
+
+
+
+영역4 - section   
+          h3
+          form
+
+
+
+
+영역5 - footer
