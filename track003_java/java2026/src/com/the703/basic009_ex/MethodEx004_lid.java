@@ -2,7 +2,7 @@ package com.the703.basic009_ex;
 
 import java.util.Scanner;
 
-public class MethodEx004{
+public class MethodEx004_lid{
 	//public static 리턴값 메서드명(재료) {해야할 일}
 	//System.out.println("5. 10+20 = " + myadd(10,20));       // 두숫자를 더한값을 결과값으로 줌  
 	//public static int myadd(10,20) {10+20}

@@ -2,18 +2,19 @@ package com.the703.basic009_ex;
 
 import java.util.Scanner;
 
-    //public static 리턴값 메서드명(재료) {해야할 일}
-    public static int abs(int a) {
-    		
-    	}
-
-
 public class MethodEx005 {
 
+	//public static 리턴값 메서드명(재료) {해야할 일}
+	public static int abs(int a) {
+		if(a<0) {return -a;}
+		else    {return a;}
+	}
+	
+	
 	public static void main(String[] args) {
 		
-		int res1=0; 
 		Scanner scanner = new Scanner (System.in);
+		int res1=0;
 		System.out.print("절대값을 구하는 프로그램입니다.\n숫자를 입력하세요");
 
 		res1=abs(scanner.nextInt());
@@ -21,10 +22,7 @@ public class MethodEx005 {
 
 	}//main
 
-	
-
 }//class
-
 
 /*
 절대값
