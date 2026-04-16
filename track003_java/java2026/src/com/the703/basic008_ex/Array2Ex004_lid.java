@@ -25,15 +25,15 @@ public class Array2Ex004_lid {
         for(int ch=0;ch<result.length;ch++) {
         	for(int kan=0; kan<result[ch].length;kan++) {
         		System.out.print(result[ch][kan]+"\t"); 
+        		//sum+=datas[ch][kan];
+        		//System.out.println(sum);
         		
-        		sum+=datas[ch][kan];
-        		System.out.println(sum);
         	} // in for
         	System.out.println();
         } // out for
 
         //#2. 가로방향누적데이터
-        //result[ch][kan] = result[ch][kan-1] + datas[ch][kan];
+        
         
 
         
