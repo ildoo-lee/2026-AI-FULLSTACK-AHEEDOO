@@ -14,7 +14,7 @@ public class Array2Ex004_lid {
         //#3. 세로방향데이터누적
         //#4. 총합
         
-        int total=0;
+        int c=10, total=0;
 		
 		for(int a=0;a<result.length;a++) {
 			for(int b=0; b<result[a].length;b++) {result[a][b]++;
