@@ -4,34 +4,39 @@ public class MethodEx003 {
 	
 	public static int return_num() {return 1;}
 	
-	public static float return_float() {return (float) 3.3333;}
+	public static double return_float() {return 3.3333;}
 	
 	public static String mycolor() {return "PURPLE";}
 	
 	public static String jangsu() {return "★★★★★";}
 	
-	public static int myadd(int a, int b) {return a+b;}
+	//public static int myadd(int a, int b) {return a+b;}
+	//가장 아래 참조.. 별도로 작성할 수도 있음. 같은 class 안에 있으니, 위치상관없음
 	
-	public static String myban(char name){
+	public static String myban(char name){ // name - A, B 이외도 else로 추가해줘야 에러가 안남
 		     if(name == 'A') {return "노랑조";}
 		else if(name == 'B') {return "주황조";}
 		else                 {return "";}
 		}
+	//ver2  삼항으로도 가능 {return name=='A'? "노랑조" : name=='B'? "주황조" : "";}
 	
 	public static String stdId(int a) {return "G"+a;}
 	
-	public static String stdAvg(double j) {
-			 if(j >= 90) {return "A";}
-		else if(j >= 80) {return "B";}
-		else if(j >= 70) {return "C";}
-		else             {return "D";}
+	public static char stdAvg(int j) {
+			 if(j >= 90) {return 'A';}
+		else if(j >= 80) {return 'B';}
+		else if(j >= 70) {return 'C';}
+		else             {return 'D';}
 		}
+	//ver2   return avg<70? 'D' : avg<80? 'C' : avg<90? 'B' : avg<=100? 'A' : '';
+	
 	
 	//////////////////////////////////////////////////////////////////////
 	public static void main(String[] args) {
 		 
 		//public static 리턴값 메서드명(재료) {해야할 일}
 		System.out.println("1. 내가 좋아하는 숫자: " + return_num()); // 1을 결과값으로 줌
+		//public static 1   return_num() {1을 결과값으로 줌}
 		//public static int return_num() {return 1;}
 		
 		//public static 리턴값 메서드명(재료) {해야할 일}
@@ -63,14 +68,27 @@ public class MethodEx003 {
 		
 		
 		
-		System.out.println("8.당신의 평균은?" + stdAvg(88));    
+		System.out.println("8.당신의 평균은? " + stdAvg(88));    
 		//public static int stdAvg(88) {90점이상이면 A ,  80점이상이면 B ,  70점이상이면 C , 아니라면  D}
 		
 		// 90점이상이면 A ,  80점이상이면 B ,  70점이상이면 C , 아니라면  D
 
-	}
+	}//main
     //////////////////////////////////////////////////////////////////////
-}
+    
+	// public static int myadd(int a, int b) {return a+b;}
+	public static int myadd(int a, int b) {
+		//변수
+		int result=0;
+		//입력
+		//처리
+		result=a+b;
+		//출력
+		return result;
+	}//int
+	
+	
+}//class
 
 
 //연습문제3)  method

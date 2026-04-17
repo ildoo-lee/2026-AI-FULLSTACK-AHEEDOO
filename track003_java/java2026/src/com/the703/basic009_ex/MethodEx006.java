@@ -5,12 +5,20 @@ import java.util.Scanner;
 public class MethodEx006 {
 	//public static 리턴값 메서드명(재료) {해야할 일}
 	public static int max(int a, int b, int c) {
-		     if(a>=b && a>=c) {return a;}
-		else if(b>=a && b>=c) {return b;}
-		else                  {return c;}
-						
-	}
-	
+//		     if(a>=b && a>=c) {return a;}
+//		else if(b>=a && b>=c) {return b;}
+//		else                  {return c;}
+//						
+//	}
+	 
+	      int max=a; // 선생님 버전
+	      // a랑 b랑 비교해서 큰값을 max
+	      // max랑 c랑 비교해서 큰값을 max
+	      if( a < b  ) {  max=b; }   
+	      if( max < c) {  max=c; }
+
+	      return max;            
+	   }
 	
 	public static void main (String[] args) {
 		Scanner scanner = new Scanner (System.in);

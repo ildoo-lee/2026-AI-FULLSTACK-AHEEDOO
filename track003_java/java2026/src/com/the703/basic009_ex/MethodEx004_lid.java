@@ -30,9 +30,9 @@ public class MethodEx004_lid{
 
 	public static String process_star(float avg) {
 		String star = avg == 100 ? "★★★★★★★★★★"
-				:   avg >= 90 ? "★★★★★★★★★" 
-				:	avg >= 80 ? "★★★★★★★★"
-				:	avg >= 70 ? "★★★★★★★" : "" ;
+				   :   avg >= 90 ? "★★★★★★★★★" 
+			       :   avg >= 80 ? "★★★★★★★★"
+				   :   avg >= 70 ? "★★★★★★★" : "" ;
 		return star;
 	}
 	
