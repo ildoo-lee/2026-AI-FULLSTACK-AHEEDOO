@@ -64,22 +64,22 @@ public class BankProjectV2_1 {
 		            	 System.out.print("PW: "); tpass = scanner.next();
 		            	 
 		            	 
-						 int n =0;
-						 if(!(id[n] == tid && pass[n] == tpass)) {System.out.println("없는 정보이니, 다시 입력해주세요");continue;}
-		            	 
-		            	 switch(menu) {
-			            	 case 2 : System.out.println("잔액:"+ balance + "원입니다");break;
-			            	 case 3 : System.out.print("입금할 금액을 입력하세요"); plus = scanner.nextDouble();
-						              balance[n] = balance[n] + plus;  
-						              System.out.println("잔액:"+ balance + "원입니다");break;
-			            	 case 4 : System.out.print("출금할 금액을 입력하세요"); plus = scanner.nextDouble();
-				                      balance[n] = balance[n] - plus; 
-				                      System.out.println("잔액:"+ balance[n] + "원입니다");break;
-			            	 case 5 : id[n] = ""; pass[n] = ""; balance[n] = -1;
-			            	          System.out.println("계좌 삭제되었습니다");break;
-			            						                      
-		            	 } // switch
-		            	 
+						 for(int n =0;n<=id.length;n++) {
+							 if(!(id[0] == tid && pass[0] == tpass)) {System.out.println("없는 정보이니, 다시 입력해주세요");continue;}
+			            	 
+			            	 switch(menu) {
+				            	 case 2 : System.out.println("잔액:"+ balance[0] + "원입니다");break;
+				            	 case 3 : System.out.print("입금할 금액을 입력하세요"); plus = scanner.nextDouble();
+							              balance[n] = balance[n] + plus;  
+							              System.out.println("잔액:"+ balance[0] + "원입니다");break;
+				            	 case 4 : System.out.print("출금할 금액을 입력하세요"); plus = scanner.nextDouble();
+					                      balance[n] = balance[n] - plus; 
+					                      System.out.println("잔액:"+ balance[n] + "원입니다");break;
+				            	 case 5 : id[n] = ""; pass[n] = ""; balance[n] = -1;
+				            	          System.out.println("계좌 삭제되었습니다");break;
+				            						                      
+			            	 } // switch
+						 }//for
 		            	 		            	 
 		             } // else if m2~5
 			         
