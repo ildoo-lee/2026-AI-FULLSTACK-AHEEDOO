@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 public class BankProjectV2_1 {
 
+
 	public static void main(String[] args) {
 		  
 	      //변수                                   0   1    2
@@ -89,9 +90,5 @@ public class BankProjectV2_1 {
 	      
 	} // main
 	
-} // class
-			             
-			             
-			             
-			             
-	      
+}// class
+	
