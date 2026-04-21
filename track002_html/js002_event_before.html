@@ -29,20 +29,47 @@
   <div class="card-body">
     <h4>Step1. 알림창</h4>
       <script>
-        //////////////////////////////
-        // 리턴값 메서드명(파라미터)
-        // alert("알림창") promt("질문") confirm("yes, no")
-        // function alert(message?: any): void
-        // alert("haha");
-        // function prompt(message?: string, _default?: string): string | null
-        // let name = prompt("당신의 이름은?", "예) 홍길동");
-        // console.log(name);
-        // alert("당신의 이름은 "+ name);
+        /* =========================================================
+           [1단계] alert : 일방적으로 정보 전달하기
+           - 특징: 확인 버튼을 누르기 전까지 다음 코드가 실행되지 않습니다.
+           - 리턴값: 없음 (void)
+           ========================================================= */
+        // Q1. alert을 이용하여 "반가워요! 자바스크립트 학습을 시작합니다."를 띄우세요.
+        
+        alert("반가워요! 자바스크립트 학습을 시작합니다."); // 웹브라우저 팝업 알림창
+        
 
-        // function confirm(message?: string): boolean
-        //let answer = confirm("정말 취소하시겠습니까?");
-        //console.log( answer, typeof(answer));
-      </script>
+
+        /* =========================================================
+           [2단계] prompt : 사용자에게 값 입력받기
+           - 특징: 입력창에 쓴 내용은 '문자열' 형태로 변수에 저장됩니다.
+           - 리턴값: 입력한 내용(string) 또는 취소했을 시 null
+           ========================================================= */
+        // Q2-1. prompt를 이용하여 "좋아하는 색깔은?" 이라고 묻고 color 변수에 담으세요.
+        prompt("좋아하는 색깔은?");
+
+
+        // Q2-2. console.log를 이용해 입력받은 color를 출력하세요.
+        // Q2-3. alert을 이용해 "당신이 선택한 색은 [색깔]입니다."라고 띄우세요.
+
+        // let color = 
+        // console.log(color);
+        // alert("당신이 선택한 색은 " + color + "입니다.");
+
+
+
+        /* =========================================================
+           [3단계] confirm : 사용자의 의사 확인하기 (Yes / No)
+           - 특징: 확인(True)과 취소(False) 두 가지 상태만 존재합니다.
+           - 리턴값: boolean (true 또는 false)
+           ========================================================= */
+        // Q3-1. confirm을 이용해 "공부를 계속하시겠습니까?"라고 묻고 그 결과를 isStudy 변수에 담으세요.
+        // Q3-2. console.log를 이용해 isStudy의 값과 그 타입을 출력해 보세요. (힌트: typeof 이용)
+
+        // let isStudy = 
+        // console.log("결과:", isStudy, " / 타입:", typeof isStudy);
+        
+    </script>
   </div>
   <!--     -->
   <!--     -->
@@ -117,6 +144,7 @@
       //////////////////////////////
 
       </script>
+       
     </div>
   </div>
 </div>
