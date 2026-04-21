@@ -21,8 +21,6 @@ class TV {
 
 	// 출력:
 	void show() {
-
-		
 		System.out.printf("%s\t%d",channel,volume);
 		System.out.println();
 	}
@@ -49,6 +47,7 @@ public class ClassEx004 {
 
 		TV t1 = new TV("JDBC", 8);
 		t1.show();
+		System.out.println(t1);
 		
 		TV t2 = new TV();
 		t2.input();
