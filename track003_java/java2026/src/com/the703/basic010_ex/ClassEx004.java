@@ -2,6 +2,12 @@ package com.the703.basic010_ex;
 
 import java.util.Scanner;
 
+
+//1. 클래스는 부품객체
+//2. 클래스 상태(멤버변수)와 행위(멤버함수)
+
+
+
 class TV {
 	// 상태-멤버변수 : 채널/볼륨
 	String channel;
@@ -42,6 +48,7 @@ class TV {
 
 }
 
+///////////////////////////////////
 public class ClassEx004 {
 	public static void main(String[] args) {
 
@@ -67,5 +74,23 @@ public class ClassEx004 {
  * 출력내용 : JDBC 8
  * 
  * channel입력> youtube volume 입력> 10 youtube 10
+ * 
+ * 
+ * ■ OOP
+1.  생성자   - new 연산자에 의해 호출 [  객체 초기화     ] 담당
+
+2. 기본생성자( 디폴트생성자 )
+- 모든클래스에 생성자가 반드시 존재
+- 생성자선언을 생략시 컴파일러가 자동으로 기본생성자를 추가
+- 개발자가 선언시 컴파일러가 자동생성  (   취소     )
+
+3. 생성자형식
+class A{
+   public    A(                 ){}   //기본생성자(디폴트생성자)
+   public    A(String name){}   //파라미터, 알규먼트가 있는 생성자.
+}
+1)  리턴값  (  없음   )
+2)  클래스명과  (  동일    ) 
+ * 
  * 
  */

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>DBDBIG</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<div class="mt-5  p-3 bg-primary text-white ">
+  <h1>005.선택자 </h1>
+  <ol>
+    <li>document.getElementById</li>
+    <li>window.addEventListener</li>
+    <li>document.getElementById / getElementsByTagName / querySelector</li>
+    <li>value, innerHTML </li>
+  </ol>
+</div>
+<div class="container card  my-5">
+  <h2  class="card-header">005.선택자 - STEP1. document.getElementById</h2>
+  <div class="card-body">
+    <h4 >STEP1. document.getElementById</h4>
+    <input type="button" value="ById" 
+       id="byid" title="버튼을 클릭하세요.(js)" 
+       class="btn btn-outline-primary"      />
+    <input type="button" value="step1" 
+        id="step1" title="버튼을 클릭하세요.(js)" 
+       class="btn btn-outline-primary"      />
+    <input type="button" value="step2" 
+        id="step2" title="버튼을 클릭하세요.(js)" 
+       class="btn btn-outline-primary"      />
+    <input type="button" value="step3" 
+        id="step3" title="버튼을 클릭하세요.(js)" 
+       class="btn btn-outline-primary"      />
+    <script>
+      //      이벤트대상                  이벤트      = 이벤트핸들러
+      document.getElementById("byid").onclick = function(){ 
+        alert("hoho");
+      };
+      //Q1. 아이디가 step1을 클릭하면 본인이름 알림창띄우기
+      document.getElementById("step1").onclick = function(){
+        alert("LEE");
+      };
+
+      //Q2. 아이디가 step2를 클릭하면 변수 num1 값(10)을 알림창으로 띄우기
+      document.getElementById("step2").onclick = function(){
+        let num1 = 10;
+        alert(num1);
+      };
+
+      //Q3. 아이디가 step3을 클릭하면 for문으로 1~5까지 콘솔에 출력하기
+      document.getElementById("step3").onclick = function(){
+        for(var num1 = 1 ; num1 <= 5 ; num1++){
+          console.log(num1);
+        }
+
+      };
+      
+    </script>
+  </div>
+  <!--     -->
+  <!--     -->
+  <hr/>
+  <div class="card-body">
+    <h4>EX</h4>
+    <pre class="alert alert-warning">
+    1. 아이디가 byidex 인것을  getElementById 이용해 선택
+    2. 클릭시 prompt이용해서 당신이 좋아하는 색상 물어보고
+    3. alert이용해서 알림창띄우기 
+    </pre>    
+    <input type="button"  value="ByIdEx-당신이좋아하는색상"  
+       title="버튼4"  id="byidex"   class="btn btn-success" />
+    <input type="button"  value="foodbtn"  
+       title="foodbtn"  id="foodbtn"   class="btn btn-success" />
+    <input type="button"  value="hobbybtn"  
+       title="foodbtn"  id="hobbybtn"   class="btn btn-success" />
+    <script>
+    document.getElementById("byidex").onclick = function(){
+      let color = prompt("당신이 좋아하는 색상은? ");
+      alert("당신이 좋아하는 색상은 " + color + "입니다.");
+    }; 
+
+    // Q2. 아이디가 foodbtn 인것을 getElementById 이용해 선택
+    //     클릭시 prompt로 좋아하는 음식 물어보고
+    //     alert으로 알림창 띄우기
+    document.getElementById("foodbtn").onclick = function(){
+      let food = prompt("당신이 좋아하는 음식은? ");
+      alert("당신이 좋아하는 음식은 " + food + "입니다.");
+    };
+
+    // Q3. 아이디가 hobbybtn 인것을 getElementById 이용해 선택
+    //     클릭시 prompt로 취미를 물어보고
+    //     alert으로 알림창 띄우기
+    document.getElementById("hobbybtn").onclick = function(){
+      let hobby = prompt("당신의 취미는? ");
+      alert("나의 취미는 " + hobby + "입니다.");
+    };
+
+    </script>
+  </div>
+</div>
+
+<!--     -->
+<!--     -->
+<!--     -->
+<div class="container card  my-5">
+  <h2  class="card-header">005.선택자 - STEP2. window.addEventListener</h2>
+  <div class="card-body">
+    <h4>STEP2. window.addEventListener</h4>
+    
+    
+    <pre class="alert alert-warning">
+    0. 스크립트가 document어느위치에서든지 동작가능하게
+    1. 아이디가 addEventEx인것을  getElementById 이용해 선택
+    2. 클릭시 prompt이용해서 당신이 좋아하는 1~5사이의 숫자 물어보고
+    3. alert이용해서 알림창띄우기 
+    </pre> 
+
+    <input type="button"  value="addEventListener" 
+     title="버튼4"  id="addEventEx"    class="btn btn-outline-primary"    />
+       
+    <script>
+     window.addEventListener("DOMContentLoaded", function(){
+      document.getElementById("addEventEx").onclick= function(){
+        let num1 = prompt("당신이 좋아하는 1~5사이의 숫자는? ");
+        alert("당신이 좋아하는 숫자는 " + num1 + "입니다.")
+        
+      };
+     });
+     </script>
+    
+    
+    <pre class="alert alert-warning">
+    1. 아이디가 addEvent 인것을  getElementById 이용해 선택
+    2. 클릭시 5,4,3,2,1 alert창 다섯번띄우기
+    </pre>     
+    
+    <input type="button"  value="addEventListener" 
+     title="버튼4"  id="addEvent"    class="btn btn-outline-primary"    />
+       
+    <script>
+     window.addEventListener("DOMContentLoaded", function(){
+      document.getElementById("addEvent").onclick= function(){
+        prompt("버튼을 클릭하세요.");
+        for(let num2=5;num2>=1;num2--){
+          alert(num2)
+        }
+      };
+     });
+     </script>
+  
+
+
+</div>
+  <!--     -->
+  <!--     -->
+  <hr/>
+  <div class="card-body">
+    <h4>EX</h4>
+ 
+    <pre class="alert alert-warning">
+   0. 스크립트가 document어느위치에서든지 동작가능하게
+   1. 아이디가 addEventEx인것을  getElementById 이용해 선택
+   2. 클릭시 prompt이용해서 당신이 좋아하는 1~5사이의 숫자 물어보고  예) 3
+   3. alert이용해서 좋아하는 숫자만큼 알림창 띄우기     예)  alert(1)  alert(2)   alert(3)
+    </pre>    
+   
+   
+    <input type="button"  value="addEventEx-1~5 Like"  
+           title="버튼5"  id="addEventEx"  class="btn btn-success" />
+    
+    <script>
+      
+    </script>
+    
+  </div>
+
+  
+</div>
+
+
+<!--     -->
+<!--     -->
+<!--     -->
+<div class="container card  my-5">
+  <h2  class="card-header">005.선택자 - Step3. document.getElementById / getElementsByTagName / querySelector  </h2>
+  <div class="card-body">
+    <h4>STEP3. document.getElementById / getElementsByTagName / querySelector</h4> .
+    <ul id="animal">
+      <li>DOG</li>
+      <li id="cat">CAT</li>
+      <li id="pig">PIG</li>
+    </ul>
+    <script>
+     
+      //1. step1 #animal 선택하기 
+     
+      console.log(animal);
+      //2. 그 안에 동물들(li) 찾기
+      
+      //3. 꾸미기 
+      //anis.style.color="#f00";  //blue, #f00(빨간색)  style 개별요소에 적용, 전체적용 X
+      //HTMLCollection(3) [li, li#cat, li#pig, cat: li#cat, pig: li#pig]
+     
+    </>
+    
+  </div>
+  <!--     -->
+  <!--     -->
+  <hr/>
+  <div class="card-body">
+    <h4>EX </h4>
+    <ul id="fruits">
+      <li>apple</li>
+      <li id="banana">banana</li>
+      <li id="coconut">coconut</li>
+    </ul>
+    <script>
+      //Q1) document.getElementsById 이용해서  #fruits 선택  
+      //Q2) document.getElementsByTagName 이용해서  
+      //   #fruits 안의 모든 li에 배경색 black, 글자색 white , 여백 10px주기
+      //Q2) document.getElementsById 이용해서 banana 선택 배경색 gold
+      //Q3) document.querySelector 이용해서 coconut 선택 
+      //  coconut를 클릭하면 width:200px; 로 수정
+ 
+    </script>
+  </div>
+</div>
+  
+
+
+
+
+</body>
+</html>
