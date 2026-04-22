@@ -14,9 +14,11 @@ class Coffee {
 
 	} // 커피정보출력
 
-	@Override
-	public String toString() {
-		return "Coffee [name=" + name + ", price=" + price + ", num=" + num + "]";
+	public Coffee() {
+		super();
+		this.name = "아메리카노";
+		this.price = 2000;
+		this.num = 1;
 	}
 	
 	public Coffee(String name, int price, int num) {
@@ -26,13 +28,11 @@ class Coffee {
 		this.num = num;
 	}
 	
-	public Coffee() {
-		super();
-		this.name = "아메리카노";
-		this.price = 100;
-		this.num = 3;
+	@Override
+	public String toString() {
+		return "Coffee [name=" + name + ", price=" + price + ", num=" + num + "]";
 	}
-}
+}//class Coffee
 
 public class ClassEx003 {
 	public static void main(String[] args) {
@@ -41,6 +41,7 @@ public class ClassEx003 {
 
 		Coffee a2 = new Coffee(); //1)new 객체생성   2)초기화 "아메리카노" , 1잔, 2000  3) 주소 
 		a2.show();
+		System.out.println(a2);
 	}
 }
 

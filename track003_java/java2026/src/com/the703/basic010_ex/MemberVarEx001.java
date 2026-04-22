@@ -19,7 +19,7 @@ package com.the703.basic010_ex;
 class Sawon3{ 
     int pay      =10000;      //1) 인스턴스변수 - new    -  heap area   - 생성자관련 - this 
     static int su=10;         //2) 클래스변수  - static  - method area -  공용     - 클래스명.변수 
-   // static int basicpay=pay;//3) 클래스변수 = 인스턴스변수 -  static은 인스턴스 변수(this) 불가
+   // static int basicpay=pay;//3) 클래스변수 = 인스턴스변수 -  static(공용)에는 인스턴스 this(나) 불가
     static int basicpay2;     //4) 클래스변수  - static  - method area -  공용     - 클래스명.변수 
     
     public static void showSu() {   System.out.println(su);  }        //5) 클래스메서드  
@@ -31,7 +31,7 @@ class Sawon3{
        System.out.println(this.pay);  // new 객체를 만들어서 사용
     } 
     public static  void  showAll002() {  //8) 클래스메서드  (static o)
-        //showAll001();                    //   인스턴스 메서드 - this 사용불가
+        //showAll001();                    //   인스턴스 메서드 - 상위 static showAll002()이 showAll001();에게 this 못줘서 사용불가
         //System.out.println(this.pay);
     } 
 } 

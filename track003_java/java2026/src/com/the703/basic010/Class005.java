@@ -10,9 +10,9 @@ class Farm{
 	int age;
 	
 	
-	static String FarmName="(주)동물농장"; //클래스 변수 - 클래스명.변수명
-	static int Farmnum;   // 클래스변수 - method area - new X - 생성자 X
-	static String FarmBoss;
+	static String FarmName="(주)동물농장"; //클래스 변수 - 클래스명.변수명   FarmName 만 명시적 초기화
+	static int Farmnum;   // 클래스변수 - method area - new X - 생성자 X    이건 명시적 초기화 안함. 복잡한건 나중에
+	static String FarmBoss;                                          //이것도 명시적 초기화 안함
 	static { Farmnum=2; FarmBoss="신동엽";} // 초기화 블록
 	//행위(멤버함수)
 	static void numPlus() { Farmnum++; /* this.area */} // 클래스.메서드
@@ -36,10 +36,16 @@ public class Class005 {
 		
 		System.out.println("\n\n1.동물식구 - this - 각각");
 		Farm cat = new Farm(); // 1) new 객체만들기   2) Farm() 초기화   3) cat번지
-		cat.name = "kitty"; cat.age=3; Farm.numPlus(); cat.show(); 
+		cat.name = "kitty"; 
+		cat.age=3; 
+		Farm.numPlus(); 
+		cat.show(); 
 		
 		Farm dog = new Farm(); // 1) new 객체만들기   2) Farm() 초기화   3) dog번지
-		dog.name = "doori"; dog.age=2; /* dog.numPlus(); */ Farm.numPlus(); 
+		dog.name = "doori"; 
+		dog.age=2;
+		/* dog.numPlus(); */
+		Farm.numPlus(); 
 		dog.show();
 		
 		//Farm.numPlus();

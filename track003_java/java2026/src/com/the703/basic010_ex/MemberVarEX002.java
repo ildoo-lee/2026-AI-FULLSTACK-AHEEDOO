@@ -1,14 +1,66 @@
 package com.the703.basic010_ex;
 
-public class MemberVarEX002 {
+class Student {
+	String name = "홍길동"; //인스턴스 변수 - 힙 영역
+	int kor = 90; //인스턴스 변수 - 힙 영역
+	int eng = 85; //인스턴스 변수 - 힙 영역
+	static int studentCount = 0; //클래스 변수 - 메소드 영역 (static은 기본 존제해야 하니 클래스)
 
-	public static void main(String[] args) {
+	static int total = kor + eng; //클래스 변수 - 메소드 영역 - 에러: 인스턴스 변수의 합이 클래스 변수라고 함.
 
+	static int maxScore = 100; //클래스 변수 - 메소드 영역
+
+	public Student() { // 생성자
+		studentCount++;
 	}
 
+	public int getTotalScore() { //인스턴스 메소드
+		return kor + eng;
+	}
+
+	public static void showStudentCount() { //클래스 메소드
+		System.out.println("전체 학생 수: " + studentCount);
+	}
+
+	public static void showName() { //클래스 메소드
+		System.out.println(name); // 클래스 메소드에 인스턴스 변수를 사용해서?
+	}
+
+	public void showInfo() { // 인스턴스 메소드
+		System.out.println("이름: " + name);
+		System.out.println("총점: " + getTotalScore());
+	}
+}
+
+public class MemberVarEX002 { // 메소드 영역
+	public static void main(String[] args) {
+		Student s1 = new Student(); //Student s1 스택 영역, new Student() 인스턴스 영역
+		Student s2 = new Student(); //Student s2 스택 영역, new Student() 인스턴스 영역
+
+		s1.showInfo();
+		Student.showStudentCount();
+	}
 }
 
 /*
+
+////////////////////////////////////////////////////////////////////////////////////
+[RUNTIME DATA AREA]
+----------------------------------------------------------------------------------
+[METHOD:정보] Class.class Student() studentCount total   maxScore  
+             getTotalScore()  showStudentCount()   showName()  showInfo()  MemberVarEX002.class
+----------------------------------------------------------------------------------
+[HEAP:동적]            |  [STACK:지역]
+
+
+
+-----------------------------------------------------------------------------------
+
+//////////////////////////////////////////////////////////////////////////////////// 
+ 
+
+
+
 
 패키지명 : com.company.java010_ex
 클래스명 : MemberVarEx002
@@ -61,68 +113,5 @@ public class MemberVarEx002 {
         Student.showStudentCount();    
     }
 }
-
-
-
-연습문제3)  멤버변수
-패키지명 : com.company.java010_ex
-클래스명 :  MemberVarEx003
-//- 문제 1. 다음 코드에서 인스턴스변수, 클래스변수, 지역변수를 구분하시오.  ( 보관되는 영역도 추가 )
-//- 문제 2. 인스턴스메서드와 클래스메서드를 구분하시오.  
-//- 문제 3. 오류가 발생하는 이유를 설명하시오.
-//- 문제 4. runtime data area 위치영역 그림그리기
-//- 문제 5. 다음과 같이 출력되도록 코드를 작성하시오.
-:: 주인 이름: std-1
-총 음식량: 175
-전체 급식판 수: 1
-
-
-:: 주인 이름: std-2
-총 음식량: 175
-전체 급식판 수: 2
-
- 
-class LunchTray {
-    String owner;        
-    int rice = 90;               
-    int soup = 85;               
-
-    static int trayCount = 0;      
-
-    static int totalFood = rice + soup;
-
-    static int maxRice = 100;       
-
-    public int getFoodAmount() {
-        return rice + soup;         
-    }
-
-    public static void showTrayCount() {
-        System.out.println("전체 급식판 수: " + trayCount);   
-    }
-
-    public static void showOwner() { 
-       System.out.println(owner);
-    }
-
-    public void showTray() {
-        System.out.println("\n\n:: 주인 이름: " + owner);                
-        System.out.println("총 음식량: " + getFoodAmount());     
-    }
-}
-
-
-public class MemberVarEx003 {
-   public static void main(String[] args) {
-        LunchTray tray1 = new LunchTray();   
-        tray1.showTray();                    
-        LunchTray.showTrayCount();         
-
-        LunchTray tray2 = new LunchTray();   
-        tray2.showTray();                   
-        LunchTray.showTrayCount();         
-   }
-} 
-
 
 */

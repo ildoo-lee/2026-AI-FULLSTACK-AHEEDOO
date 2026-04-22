@@ -180,8 +180,15 @@
            title="버튼5"  id="addEventEx"  class="btn btn-success" />
     
     <script>
-      
-    </script>
+    window.addEventListener("DOMContentLoaded", function(){
+      document.getElementById("addEventEx").onclick= function(){
+        let num1 = prompt("당신이 좋아하는 1~5사이의 숫자는? ");
+        for(let i=1;i<=num1;i++){
+          alert(i);
+        }
+      };
+     });
+    </script> // 왜 클랙했는데, 창이 안뜰까?
     
   </div>
 
@@ -203,16 +210,27 @@
     </ul>
     <script>
      
-      //1. step1 #animal 선택하기 
-     
-      console.log(animal);
-      //2. 그 안에 동물들(li) 찾기
-      
-      //3. 꾸미기 
-      //anis.style.color="#f00";  //blue, #f00(빨간색)  style 개별요소에 적용, 전체적용 X
-      //HTMLCollection(3) [li, li#cat, li#pig, cat: li#cat, pig: li#pig]
-     
-    </>
+    //1. step1 #animal 선택하기 
+    let animal = document.getElementById("animal");  //ul태그 선택
+    console.log(animal);
+    
+    //2. 그 안에 동물들(li) 찾기
+    let anis = animal.getElementsByTagName("li");  //ul태그 안의 li태그 모두 선택
+    console.log(anis);  
+    
+    
+    //3. 꾸미기 
+    //anis.style.color="#f00";  //blue, #f00(빨간색)  style 개별요소에 적용, 전체적용 X
+    //HTMLCollection(3) [li, li#cat, li#pig, cat: li#cat, pig: li#pig]
+    
+    anis[0].style.color = "#f00";  //첫번째 li태그인
+    anis[0].style.backgroundColor = "yellow";  //첫번째 li태그인
+    anis[1].style.color = "blue"; //두번째 li태그인
+    anis[1].style.backgroundColor = "pink"; //두번째 li태그인
+    anis[2].style.color = "green"; //세번째 li태그인
+    anis[2].style.backgroundColor = "lightgreen"; //세번째 li태그인
+    
+    </script>
     
   </div>
   <!--     -->
@@ -227,12 +245,35 @@
     </ul>
     <script>
       //Q1) document.getElementsById 이용해서  #fruits 선택  
+      let fruits = document.getElementById("fruits");
+      console.log(fruits);
+
       //Q2) document.getElementsByTagName 이용해서  
       //   #fruits 안의 모든 li에 배경색 black, 글자색 white , 여백 10px주기
+      let frus = fruits.getElementsByTagName("li");
+      console.log(frus);
+
+      frus[0].style.backgroundColor = "black";
+      frus[0].style.color = "white";
+      frus[0].style.padding = "10px";
+      frus[1].style.backgroundColor = "black";
+      frus[1].style.color = "white";
+      frus[1].style.padding = "10px";
+      frus[2].style.backgroundColor = "black";
+      frus[2].style.color = "white";
+      frus[2].style.padding = "10px";
+
+
       //Q2) document.getElementsById 이용해서 banana 선택 배경색 gold
+      let banana = document.getElementById("banana");
+      banana.style.backgroundColor = "gold";
+      
       //Q3) document.querySelector 이용해서 coconut 선택 
       //  coconut를 클릭하면 width:200px; 로 수정
- 
+      let coco = document.querySelector("#coconut");
+      coco.onclick = function(){
+        coco.style.width = "200px";
+      };
     </script>
   </div>
 </div>
