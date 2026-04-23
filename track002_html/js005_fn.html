@@ -50,6 +50,9 @@
           document.querySelector("#fn1").onclick = fn1;
       }); 
 
+      window.addEventListener("load",function(){
+        document.querySelector("#fn1").onclick
+      });
       //2. 마법상자    - 명시적함수
       // 호이스팅 : 코드 실행전에 메모리가 올라감, 선언전 호출가능
       // fn1();    선언전 호출가능
@@ -225,11 +228,28 @@
           //1. .btnLeft2  대상찾기  왼쪽이동       transform = translateX(45px)
           //2. .btnRight2 대상찾기  오른쪽이동     transform = translateX(-45px)
           /////////////////////////////////////////////////////////////////////
+          let btnLeft2  = document.querySelector(".btnLeft2");
+          let btnRight2  = document.querySelector(".btnRight2");
           //3. 색상변화 - classList.add(클래스명)  / classList.remove(css클래스명)
           let colors = ["bg-warning", "bg-success", "bg-danger", "bg-info", "bg-primary"];
           let colorIndex = 0; 
           let btnColor  = document.querySelector(".btnColor");
           let box       = document.querySelector(".target_box2");
+          // 왼쪽 이동
+          btnLeft2.addEventListener("click", function(e){
+              e.preventDefault();
+              pos += 45;
+              box.style.transform = `translateX(${pos}px)`;
+          });
+
+          // 오른쪽 이동
+          btnRight2.addEventListener("click", function(e){
+              e.preventDefault();
+              pos -= 45;
+              box.style.transform = `translateX(${pos}px)`;
+          });
+          
+          
           btnColor.addEventListener("click", function(e){
             e.preventDefault();
             box.classList.remove(colors[colorIndex]);
