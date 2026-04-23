@@ -1,12 +1,46 @@
 package com.the703.basic010_ex;
 
-public class MemberVarEx003 {
+class LunchTray {
+    String owner; //인스턴스 변수, 힙 영역        
+    int rice = 90; //인스턴스 변수, 힙 영역               
+    int soup = 85; //인스턴스 변수, 힙 영역              
 
-	public static void main(String[] args) {
+    static int trayCount = 0; //클래스 변수, 메소드 영역     
 
-	}
+    static int totalFood = rice + soup; //클래스 변수, 메소드 영역
 
+    static int maxRice = 100;//클래스 변수, 메소드 영역       
+
+    public int getFoodAmount() { // 인스턴스 메소드
+        return rice + soup;         
+    }
+
+    public static void showTrayCount() { // 클래스 메소드
+        System.out.println("전체 급식판 수: " + trayCount);   
+    }
+
+    public static void showOwner() { // 클래스 메소드
+       System.out.println(owner);
+    }
+
+    public void showTray() { // 클래스 메소드
+        System.out.println("\n\n:: 주인 이름: " + owner);                
+        System.out.println("총 음식량: " + getFoodAmount());     
+    }
 }
+
+
+public class MemberVarEx003 { // 메소드 영역
+   public static void main(String[] args) {
+        LunchTray tray1 = new LunchTray();   
+        tray1.showTray();                    
+        LunchTray.showTrayCount();         
+
+        LunchTray tray2 = new LunchTray();   
+        tray2.showTray();                   
+        LunchTray.showTrayCount();         
+   }
+} 
 
 
 /*

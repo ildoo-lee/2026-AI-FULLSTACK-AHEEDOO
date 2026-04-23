@@ -180,15 +180,16 @@
            title="버튼5"  id="addEventEx"  class="btn btn-success" />
     
     <script>
-    window.addEventListener("DOMContentLoaded", function(){
+    window.addEventListener("load", function(){
       document.getElementById("addEventEx").onclick= function(){
         let num1 = prompt("당신이 좋아하는 1~5사이의 숫자는? ");
-        for(let i=1;i<=num1;i++){
+        console.log(typeof(num1));
+        for(let i=1;i<=Number(num1);i++){
           alert(i);
         }
       };
      });
-    </script> // 왜 클랙했는데, 창이 안뜰까?
+    </script>  
     
   </div>
 

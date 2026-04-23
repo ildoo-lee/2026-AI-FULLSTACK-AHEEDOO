@@ -50,9 +50,8 @@ public class MemberVarEX002 { // 메소드 영역
 [METHOD:정보] Class.class Student() studentCount total   maxScore  
              getTotalScore()  showStudentCount()   showName()  showInfo()  MemberVarEX002.class
 ----------------------------------------------------------------------------------
-[HEAP:동적]            |  [STACK:지역]
-
-
+[HEAP:동적]                               |          [STACK:지역]
+name = "홍길동";kor = 90;eng = 85;         ←              s1
 
 -----------------------------------------------------------------------------------
 

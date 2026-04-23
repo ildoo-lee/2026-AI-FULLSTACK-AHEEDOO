@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>DBDBIG</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<div class="container mt-5  p-3 ">
+  <h2>과일 목록</h2>
+  <ul id="fruits">
+    <li id="apple">apple</li>
+    <li id="banana">banana</li>
+    <li id="coconut">coconut</li>
+  </ul>
+
+  <h2>입력 연습</h2>
+  <input type="text" id="fruitInput" value="mango">
+  <button id="addBtn">추가하기</button>
+
+  <script>
+
+    window.addEventListener("DOMContentLoaded", function(){
+    // Q1) querySelector 이용해서 #fruits 선택 후 console.log로 출력
+    let frus = document.querySelector("#fruits");
+    console.log(frus);
+
+    // Q2) querySelectorAll 이용해서 모든 li 선택 후
+    // 배경색 lightblue, 글자색 darkblue, padding 5px 적용
+    let lis = document.querySelectorAll("li");
+    for(let i=0;i<lis.length;i++){
+      lis[i].style.backgroundColor = "gold";
+      lis[i].style.color = "darkblue";
+      lis[i].style.padding = "5px";
+      
+    }
+
+    // Q3) querySelector 이용해서 #banana 선택 후 innerHTML을 "yellow banana"로 변경
+    let bana = document.querySelector("#banana");
+    bana.innerHTML = "yellow banana";
+
+    
+    // Q4) querySelector 이용해서 #coconut 선택 후 클릭하면 글자 크기를 24px로 변경
+    let coco = document.querySelector("#coconut");
+    coco.onclick = function(){
+      coco.style.fontSize = "100px";
+    };
+    
+    // Q5) input 태그의 value 값 가져와 console.log로 출력
+    let inputTag = document.querySelector("#fruitInput")
+    console.log(inputTag.value);
+    
+    // Q6) 버튼 클릭 시 input 값이 새로운 li로 추가되게 하기
+    let btn = document.querySelector("#addBtn");
+    let fruitsList = document.querySelector("#fruits");
+
+    btn.onclick = function(){
+        let val = inputTag.value;
+        let newLi = document.createElement("li");
+        newLi.innerHTML = val;
+        fruitsList.appendChild(newLi); 
+
+    };
+
+    
+  });
+  </script>
+  </div>
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+  <hr/>
+  
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+<!--                                    -->
+ <div class="container card-body">
+    <h2>EX</h2>
+    <input type="button"  value="click"         id="test1"    class="btn btn-success"   />
+    <input type="button"  value="value"         id="test2"    class="btn btn-success"   />
+    <input type="button"  value="innerHtml"     id="test3"    class="btn btn-success"   />
+    <input type="button"  value="MOUSEOVER-OUT" id="test4"    class="btn btn-success"   />
+    <div class="result_target  my-5">JAVASCRIPT</div>
+    <pre>
+    브라우저가 로딩이 되면
+    Q1) #test1를 클릭하면 본인이름 입력받고 입력받은 값 알림창 띄우기
+    Q2) #test2를 클릭하면 #test2의 value값을 INPUT으로 수정
+    Q3) #test3를 클릭하면
+    1.  .result_target영역안의 문자열을 알림창으로 띄우고
+    2.  .result_target영역안을 본인이름으로 수정
+    Q4) #test4를 마우스를 올리면(mouseover) .result_target의 배경색을 crimson으로
+                    마우스를 떼면(mouseout) .result_target의 배경색을 black으로
+
+     https://www.w3schools.com/js/js_events.asp
+    </pre>
+    <script>
+     window.addEventListener("DOMContentLoaded", function(){ 
+      
+      // Q1) #test1를 ->클릭하면 ->본인이름 입력받고 입력받은 값 알림창 띄우기
+      let test = document.querySelector("#test1");
+      test.onclick = function(){
+        let name = prompt("당신의 이름은?");
+        alert("저의 이름은 "+name+"입니다.");
+
+      };
+ 
+      // Q2) #test2를 클릭하면 #test2의 value값을 INPUT으로 수정 
+ 
+        
+      // Q3) #test3를 클릭하면
+      // 1.  .result_target영역안의 문자열을 알림창으로 띄우고
+      // 2.  .result_target영역안을 본인이름으로 수정
+ 
+
+
+      // Q4) #test4를 마우스를 올리면(mouseover) .result_target의 배경색을 crimson으로
+      //                 마우스를 떼면(mouseout) .result_target의 배경색을 black으로
+
+
+     });  
+    </script>
+  </div>
+  
+
+</body>
+</html>
