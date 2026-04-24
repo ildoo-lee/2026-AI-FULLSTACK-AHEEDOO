@@ -237,7 +237,7 @@
           let box       = document.querySelector(".target_box2");
           // 왼쪽 이동
           btnLeft2.addEventListener("click", function(e){
-              e.preventDefault();
+              e.preventDefault(); // 기본동작취소
               pos += 45;
               box.style.transform = `translateX(${pos}px)`;
           });
