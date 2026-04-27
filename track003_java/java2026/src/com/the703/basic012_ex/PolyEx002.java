@@ -23,7 +23,7 @@ public class PolyEx002 {
          // Q3.  Parent7 p   보장하는 범위    {x=100 , method()}  
          // Q4. 인스턴스화 했을때 사용가능한 범위 : new Child7()  
          //         Child7()          →  Parent7()             →  Object()
-         //  1번지 :  {x=200 ,  [ @method()}  -  {x=100  ] , method()}         {}
+         //  1번지 :  {x=200 ,   @method()}  -  {x=100   , method()}         {}
          Child7 c = new Child7(); 
          // Child7 c = {x=200 ,    @method()}  -  {x=100   , method()}   
          //  2번지 :    {x=200 ,    @method()}  -  {x=100   , method()}         {}   
