@@ -3,14 +3,14 @@ Abstact (is A) 일반클래스 + 설계
     고양이도 동물이다
     개도    동물이다
 
-Q1. 다음의 상속도를 그리시오.
+Q1. 다음의 상속도를 그리시오. *****************************************************************************Q1
 
     <<Abstact>>
       Animal   {name / eat(), sleep(), poo()}
       ↑    ↑
      Cat | Dog {@eat(), @sleep(), @poo()}
 
-Q2. 상속도에서  각각의 클래스에서 사용가능한 멤버변수/멤버함수를  적으시오.
+Q2. 상속도에서  각각의 클래스에서 사용가능한 멤버변수/멤버함수를  적으시오.**********************************************Q2
 
 <<Abstact>>
       Animal   {String name    /    eat(), sleep(), poo()}
@@ -40,10 +40,10 @@ class Dog  extends Animal{  // 구현클래스 - 강아지는 동물이다
 public class Abstract001 {
    public static void main(String[] args) {
       //1. abstract  class : 일반클래스 + 설계
-      Animal ani = new Animal();   Q3. 이코드에서 오류나는 이유는? new는 메모리를 빌리고 객체생성을 해야하는데, abstract라 Animal 초기화 {} 구현부가 없음(인스턴스화 할 수 없음)
+      Animal ani = new Animal();   Q3. 이코드에서 오류나는 이유는? new는 메모리를 빌리고 객체생성을 해야하는데, abstract라 Animal 초기화 {} 구현부가 없음(인스턴스화 할 수 없음)*********************Q3
     
       Animal ani = null;
-      ani = new Cat();   //Q4.    업캐스팅/다운캐스팅 ? 부모(Animal) <- 자식(Cat) 대입. 업케스팅
+      ani = new Cat();   //Q4.    업캐스팅/다운캐스팅 ? 부모(Animal) <- 자식(Cat) 대입. 업케스팅********************************************************************************************************Q4
       ani.name = "sally";   ani.eat();
  
       
@@ -57,8 +57,8 @@ public class Abstract001 {
         ani3강아지 냠냠!
        ani4강아지 냠냠!   */
        
-       답) for( Animal a  : arr  ) { a.name="ani"+ ++cnt; a.eat();}
-	// 각각 인스턴스에 이름 / eat() 자식꺼 오버라이드(최신기능 사용가능)
+       답) for( Animal a  : arr  ) { a.name="ani"+ ++cnt; a.eat();}*********************************************************************Q5
+   // 각각 인스턴스에 이름 / eat() 자식꺼 오버라이드(최신기능 사용가능)
    }
 }
 
@@ -130,11 +130,11 @@ Abstract (is A) 일반클래스 + 설계
 
 class Papa{   int brain; }
 class Mama{   int brain; }
-class Son extends Papa, Mama{}  
+class Son extends Papa, Mama{}  // 여기. 자바 클래스는 다중접속을 지원하지 않음*************************************************************************************Q6
 
 interface Animal2{
-   String company="(주) thejoa";    //Q7.  interface에서의 멤버변수에 붙는 키워드는? 
-   void eat();     //Q8.  interface에서의 멤버함수에 붙는 키워드는? 
+   String company="(주) thejoa";    //Q7.  interface에서의 멤버변수에 붙는 키워드는? public static final 모든 변수는 상수가 됨********************************************Q7
+   void eat();     //Q8.  interface에서의 멤버함수에 붙는 키워드는? public abstract 모든 메서드는 추상 메서드 *************************************************************Q8
 }
 
 class Saram implements Animal2{ 
@@ -157,6 +157,14 @@ class MotorCycle implements Vehicle {
 class Car implements Vehicle {
    @Override  public void run() {     System.out.println("자동차가 달립니다.");   }
 }
+
+class Driver{******************************************************************************************************Q9
+	void drive(Vehicle v) {
+		if ( v instanceof MotorCycle) {   ((MotorCycle)v).helmet();   }
+		v.run();
+	}
+}
+***********************************************************************************************************************Q9
 public class InterfaceEx002{
    public static void main(String[] args) {
       Driver driver = new Driver();
