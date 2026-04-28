@@ -1,4 +1,4 @@
-package com.the703.basic012;
+,,,,,,llpackage com.the703.basic012;
 
 //1. 다형성
 //   하나의 타입(부모)으로 여러타입의 객체(자식들)를 관리하는 것이 목적
