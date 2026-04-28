@@ -17,7 +17,7 @@ package com.the703.basic012_ex;
 //Q2. 각 클래스에서 사용할 수 있는 멤버변수/멤버메서드
 //Q3. 배열을 이용해 여러 로봇을 관리하는 구조를 설명하시오.
 
-abstract class Robot {
+public abstract class Robot {
  String name = "기본로봇";  
  public Robot() { super(); } 
  public  abstract void work(); //{ System.out.println("로봇일?"); }  
