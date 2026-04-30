@@ -15,12 +15,12 @@ import java.util.Scanner;
 class IceCreamDTO{
    private String name;
    private int    price; 
+   
    // 생성자, 필요하다면 추가   , toString , getters/setters  ,  hashCode/equals
    public IceCreamDTO() { super(); }
-   
-   public IceCreamDTO(String name) { super(); this.name = name; } //##
-
+   public IceCreamDTO(String name) { super(); this.name = name; } //## case3,4번을 하려면 name 만 추가해야
    public IceCreamDTO(String name, int price) { super(); this.name = name; this.price = price; }
+   
    @Override public String toString() { return "IceCreamDTO [name=" + name + ", price=" + price + "]"; }
    
    public String getName() { return name; } public void setName(String name) { this.name = name; }
@@ -86,9 +86,13 @@ public class ListEx003 {
             	//존재합니다!   또는   존재하지 않습니다.
             break; // 4. 검색  내가 입력한 아이스크림이 있는지없는지 검색   contains     
             
-            case 5 : break; // 5. 갯수  아이스크림총갯수  size
-            
-            case 0 :  System.out.println("👋 아이스크림 가게를 닫습니다. 다음에 또 만나요!");  break;
+            case 5 :  // 5. 갯수  아이스크림총갯수  size
+	            System.out.print("총 아이스크림 개수: ");
+	        	System.out.println(list.size(new IceCreamDTO(name)));
+	        break;	
+            case 0 :  
+            	System.out.println("👋 아이스크림 가게를 닫습니다. 다음에 또 만나요!");  
+            break;
             
          }
        }
