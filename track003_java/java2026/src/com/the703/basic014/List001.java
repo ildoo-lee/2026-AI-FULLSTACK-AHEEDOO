@@ -35,7 +35,7 @@ public class List001 {
 		System.out.println(list3);
 		
 		
-		//Step4.    add(추가), get(가져오기),  size(갯수), remove(삭제), contains
+		//Step4.    add(추가), get(가져오기),  size(갯수), remove(삭제), contains(포함여부)
 		List<String> list4 = new ArrayList<>(); // 앞에 <String> 썼으면 <>만 써도 됨
 		list4.add("apple");
 		list4.add("banana");

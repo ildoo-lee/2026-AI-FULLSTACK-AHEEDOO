@@ -18,7 +18,7 @@ class IceCreamDTO{
    // 생성자, 필요하다면 추가   , toString , getters/setters  ,  hashCode/equals
    public IceCreamDTO() { super(); }
    
-   public IceCreamDTO(String name) { super(); this.name = name; } //##
+   public IceCreamDTO(String name) { super(); this.name = name; } //# case3,4번을 하려면 name 만 추가해야
 
    public IceCreamDTO(String name, int price) { super(); this.name = name; this.price = price; }
    @Override public String toString() { return "IceCreamDTO [name=" + name + ", price=" + price + "]"; }
