@@ -1,0 +1,16 @@
+alt+shift+s
+
+Generate constructors to implement
+
+Generate Constructor using Fields
+
+Generate toString()
+
+Generate hashCode() and equals()
+
+Generate Delegate Methods
+
+Generate Getters and Setters
+
+Override/Implement Methods
+

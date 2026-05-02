@@ -1,0 +1,41 @@
+package com.the703.basic008;
+
+public class Arr2002_re {
+
+	public static void main(String[] args) {
+		//1. 값을 알고 있는 경우
+		int[][] arr2 = {
+				{1,2,3}, // 00 01 02
+				{4,5,6}, // 10 11 12
+		};
+		
+		//2. 값을 모르는 경우
+		int[][] arr21 = new int[2][3]; 
+		// new 메모리 공간 빌려오기  int(자료형)    2층  3칸
+		
+		//ver-1
+//		arr21[0][0] = 10; arr21[0][1] = 20; arr21[0][2] = 30; 
+//		arr21[1][0] = 40; arr21[1][1] = 50; arr21[1][2] = 60;    // for문으로 줄이기
+		
+		//ver-2
+		int data=10;
+		arr21[0][0] = data; data+=10; 
+		arr21[0][1] = data; data+=10;
+		arr21[0][2] = data; data+=10;
+		
+		arr21[1][0] = data; data+=10;
+		arr21[1][1] = data; data+=10;
+		arr21[1][2] = data; data+=10;
+		
+		for(int ch=0;ch<arr21.length;ch++) {
+			for(int kan=0;kan<arr21.length;kan++) {
+				System.out.println(arr21[ch][kan]+"\t");
+			}
+			System.out.println();
+		}
+		
+				
+		
+	}//main
+
+} //class
