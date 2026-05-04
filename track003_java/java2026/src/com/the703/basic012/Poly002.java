@@ -39,6 +39,11 @@ public class Poly002 {
 		System.out.println(ta.a);   // 10
 		System.out.println(((TestB2)ta).b);   //ta.b 사용방법은? 업케스팅
 		
+//		메모리: TestB2가 만들어졌으니 변수 a와 b가 모두 메모리에 존재합니다.
+//		이름표: 하지만 이름표가 TestA2입니다.
+//		결과: ta.a는 보이지만, ta.b는 이름표에 없어서 안 보입니다. (가려짐)
+//		해결: ((TestB2)ta).b라고 다운캐스팅을 해야만 가려졌던 b가 다시 보입니다.
+		
 	}   
 
 }

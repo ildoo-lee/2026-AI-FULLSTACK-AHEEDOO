@@ -20,8 +20,20 @@ package com.the703.basic011;
 	  
  
 */
-class A extends Object {int a = 10;	public A() {super();}/*마지막 닫히는 곳*/}
-class B extends A { int b = 20;  public B() { super();  }  }
+class A extends Object {
+	int a = 10;	
+	public A() {
+		super();
+		}/*마지막 닫히는 곳*/
+	}
+
+class B extends A { 
+	int b = 20;  
+	public B() { 
+		super();  
+		}  
+	}
+
 class C  extends B     {
 	int c=30; 
 	void show() {System.out.println(a + "\t" + b + "\t" + c);}
