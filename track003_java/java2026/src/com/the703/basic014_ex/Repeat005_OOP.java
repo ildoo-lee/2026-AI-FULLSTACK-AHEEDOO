@@ -1,5 +1,7 @@
 package com.the703.basic014_ex;
 
+import java.util.Scanner;
+
 /*           Animal1{   Company / sound() }
       ↑          ↑            ↑ 
     Dog         Cat          Bird
@@ -47,7 +49,7 @@ class Bird implements Animal {
 public class Repeat005_OOP {
 
 	public static void main(String[] args) {
-      java.util.Scanner sc = new java.util.Scanner(System.in);
+      Scanner sc = new Scanner(System.in);
       
       //Q1. 1)Animal1 ani = new Animal1();
       //Q1. 2)상수 - 수정못함.

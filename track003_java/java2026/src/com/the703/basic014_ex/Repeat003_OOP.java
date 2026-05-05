@@ -1,7 +1,5 @@
 package com.the703.basic014_ex;
 
-import java.util.ArrayList;
- 
 class Papa{
    int money=10;
 
