@@ -1,5 +1,7 @@
 package com.the703.basic013_ex;
 
+import java.util.Scanner;
+
 /*
           Animal{sound()}
 ↑            ↑           ↑
@@ -40,7 +42,7 @@ class ZooKeeper{
 // 3. 메인화면
 public class InterfaceEx003 {
    public static void main(String[] args) {
-     java.util.Scanner sc = new java.util.Scanner(System.in);
+     Scanner sc = new Scanner(System.in);
 
      while (true) {
      System.out.println("=== 동물원 메뉴판 ===");

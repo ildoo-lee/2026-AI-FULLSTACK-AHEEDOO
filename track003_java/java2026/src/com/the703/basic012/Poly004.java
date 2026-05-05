@@ -40,13 +40,13 @@ public class Poly004 {
 		*/
 		
 		ta = new TestB4(); // 해결방안 : ta에 자식생성자를 호출한 적이 있어야 한다.
-		// 보장{ㅁ=10, toString} = 3번지{}
+		// 보장{a=10, toString} = 3번지{}
 		tb = (TestB4) ta;
 		//2. {b=20, @toString}-{a=10,--} = 3번지{b=20, @toString}-{a=10,--}
 		//
-		System.out.println(tb);
-		System.out.println(tb.b);
-		System.out.println(tb.a);
+		System.out.println(tb); // 1. 자식의 toString() 실행 (B=20 출력)
+		System.out.println(tb.b); // 2. 안경을 바꿨으니 b(20)가 보임!
+		System.out.println(tb.a); // 3. 부모에게 물려받은 a(10)도 당연히 보임!
 		
 	}   
 

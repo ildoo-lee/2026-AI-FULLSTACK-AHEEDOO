@@ -41,6 +41,8 @@ public class Abstract001 {
 		
 		Animal ani = null;    // { name, eat(), sleep(), poo()}
 		ani = new Cat();      // 부모(Animal) = 자식(Cat), 업케스팅, 다운캐스팅 필요 X
+		                      // 다운캐스팅 안해도 Cat(); 기능을이 잘 됨
+		                      // 부모의 eat() 을 모든 자식들이 그대로 사용해서. 부모 자식 동일한 것 있는 상태
 		ani.name="sally";     ani.eat();
 		
 		ani = new Dog();
@@ -60,7 +62,7 @@ public class Abstract001 {
 
 - 실체화된 객체들 간 공통되는 특성을 추출
 - 미완성적인 개념 (new 사용하지 못함)
-- 공통된 필드와 메서더의 이름을 통일할 목적
+- 공통된 필드와 메서드의 이름을 통일할 목적
 
 2. 추상클래스
 

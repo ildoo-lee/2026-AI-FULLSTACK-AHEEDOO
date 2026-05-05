@@ -13,12 +13,15 @@ package com.the703.basic013_ex;
 */
 
 interface Vehicle { public void run(); }
+
 class MotorCycle implements Vehicle { 
 	@Override public void run() { System.out.println("오토바이가 달립니다."); } 
 	public void helmet() {System.out.println("헬멧을 착용합니다.");}
 }
 
-class Car implements Vehicle { @Override public void run() { System.out.println("자동차가 달립니다."); } }
+class Car implements Vehicle { 
+	@Override public void run() { System.out.println("자동차가 달립니다."); } }
+
 class Driver{
 	void drive(Vehicle v) { // Vehicle  v = car  ,   Vehicle  v = mo
 		//만약에 모터사이클이라면 helmet() 호출

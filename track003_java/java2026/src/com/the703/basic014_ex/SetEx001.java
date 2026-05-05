@@ -9,7 +9,7 @@ import java.util.Set;
 class UserInfo2{
 	private int no;
 	private String name;
-	private  int age;
+	private int age;
 	
 	public UserInfo2() { super();  }
 	public UserInfo2(int no, String name, int age) { super(); this.no = no; this.name = name; this.age = age; }

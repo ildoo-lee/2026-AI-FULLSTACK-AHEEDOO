@@ -1,26 +1,31 @@
 package com.the703.basic013;
 
-//1. s: 단일책임 원칙
+//1. s: 단일책임 원칙 - 한사람이 여러일 하다가 뻗으면 다른 일까지 올스톱됨
+//S (Single Responsibility) : "굽는 사람은 굽기만!"
 class CookieMaker{
 	public void bakeCookie(String type) {System.out.println(type + "쿠키를 궈요");} 
 }
 
-//2. o: 개방폐쇠(새로운 쿠키 추가가능, 기존코드 건들지 말기)
+//2. o: 개방폐쇠(새로운 쿠키 추가가능, 기존코드 건들지 말기) 
+//O (Open-Closed) : "메뉴판은 건들지 마!"
 interface Cookie{ void make();}
 class ChocoCookie implements Cookie{  @Override public void make() {System.out.println("초코쿠키");}  }
 class DeepChocoCookie implements Cookie{  @Override public void make() {System.out.println("딥초코쿠키");}  }
 class ChocoBananaCookie implements Cookie{  @Override public void make() {System.out.println("초코바나나쿠키");}  }
 
 //3. L : 리스코프치환 ( 어떤 쿠키든 Cookie 인터페이스로 바꿔써도 문제없어야 한다. 부모 <= 자식 )
+//L (Liskov Substitution) : "쿠키라고 했으면 쿠키 맛이 나야지!"
 class CookieFactory{ // Cookie cookie 각종 쿠키종류
 	public void makeCookie(Cookie cookie) {cookie.make();} // 어떤 쿠키든 여기서 만들 수 있어요~
 }
 
 //4. I :interface - 방법을 동일하게 맞춰줘. 너무 많은 기능을 강요하지 말것 . 꼭 필요한 기능(절차) 
+//I (Interface Segregation) : "자격증은 필요한 것만!"
 interface SimpleCookie{ void make1(); /* void make2();  void make3();*/ }
 
 
 //5. D : 의존역전 어떤 쿠키든 가게에서 팔 수 있어요~
+//D (Dependency Inversion) : "알맹이 말고 주머니를 봐!"
 //       CookieFactory는 구체적인 쿠키가 아니라 Cookie에 의존
 class CookieShop{
 	private Cookie cookie; // interface Cookie
