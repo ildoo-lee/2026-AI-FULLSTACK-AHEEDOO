@@ -88,6 +88,7 @@ Set<UserInfo> sets = new HashSet<>();
 ```
  
 8. maps 이름으로 HashMap 만들기  
+
 9. 다음의 데이터 넣기 (Key-Value 구조)  
    maps.put("banana", new Milk("바나나우유", 1300));  
    maps.put("melon", new Milk("메론맛우유", 1800));  
