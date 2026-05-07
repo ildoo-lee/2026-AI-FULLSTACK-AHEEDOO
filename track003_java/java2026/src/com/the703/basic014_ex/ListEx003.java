@@ -94,7 +94,7 @@ public class ListEx003 {
             
             case 5 :  // 5. 갯수  아이스크림총갯수  size
 	            System.out.print("총 아이스크림 개수: ");
-	        	System.out.println(list.size(new IceCreamDTO(name)));
+	        	System.out.println(list.size());
 	        break;	
             case 0 :  
             	System.out.println("👋 아이스크림 가게를 닫습니다. 다음에 또 만나요!");  
