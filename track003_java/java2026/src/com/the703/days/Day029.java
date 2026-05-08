@@ -2,6 +2,7 @@ package com.the703.days;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -47,24 +48,30 @@ public class Day029 {
 		players.add(new Player("Bowser", 900));
 		
 		//2-3. for + size 이용해서 출력
-		for(int i = 0; i < pl.size(); i++) {
-			System.out.println((i+1)+"\t"+pl.get(i));
+		for(int i = 0; i < players.size(); i++) {
+			System.out.println((i+1)+"\t"+players.get(i));
 		}
 		
 		//Q3. List에서 출력을 보면 Bowser   900  라는 같은데이터를 넣었는데, 
 		//2개가 나옴. 이유는? List 열차 중복허용
 		
-		//4-1. setPlayers 이름으로 HashSet 만들기
 		
+		
+		System.out.println();
+		//4-1. setPlayers 이름으로 HashSet 만들기
 		Set<Player> setPlayers = new HashSet<>();
-		players.add(new Player("Mario", 1200));
-		players.add(new Player("Luigi", 1500));
-		players.add(new Player("Peach", 1800));
-		players.add(new Player("Bowser", 900));
-		players.add(new Player("Bowser", 900));
+		setPlayers.add(new Player("Mario", 1200));
+		setPlayers.add(new Player("Luigi", 1500));
+		setPlayers.add(new Player("Peach", 1800));
+		setPlayers.add(new Player("Bowser", 900));
+		setPlayers.add(new Player("Bowser", 900));
 		
 		//Iterator 출력
-		Iterator<Player> setPlayers
+		Iterator<Player> iter = setPlayers.iterator();
+		int count = 0;
+		while(iter.hasNext()) {
+			System.out.println((++count)+"\t"+iter.next());
+		}
 
 		
 		
