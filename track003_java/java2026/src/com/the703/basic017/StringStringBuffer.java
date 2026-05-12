@@ -1,8 +1,5 @@
 package com.the703.basic017;
 
-
-
-
 public class StringStringBuffer {
 	public static void main(String[] args) {
 
