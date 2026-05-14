@@ -151,3 +151,4 @@ show databases;
 
 9. 데이터베이스 db703을 삭제하는 SQL 명령어를 작성하시오.
 drop database db703;
+
