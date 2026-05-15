@@ -3,12 +3,23 @@ package com.the703.v3;
 import java.util.ArrayList;
 import java.util.List;
 
-//1. Dto 데이터전송목적
+//1. Dto 데이터전송목적  (기본생성자, 필드생성자, toString, getters/setters, hashCode/equals)
 class BankDto{
 	private String id;
 	private String pass;
 	private double balance;
 	
+	
+	
+	
+	public BankDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
 	public BankDto(String id, String pass, double balance) {
 		super();
 		this.id = id;
