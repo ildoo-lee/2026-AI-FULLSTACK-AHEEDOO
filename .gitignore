@@ -6,6 +6,7 @@ eclipse/
 portfolio/
 track005_jsp/tomcat9.0/
 track005_jsp/Servers/
+track005_jsp/tomcat9.0/apache-tomcat-9.0.100/
 
 # 빌드 결과물 무시
 /bin/

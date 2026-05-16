@@ -6,14 +6,14 @@ import java.util.Objects;
 import java.util.Scanner;
 
 //1. Dto 데이터전송목적 (기본생성자, 필드생성자, toString, getters/setters, hashCode/equals)
-class BankDto1{
+class BankDto2{
 	private String id;
 	private String pass;
 	private double balance;
 	
-	public BankDto1() { super();  }
-	public BankDto1(String id, String pass, double balance) { super(); this.id = id; this.pass = pass; this.balance = balance; }
-	@Override public String toString() { return "BankDto1 [id=" + id + ", pass=" + pass + ", balance=" + balance + "]"; }
+	public BankDto2() { super();  }
+	public BankDto2(String id, String pass, double balance) { super(); this.id = id; this.pass = pass; this.balance = balance; }
+	@Override public String toString() { return "BankDto2 [id=" + id + ", pass=" + pass + ", balance=" + balance + "]"; }
 	
 	
 	public String getId() { return id; }
@@ -37,15 +37,15 @@ class BankDto1{
 				&& Objects.equals(id, other.id) && Objects.equals(pass, other.pass);
 	}
 	
-} //Dto 클래스
+} //Dto2 클래스
 
 
 
 //2. 기능클래스
-class Bank1{
-	List<BankDto1>  users;   // 객체를 생성하는게 아니라 정보만 받을 목적
-	public Bank1() { super(); }
-	public Bank1(List<BankDto1> users) { super(); this.users = users; }
+class Bank2{
+	List<BankDto2>  users;   // 객체를 생성하는게 아니라 정보만 받을 목적
+	public Bank2() { super(); }
+	public Bank2(List<BankDto2> users) { super(); this.users = users; }
 	
 	// 메뉴 - 안에 내용작성
 	public void menu() {
@@ -65,7 +65,7 @@ class Bank1{
 			
 			if( menu == 1) { add();}
 			else {
-				BankDto1 find = login();// 로그인 확인
+				BankDto2 find = login();// 로그인 확인
 				if(find == null) { System.out.println("정보를 확인해주세요"); continue; }
 				// 각각의 메뉴에 맞는 기능호출
 				switch(menu) {
@@ -109,7 +109,7 @@ class Bank1{
 		System.out.println("아이디 입력> "); String tempid = scanner.next(); // 아이디 중복검사
 		System.out.println("비밀번호 입력> "); String temppass = scanner.next();
 		//처리
-		for(BankDto1 u : users) {
+		for(BankDto2 u : users) {
 			if( u.getId().equals(tempid) && u.getPass().equals(temppass)) {	return u; }
 		}
 		return null;
@@ -117,12 +117,12 @@ class Bank1{
 	}
 	
 	
-	void show( BankDto1  user  ){
+	void show( BankDto2  user  ){
 	      System.out.printf("ID : %d\nPASS: %d\nBALANCE: %d\n" ,user.getId(),user.getPass(), user.getBalance()); 
 	   } 
 	
 	// 입금   (get)    - void deposite(BankDto1 user){};
-	void deposite(BankDto1 user){
+	void deposite(BankDto2 user){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("입금할 금액  입력> " ); double tempbalance = scanner.nextDouble();
 		if(user.getBalance() < tempbalance){System.out.println("잔액이 모자랍니다."); return;	}
@@ -133,7 +133,7 @@ class Bank1{
 	
 	
 	// 출금   (get)    - void withdraw(BankDto1){}
-	void withdraw( BankDto1 user){
+	void withdraw( BankDto2 user){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("출금할 금액  입력> " ); double tempbalance = scanner.nextDouble();
 		if(user.getBalance() < tempbalance){System.out.println("잔액이 모자랍니다."); return;	}
@@ -142,7 +142,7 @@ class Bank1{
 	};
 	
 	// 유저삭제(remove) - void delete(BankDto1){}
-	void delete(BankDto1 user){};
+	void delete(BankDto2 user){};
 	
 	
 	// 종료            - void exit(    ){}
@@ -154,10 +154,10 @@ class Bank1{
 
 
 
-public class BankProjectV3_1 {
+public class BankProjectV3_2 {
 	public static void main(String[] args) {
-		List<BankDto1>  users = new ArrayList<>();
-		Bank1      controller = new Bank1(users);
+		List<BankDto2>  users = new ArrayList<>();
+		Bank2      controller = new Bank2(users);
 		controller.menu();
 		
 		
