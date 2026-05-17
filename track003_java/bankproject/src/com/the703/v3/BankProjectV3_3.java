@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
-//1. Dto 데이터전송목적 (기본생성자, 필드생성자, toString, getters/setters, hashCode/equals)
-class BankDto{ //Data Transfer Object 테이터 전송 객체
+class BankDto{
 	private String id;
 	private String pass;
 	private double balance;
@@ -15,49 +14,20 @@ class BankDto{ //Data Transfer Object 테이터 전송 객체
 	public BankDto(String id, String pass, double balance) { super(); this.id = id; this.pass = pass; this.balance = balance; }
 	@Override public String toString() { return "BankDto [id=" + id + ", pass=" + pass + ", balance=" + balance + "]"; }
 	
+	@Override public int hashCode() { return Objects.hash(balance, id, pass); }
+	@Override public boolean equals(Object obj) { if (this == obj) return true; if (obj == null) return false; if (getClass() != obj.getClass()) return false; BankDto other = (BankDto) obj; return Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance) && Objects.equals(id, other.id) && Objects.equals(pass, other.pass); }
 	
 	public String getId() { return id; }
 	public void setId(String id) { this.id = id; }
 	public String getPass() { return pass; }
 	public void setPass(String pass) { this.pass = pass; }
 	public double getBalance() { return balance; }
-//	public double getBalance(String inputPass) { 
-//	    if (!this.pass.equals(inputPass)) { 
-//	        System.out.println("비밀번호가 일치하지 않습니다");
-//	        return -1;
-//	    }
-//	    return balance; 
-//	}
 	public void setBalance(double balance) { this.balance = balance; }
-//	public void setBalance(double balance) { 
-//	    if (balance < 0) { 
-//	        System.out.println("잔액은 0원 이상이어야 합니다.");
-//	        return;
-//	    }
-//	    this.balance = balance; // 0원 이상
-//	}
 	
-	@Override public int hashCode() { return Objects.hash(balance, id, pass); }
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		BankDto other = (BankDto) obj;
-		return Double.doubleToLongBits(balance) == Double.doubleToLongBits(other.balance)
-				&& Objects.equals(id, other.id) && Objects.equals(pass, other.pass);
-	}
-	
-} //Dto2 클래스
+}
 
-
-
-//2. 기능클래스
 class Bank{
-	List<BankDto>  users;   // 객체를 생성하는게 아니라 정보만 받을 목적
+List<BankDto>  users;   // 객체를 생성하는게 아니라 정보만 받을 목적
 	
 	Scanner scanner = new Scanner(System.in);
 	
@@ -162,10 +132,11 @@ class Bank{
 	// 출금   (get)    - void withdraw(BankDto1){}
 	void withdraw( BankDto user){
 		//Scanner scanner = new Scanner(System.in);
-		System.out.println("출금할 금액  입력> " ); double tempbalance = scanner.nextDouble();
+		System.out.println("출금할 금액 입력> " ); double tempbalance = scanner.nextDouble();
 		if(user.getBalance() < tempbalance){System.out.println("잔액이 모자랍니다."); return;	}
 		user.setBalance(user.getBalance() - tempbalance);
 		System.out.println("출금완료");
+		System.out.printf("잔액: %.0f원\n", user.getBalance());
 	}
 	
 	// 유저삭제(remove) - void delete(BankDto1){}
@@ -188,19 +159,17 @@ class Bank{
 	    System.out.println("은행 서비스가 종료되었습니다.");
 	    System.exit(0); 
 	}
-	
-	
-	
-}// 기능 클래스
+}
 
 
 
-public class BankProjectV3_2 {
+
+public class BankProjectV3_3 {
 	public static void main(String[] args) {
+
 		List<BankDto>  users = new ArrayList<>();
 		Bank      controller = new Bank(users);
-		controller.menu(); 
-		
+		controller.menu();	
 		
 	}
 }
