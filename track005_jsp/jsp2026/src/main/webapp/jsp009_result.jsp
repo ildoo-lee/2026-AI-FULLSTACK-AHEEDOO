@@ -22,7 +22,7 @@
        String avg = String.format( "%.2f", total/3.0);
        %>
        <table class="table table-striped table-bordered table-hover">
-       	<thread>
+       	<thead>
        		<tr>
        			<th scope="col">KOR</th>
        			<th scope="col">ENG</th>
@@ -32,7 +32,7 @@
        			
        		</tr>
        	
-       	</thread>
+       	</thead>
        	<tbody>
        			<tr>
        				<td><%=kor %></td>

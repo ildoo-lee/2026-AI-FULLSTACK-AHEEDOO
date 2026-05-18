@@ -26,7 +26,7 @@
 		</pre>
 		<!-- Q 이미지를 중앙으로 -->
 		<p class="text-center"><img src="images/login.png" alt="login"/></p>  
-		<form action="jsp008_result.jsp"  method="get" onsubmit="return checklogin();">
+		<form action="jsp008_result.jsp"  method="post" onsubmit="return checklogin();">
 			<div class="my-3">
 				<label for="email"   class="form-label">Email : </label>
 				<input type="email"  class="form-control"  id="email"  name="email" />      
@@ -45,11 +45,11 @@
 			</div>								
 		</form>
 		<script>
-		functioin check(){
+		function checklogin(){
 			let email = document.getElementById("email");
 			let pass = document.getElementById("pass");
-			if(email.value.trim()==""){alert("이메일 칸들 확인해주세요."); email.focus(; return false;)}
-			if(pass.value.trim()==""){alert("비밀번호 칸들 확인해주세요."); pass.focus(; return false;)}
+			if(email.value.trim()==""){alert("이메일 칸을 확인해주세요."); email.focus(); return false;  }
+			if(pass.value.trim()==""){alert("비밀번호 칸을 확인해주세요."); pass.focus(); return false; }
 			return true;
 		}
 		

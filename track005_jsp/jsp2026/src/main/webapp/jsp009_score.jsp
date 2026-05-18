@@ -24,7 +24,7 @@
 		 KOR    ENG    MATH   TOTAL    AVG
 		 100    100     99    299      99.67   
 		</pre>
-		<form  action="jsp009_result.jsp"  method="post">
+		<form  action="jsp009_result.jsp"  method="post"  onsubmit="return check();">
 			<div class="my-3">
 				<label for="kor"   class="form-label">KOR : </label>
 				<input type="number"  class="form-control"  id="kor"  name="kor"
@@ -48,18 +48,29 @@
 		</form>
 		
 	</div>
+	<script>
+	function check(){
+	    let kor=document.getElementById("kor");
+	    let eng=document.getElementById("eng");
+	    let math=document.getElementById("math");
+	    
+	    if(kor.value.trim()==""){
+	        alert("국어 점수를 입력해주세요.");
+	        kor.focus();
+	        return false;
+	    }
+	    if(eng.value.trim()==""){
+	        alert("영어 점수를 입력해주세요.");
+	        eng.focus();
+	        return false;
+	    }
+	    if(math.value.trim()==""){
+	        alert("수학 점수를 입력해주세요.");
+	        math.focus();
+	        return false;
+	    }
+	    return true;
+	}
+	</script>
 </body>
-</html> 
-
-
-
-<!-- 
-
- -->
-
-
-
-
-
-
-
+</html>
