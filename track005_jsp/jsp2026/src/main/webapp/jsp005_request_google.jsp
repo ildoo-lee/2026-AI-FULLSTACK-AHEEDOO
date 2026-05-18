@@ -36,8 +36,8 @@
      			let query = document.querySelector("#query");
      			if(query.value.trim()==""){
      				alert("빈칸입니다. 입력하세요.");
-     				query.focus();
-     				return false;
+     				query.focus(); //커서
+     				return false; // 3. 전송여부
      			}
      		}
         </script> 

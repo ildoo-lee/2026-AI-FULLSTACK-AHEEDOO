@@ -146,6 +146,7 @@ desc dept;
 
 -- [001] 다음과 같이 데이터를 삽입하시오
 -- mysql> select * from emp;
+ select * from emp;
 insert into emp values ( 7369, 'SMITH', 'CLERK',     7902, '80/12/17', 800 ,NULL ,   20);
 insert into emp  values (7499 , 'ALLEN' , 'SALESMAN' , 7698 , '81/02/20' , 1600 , 300, 30);
 insert into emp values (  7521 , 'WARD' ,  'SALESMAN',     7698, '81/02/22',       1250   ,     500 , 30);

@@ -1,7 +1,7 @@
 -- STEP1) 
 -- 1.  데이터베이스 언어 - 다음과 같은형식으로 빈칸 채우기
--- DDL(  정의어   )  CREATE, ALTER, DROP   
--- DML(  조작어   )   INSERT, SELECT, UPDATE, DELETE
+-- DDL(  정의어   )   create, alter, drop
+-- DML(  조작어   )   insert, select, update, delete
 -- DCL(  제어어   )  GRANT , REVOKE
 
 
@@ -27,13 +27,12 @@
 -- |  3 | third  |  33 |
 -- |  4 | fourth |  44 |
 -- +----+--------+-----+
+
 create table userinfo_ex(
 	no int auto_increment primary key,
     name varchar(100) not null,
     age int not null
 );
-
-desc userinfo_ex;
 
 create table userinfo (
 	no int auto_increment primary key,
@@ -41,23 +40,13 @@ create table userinfo (
     age int not null
 );
 
-insert into userinfo (name, age ) values
-('first', 11),
-('second', 22),
-('third', 33),
-('fourth', 44);
+show tables;
 
 insert into userinfo_ex select * from userinfo;
 
-desc userinfo_ex; -- userinfo_ex의 기본 정보
-
-select * from userinfo_ex; -- userinfo_ex의 기본 table 
-
-show databases; -- database 전체 보기
-
--- mbasic의 table을 볼 때
-use mbasic;
-show tables;
+desc userinfo_ex; -- 구조 
+alter table userinfo_ex modify no int not null auto_increment primary key; -- 숫자 자동 증가
+select * from userinfo_re1; -- 전체 데이터 검색
 
 -- Q2. userinfo_re1 에  다음과 같이 데이터 추가 
 -- mysql> select * from userinfo_re1;
@@ -68,11 +57,17 @@ show tables;
 -- |  2 | second |  22 |
 -- |  3 | third  |  33 |
 -- |  4 | fourth |  44 |
--- |  5 | fifth  |  50 |
--- |  6 | sixth  |  66 |
+-- |  5 | fifth    |  50 |
+-- |  6 | six   |  66 |
 -- +----+--------+-----+
 
-use mbasic;
+use mbasic; -- database 선택
+
+create table userinfo_ex select * from userinfo; -- 테이블만들기
+
+show tables; -- 테이블확인
+
+desc userinfo_ex; -- 테이블 구조확인
 
 create table userinfo_re1(
 	no int auto_increment primary key,
@@ -82,12 +77,10 @@ create table userinfo_re1(
 
 insert into userinfo_re1 select * from userinfo_ex;
 
-insert into userinfo_re1 ( name , age ) values
-( 'fifth' , 50),
-( 'six' , 66); 
+insert into userinfo_re1 ( no, name , age ) values
+( 5, 'fifth' , 50),
+( 6, 'six' , 66);
 
-select * from userinfo_ex; -- userinfo_ex의 기본 table 
-select * from userinfo_re1;
 
 
 -- Q3. userinfo_re1 에 데이터 수정
@@ -103,10 +96,11 @@ select * from userinfo_re1;
 -- |  6 | six   |  66 |       ← name sixth로 수정
 -- +----+--------+-----+
 
-
 update userinfo_re1 set age = 55 where no = 5;
 
 update userinfo_re1 set name = 'sixth' where no = 6;
+
+desc userinfo_re1;
 
 select * from userinfo_re1;
 
@@ -125,4 +119,9 @@ delete from userinfo_re1 where no = 5;
 
 delete from userinfo_re1 where no = 6;
 
+delete from userinfo_re1 where no >= 5;
+
 select * from userinfo_re1;
+
+use mbasic;
+show tables;
