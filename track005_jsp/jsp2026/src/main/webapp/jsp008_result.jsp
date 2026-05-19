@@ -21,7 +21,7 @@
        %>
        <p>EMAIL :<%=email %></p>
        <p>PASS :<%=pass %></p>
-       <p><a href="javascript:history.go(-1)"  class="btn btn-dager">PACK</a></p>
+       <p><a href="javascript:history.go(-1)"  class="btn btn-danger">BACK</a></p>
    </div>
 </body>
 </html>
