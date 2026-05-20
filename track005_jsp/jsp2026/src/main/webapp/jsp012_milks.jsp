@@ -70,17 +70,12 @@
         			                 + rset.getString("mname")+"</td><td>"
         			                 + rset.getInt("mprice")+"</td></tr>"  );
         }
-       	  
-       			                    
-       			                    
-       			                    
+       	   			                    
        	//4. JDBC 끊기
       	if(rset != null){rset.close();}
     	if(pstmt != null){pstmt.close();}
     	if(conn != null){conn.close();}
-    		
-       		
-       	}catch( Exception e){ e.printStackTrace(); }
+    	}catch( Exception e){ e.printStackTrace(); }
        	/*
        	alter table milk modify mnum int null;
        	alter table milk modify mtotal int null;
@@ -89,18 +84,204 @@
        	insert into milk (mno, mname, mpirce) values (2, 'choco', 1800);
        	insert into milk (mno, mname, mpirce) values (3, 'banana', 1800);
        	*/
-       	
-       	
+       	       	
        	//1. white  1500
        	//2. choco  1800
        	//3. banana 1800
-       	
-       	
+       	     	
        	
        	%>
+       	</tbody>
        	
+
 <!--       주문현황표             -->
 <!--       주문현황표             -->
+       </table>
+   </div>
+       	
+   <div class="container card my-5 bg-warning text-white">
+      <h2 class="card-header">Milk ORDER</h2>
+      
+       <table class="table table-bordered table-striped table-hover">
+       	<caption>주문현황표</caption>
+       	<thead>
+       		<tr>
+       			<th scope="col">NO</th>
+       			<th scope="col">NAME</th>
+       			<th scope="col">NUM</th>
+                <th scope="col">DATA</th>
+       		</tr>
+       	
+       	</thead>
+       	
+       	<tbody>
+       	<% 
+       	try{
+       	//1. 드라이버 연동
+       	Class.forName("com.mysql.cj.jdbc.Driver");
+       	
+       	Connection conn = null;
+       	PreparedStatement pstmt = null;
+       	ResultSet rset = null;
+       	
+        //2. JDBC 연동
+   		conn = DriverManager.getConnection(
+	   			                    "jdbc:mysql://localhost:3306/mbasic",   // url
+	   			                    "root",   // user
+	   			                    "1234");  // pass
+	   	       	
+	   	//3. PreparedStatement pstmt 이용해서 sql 처리  pstmt.executeQuery()
+	   	
+	   	pstmt = conn.prepareStatement("select * from milk_order order by ono desc");
+	  	
+	    rset = pstmt.executeQuery(); // 표
+	    while(rset.next()){ // 줄
+	        out.println("<tr><td>" + rset.getInt("ono") + "</td><td>"
+	                               + rset.getString("oname") + "</td><td>"
+	                               + rset.getInt("onum") + "</td><td>"       
+	                               + rset.getString("odata") + "</td></tr>"
+	        );
+	    }
+	    
+        //4. jdbc close
+	    if(rset != null){rset.close();}
+    	if(pstmt != null){pstmt.close();}
+    	if(conn != null){conn.close();}
+    	
+    	
+       	}catch( Exception e){ e.printStackTrace(); }
+       	%>
+       	      	
+       	</tbody>
+       	
+       </table>
+   </div>
+   
+   
+   
+   
+   
+   
+<!-- 주문삽입, 수정, 삭제 -->
+<!-- 주문삽입, 수정, 삭제 -->
+<!-- https://www.w3schools.com/bootstrap5/bootstrap_collapse.php -->
+   
+   <div class="container card my-5 bg-secondary my-5 p-3 ">
+      <h2 class="card-header bg-primary text-white my-3">Milk 주문 수정 삭제</h2>
+      
+      <div id="accordion">
+
+		  <div class="card">
+		    <div class="card-header bg-primary">
+		      <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+		        주문하기
+		      </a>
+		    </div>
+		    <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+		      <div class="card-body">
+				<form action="jsp012_insert.jsp" method="post" onsubmit="return order()">
+					<div class="my-3">
+						<label for="oname" class="form-label">주문할 우유이름</label> 
+						<input type="text" class="form-control" id="oname" name="oname"/>
+					</div>
+					<div class="my-3">
+						<label for="onum" class="form-label">주문할 우유갯수</label> 
+						<input type="text" class="form-control" id="onum" name="onum" />
+					</div>
+					<div>
+						<button type="submit" class="btn btn-warning">주문하기</button>
+					</div>
+				</form>
+			</div>
+		    </div>
+		  </div>
+		
+		  <div class="card">
+		    <div class="card-header  bg-primary">
+		      <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+		        주문수정
+		      </a>
+		    </div>
+		    <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+		      <div class="card-body">
+
+			   <form action="jsp012_update.jsp" method="post" onsubmit="return order1()">
+						<div class="my-3">
+							<label for="oname1" class="form-label">수정할 우유번호</label> 
+							<input type="text" class="form-control" id="oname1" name="oname"/>
+						</div>
+						<div class="my-3">
+							<label for="onum1" class="form-label">수정할 우유이름</label> 
+							<input type="text" class="form-control" id="onum1" name="onum" />
+						</div>
+						<div class="my-3">
+							<label for="onum1" class="form-label">수정할 우유갯수</label> 
+							<input type="text" class="form-control" id="onum1" name="onum" />
+						</div>
+						
+						<div>
+							<button type="submit" class="btn btn-warning">수정하기</button>
+						</div>
+				</form>
+
+
+		      </div>
+		    </div>
+		  </div>
+		
+		  <div class="card">
+		    <div class="card-header  bg-primary">
+		      <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+		        주문삭제
+		      </a>
+		    </div>
+		    <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+		      <div class="card-body">
+		        <form action=""  method="">
+		        	<label for="">삭제할 주문내용</label>
+		        	<input type="text" class="form-control" id="onum" name="onum"></input>
+		        </form>
+		        <!-- 
+		        1) form 만들기 2) 빈칸검사
+		        3) 처리해결사 jsp012_insert.jsp 데이터 노출x 보관용기 oname, enum
+		        
+		         -->>
+		      </div>
+		    </div>
+		  </div>
+		
+		</div>
+      
+       <table class="table table-bordered table-striped table-hover">
+       	<!-- <caption></caption>
+       	<thead>
+       		<tr>
+       			<th scope="col">NO</th>
+       			<th scope="col">NAME</th>
+       			<th scope="col">PRICE</th>
+                <th scope="col">주문날짜</th>
+       		</tr>
+       	
+       	</thead>  -->
+       	
+       	<tbody>
+       	<% 
+       	try{
+       	
+       	
+       		
+       		
+       	}catch( Exception e){ e.printStackTrace(); }
+       	%>
+       	      	
+       	</tbody>
+       	
+       </table>
+   </div>
+       	
+       	      	
+</body>
+</html>
 <!-- 
 = MODEL
 ★ 다음과 같이 테이블을 준비해주세요!
@@ -126,30 +307,3 @@ mysql> desc milk_order;
 
 
  -->       	
-       	
-       	
-       	
-       	</tbody>
-       	
-       </table>
-   </div>
-
-
-
-
-<!-- 주문현황표 -->
-<!-- 주문현황표 -->
-
-
-
-
-
-<!-- 주문삽입, 수정, 삭제 -->
-<!-- 주문삽입, 수정, 삭제 -->
-
-
-
-
-
-</body>
-</html>

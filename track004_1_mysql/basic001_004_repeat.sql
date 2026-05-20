@@ -28,6 +28,20 @@ age int not null
 );
 show tables;
 desc userinfo;
+desc select_userinfo;
+desc milk;
+
+alter table milk modify mnum int null;
+alter table milk modify mtotal int null;
+ 
+select * from milk; 
+insert into milk (mno, mname, mprice) values (1, 'white', 1500);
+insert into milk (mno, mname, mprice) values (2, 'choco', 1800);
+insert into milk (mno, mname, mprice) values (3, 'banana', 1800);
+
+
+
+
 
 -- alter table userinfo rename userinfo;
 
