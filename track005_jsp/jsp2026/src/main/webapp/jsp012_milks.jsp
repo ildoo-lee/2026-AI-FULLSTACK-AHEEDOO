@@ -58,7 +58,7 @@
 		conn = DriverManager.getConnection(
        			                    "jdbc:mysql://localhost:3306/mbasic",   // url
        			                    "root",   // user
-       			                    "1234");  // pass
+       			                    "1401");  // pass
        	       	
        	//3. PreparedStatement pstmt 이용해서 milk 테이블의 데이터가져오기
        	//   가격이 낮은 순으로
@@ -128,7 +128,7 @@
    		conn = DriverManager.getConnection(
 	   			                    "jdbc:mysql://localhost:3306/mbasic",   // url
 	   			                    "root",   // user
-	   			                    "1234");  // pass
+	   			                    "1401");  // pass
 	   	       	
 	   	//3. PreparedStatement pstmt 이용해서 sql 처리  pstmt.executeQuery()
 	   	
@@ -207,12 +207,12 @@
 
 			   <form action="jsp012_update.jsp" method="post" onsubmit="return order1()">
 						<div class="my-3">
-							<label for="oname1" class="form-label">수정할 우유번호</label> 
-							<input type="text" class="form-control" id="oname1" name="oname"/>
+							<label for="ono1" class="form-label">수정할 우유번호</label> 
+							<input type="text" class="form-control" id="ono1" name="ono"/>
 						</div>
 						<div class="my-3">
-							<label for="onum1" class="form-label">수정할 우유이름</label> 
-							<input type="text" class="form-control" id="onum1" name="onum" />
+							<label for="oname1" class="form-label">수정할 우유이름</label> 
+							<input type="text" class="form-control" id="onamm1" name="oname" />
 						</div>
 						<div class="my-3">
 							<label for="onum1" class="form-label">수정할 우유갯수</label> 
@@ -237,15 +237,19 @@
 		    </div>
 		    <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
 		      <div class="card-body">
-		        <form action=""  method="">
-		        	<label for="">삭제할 주문내용</label>
-		        	<input type="text" class="form-control" id="onum" name="onum"></input>
-		        </form>
+		         <form action="jsp012_delete.jsp"    method="get" onsubmit="return order2()">
+	                 <div class="mb-3">
+	                   <label for="ono_delete" class="form-label"> 취소 주문번호</label>
+	                   <input type="number" class="form-control" id="ono_delete" 
+	                         placeholder="취소할 주문번호를 적어주세요!" name="ono">
+	                 </div>
+                 <button type="submit" class="btn btn-danger">취소하기</button>
+               </form> 
 		        <!-- 
 		        1) form 만들기 2) 빈칸검사
 		        3) 처리해결사 jsp012_insert.jsp 데이터 노출x 보관용기 oname, enum
 		        
-		         -->>
+		         -->
 		      </div>
 		    </div>
 		  </div>
