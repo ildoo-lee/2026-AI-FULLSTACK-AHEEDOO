@@ -103,7 +103,7 @@
        
        	<%
        	//ver2. jsp013_3.jsp
-       	//request.getRequestDispatcher("jsp012_milk.jsp"); 이용해서 여기서 처리해주세요!
+       	//request.getRequestDispatcher("jsp012_milks.jsp").forward(request, response); //이용해서 여기서 처리해주세요!
        	//response.sendRedirect("jsp013_3.jsp");
        	%>
        	

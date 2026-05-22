@@ -10,7 +10,7 @@ out.println(userage);
 
 if(userage<19){response.sendRedirect("jsp013_child.jsp?userage="+userage);} // 나이 null
 //   아니면             jsp013_adult.jsp (경로 안보이게 숨기기 - dispatch 이용)
-//                                          쿼리스트링 주소?name1=Value1name2=value2
+//                                          쿼리스트링 주소?name1=Value1&name2=value2
 else{request.getRequestDispatcher("jsp013_adult.jsp").forward(request, response);
 
 }

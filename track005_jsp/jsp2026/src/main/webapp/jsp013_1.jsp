@@ -16,7 +16,7 @@
    <div class="container card my-5">
       <h3 class="card-header">request.getParameter</h3>
       <% String query = request.getParameter("query");        %>
-      <p>결과 : <%=query %>></p>
+      <p>결과 : <%=query %></p>
        
    </div>
 </body>

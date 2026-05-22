@@ -24,7 +24,7 @@ try{
 	
 	
 	// jdbc 연동
-	conn = DriverManager.getConnection(url, "root", "1234");
+	conn = DriverManager.getConnection(url, "root", "1401");
 	
 	//sql 처리
 	pstmt = conn.prepareStatement(sql);

@@ -27,7 +27,7 @@ try{
 	//3-2 jdb연동 DriverManger.getConnection
 	String url = "jdbc:mysql://localhost:3306/mbasic";
 	String sql = "insert into milk_order (oname, onum, oip) values (?,?,?)";
-	conn = DriverManager.getConnection(url, "root", "1234");
+	conn = DriverManager.getConnection(url, "root", "1401");
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, oname);
 	pstmt.setInt(2, onum);

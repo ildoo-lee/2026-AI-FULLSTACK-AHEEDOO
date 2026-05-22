@@ -58,7 +58,7 @@
 		conn = DriverManager.getConnection(
        			                    "jdbc:mysql://localhost:3306/mbasic",   // url
        			                    "root",   // user
-       			                    "1234");  // pass
+       			                    "1401");  // pass
        	       	
        	//3. PreparedStatement pstmt 이용해서 milk 테이블의 데이터가져오기
        	//   가격이 낮은 순으로
@@ -128,7 +128,7 @@
    		conn = DriverManager.getConnection(
 	   			                    "jdbc:mysql://localhost:3306/mbasic",   // url
 	   			                    "root",   // user
-	   			                    "1234");  // pass
+	   			                    "1401");  // pass
 	   	       	
 	   	//3. PreparedStatement pstmt 이용해서 sql 처리  pstmt.executeQuery()
 	   	
