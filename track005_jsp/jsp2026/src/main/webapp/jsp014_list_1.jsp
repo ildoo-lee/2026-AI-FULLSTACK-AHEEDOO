@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>   
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,10 +15,9 @@
 <body>
     <!--  header  -->
     <header>
-        <h1  class="myhidden">THEJOA703</h1>
-        <div class="p-5 bg-primary text-white text-center myvisual">
-            <h1>First Template</h1>
-            <p>Lorem ipsum...</p>
+    	<div class="p-5 bg-primary text-white text-center myvisual">
+            <h1 class="myhidden">THEJOA703</h1>
+            <p>MVC1 JSP PROJECT</p>
         </div> 
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <h2  class="myhidden">주메뉴</h2>
@@ -41,6 +42,14 @@
             </div>
         </nav>
     </header>
+    <!--  header -->
+    <!--  header -->
+    <!--  header -->
+    <!--  header -->
+    
+
+
+
 
     <!--  content -->
     <section class="container  my-5">
@@ -74,16 +83,14 @@
     </section>
 
     <!--  footer -->
+    <!--  footer -->
+    <!--  footer -->
+    <!--  footer -->
+    <!--  footer -->
+    
     <!--            배경       글자색       글자중앙정렬   안쪽여백   -->
     <footer  class="bg-dark   text-white  text-center   p-5">
         copyrights &copy;  THEJOA703 2026 all rights reserved.
     </footer>
 </body>
 </html>
-
-<!-- Q1. HEADER  
-       - NAVBARD  좋아하는 배경색상  -->
-<!-- Q2. FOOTER  
-      - copyrights 넣고 좋아하는 배경색상 / 글자중앙  -->
-<!-- board1.html  -->
-<!-- boot         -->
