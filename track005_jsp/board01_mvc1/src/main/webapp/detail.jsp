@@ -7,7 +7,7 @@
    <!--  header -->
    
 <%
-//1. bno넘겨받기
+//1. bno넘겨받기 종속 페이지여서 독자적으로 실행되지 않고 에러나 감
 request.setCharacterEncoding("UTF-8");
 int bno = Integer.parseInt(request.getParameter("bno"));
 String bname = "", btitle="", bcontent=""; int bhit=0;
@@ -19,9 +19,9 @@ try{
 	String sql1="update mvcboard1 set bhit=bhit+1  where bno=?";
 	String sql2="select * from mvcboard1  where bno=?";
 	
-	String sql = "insert into mvcboard1 (bname, bpass, btitle, bcontent, bip) values (?,?,?,?,?)";
+	//String sql = "insert into mvcboard1 (bname, bpass, btitle, bcontent, bip) values (?,?,?,?,?)";
 	String url = "jdbc:mysql://localhost:3306/mbasic";
-    String user = "root", pass="1401";
+    String user = "root", pass="1111";
 	
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	conn = DriverManager.getConnection(url, user, pass); //2. jdbc연동
@@ -61,12 +61,12 @@ try{
 			
 			<div class="my-3">
 				<label for="bname">+ 조회수</label>
-				<input type="text" class="form-control" value="<%=bhit%>" id="bhit" name="bhit" />
+				<input type="text" class="form-control" value="<%=bhit%>" id="bhit" name="bhit" readonly />
 			</div>
 			
 			<div class="my-3">
 				<label for="bname">+ 이름</label>
-				<input type="text" class="form-control" value="<%=bname%>" id="bname" name="bname" />
+				<input type="text" class="form-control" value="<%=bname%>" id="bname" name="bname" readonly />
 			</div> 
 			
 			<div class="my-3">
@@ -76,15 +76,15 @@ try{
 			
 			<div class="my-3">
 			    <label for="bcontent">+ 내용</label>
-			    <textarea class="form-control" id="bcontent" name="bcontent" style="height: 300px;" readonly><%=bcontent %></textarea>
+			    <textarea class="form-control" id="bcontent" name="bcontent" style="height: 300px;" readonly><%=bcontent%></textarea>
 			</div>
 			
 			<div class="my-3 text_end">
 				<!-- <button type="reset" class="btn btn-primary" title="글취소">취소</button> -->
 			    
-			    <a href="" class="btn btn-primary" title="글수정">수정</a>
-			    <a href="" class="btn btn-primary" title="글수정">삭제</a>
-			    <a href="" class="btn btn-primary" title="목록보러가기">목록</a>
+			    <a href="edit.jsp?bno=<%=bno%>" class="btn btn-primary" title="글수정">수정</a>
+			    <a href="delete_action.jsp?bno=<%=bno%>" class="btn btn-primary" title="글수정">삭제</a>
+			    <a href="list.jsp" class="btn btn-primary" title="목록보러가기">목록</a>
 				
 				<!-- <button type="submit" class="btn btn-primary" title="글등록">글쓰기</button> -->
 			</div>     

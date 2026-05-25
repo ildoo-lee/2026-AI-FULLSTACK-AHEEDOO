@@ -1,54 +1,49 @@
-<%@page import="java.sql.*"%>
-<%@page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="java.net.InetAddress" %>
+<%@page import="java.sql.*" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
-   
 
-   <!--  header -->
-   <!--  header -->
-   
-   <div class="container card my-5">
-      <h3 class="card-header">글 수정</h3>
-      <form action="#" method="post" onsubmit="return checkFrom()">
-			<div class="my-3">
-				<label for="bname">이름</label>
-				<input type="text" class="form-control" id="bname" name="bname" />
-			</div> 
-			<div class="my-3">
-				<label for="bpass">비밀번호</label>
-				<input type="text" class="form-control" id="bpass" name="bpass" />
-			</div>
-			<div class="my-3">
-				<label for="btitle">제목</label>
-				<input type="text" class="form-control" id="btitle" name="btitle" />
-			</div>
-			<div class="my-3">
-				<label for="bcontent">내용</label>
-				<textarea class="form-control" id="bcontent" name="bcontent"></textarea>
-			</div>
-			<div class="my-3 text_end">
-				<button type="reset" class="btn btn-primary" title="글취소">취소</button>
-			    <a href="" class="btn btn-primary" title="글보러가기">목록</a>
-				<button type="submit" class="btn btn-primary" title="글등록">글수정</button>
-			</div>     
-      </form>
-      <script>
-      	function checkFrom(){
-      		let bname = document.getElementById("bname");
-      		let bpass = document.getElementById("bpass");
-      		let btitle = document.getElementById("btitle");
-      		let bcontent = document.getElementById("bcontent");
-      		
-      		if(bname.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(bpass.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(btitle.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(bcontent.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		return true;
-      	}
-      </script>
-       
-   </div>
-    
-   <!--  footer -->
-   <!--  footer -->
+<% /*-2) write.jsp (글쓰기 폼)    ->  write_action.jsp(글쓰기 처리)       */
+//1. 데이터 넘겨받기   bname, bpass, btitle, bcontent / bip - InetAddress.getLocalHost()gethostAddress
+request.setCharacterEncoding("UTF-8");
 
-<%@include file="inc/footer.jsp" %>
+int bno = Integer.parseInt(request.getParameter("bno"));
+
+String bname = request.getParameter("bname");
+String bpass = request.getParameter("bpass");
+String btitle = request.getParameter("btitle");
+String bcontent = request.getParameter("bcontent");
+//out.println(bname+ "/"+~)
+
+//2. sql 처리
+try{
+	    Connection conn = null;	PreparedStatement pstmt = null;
+	    String sql = "update mvcboard1 set btitle=?, bcontent=? where bno=? and bpass=?";
+		String url = "jdbc:mysql://localhost:3306/mbasic";
+	    String user = "root", pass="1111";
+	    	    
+	    Class.forName("com.mysql.cj.jdbc.Driver");
+		conn = DriverManager.getConnection(url, user, pass);
+		pstmt = conn.prepareStatement(sql);
+		
+		pstmt.setString(1, btitle);
+		pstmt.setString(2, bcontent);
+		pstmt.setInt(3, bno);
+		pstmt.setString(4, bpass);
+		//pstmt.setString(5, InetAddress.getLocalHost().getHostAddress()); // Ip 주소가져오기
+		
+		//3-3 insert executeUpdate
+	    int result = pstmt.executeUpdate(); // insert, update, deldte 실행한 줄 수 
+			
+		//4. jsp012_milk.jsp 로 돌아가기
+		if(result >0){  out.println("<script> alert('수정 성공!'); location.href='detail.jsp?bno=" + bno + "';</script>");
+		}else{
+			out.println("<script> alert('비밀번호를 확인하세요!'); location.href='edit.jsp?bno=" + bno + "';</script>");
+		}
+		
+		if(pstmt != null){pstmt.close();}
+		if(conn != null){conn.close();}
+
+	}catch( Exception e){ e.printStackTrace(); }
+
+%>

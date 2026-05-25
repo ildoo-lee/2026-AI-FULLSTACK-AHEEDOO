@@ -31,29 +31,30 @@
 	            Connection conn = null;  PreparedStatement pstmt = null;   ResultSet rset = null;
 	            String sql="select * from   mvcboard1 order by bno desc";
 	            String url="jdbc:mysql://localhost:3306/mbasic";   
-	            String user ="root" , pass="1401";
+	            String user ="root" , pass="1111";
             
                //1. 드라이버로딩
                Class.forName("com.mysql.cj.jdbc.Driver");
                               
                //2. jdbc연동
-               conn = DriverManager.getConnection(//url, user, pass);
-       			                    "jdbc:mysql://localhost:3306/mbasic",   // url
-       			                    "root",   // user
-       			                    "1234");  // pass
+               conn = DriverManager.getConnection(url, user, pass);
+       			                    //"jdbc:mysql://localhost:3306/mbasic",   // url
+       			                    //"root",   // user
+       			                    //"1111");  // pass
                
                //3. sql 구문처리
                pstmt = conn.prepareStatement(sql);
        		   //select:executeQuery / insert, update, delete,:executeUpdate
                rset = pstmt.executeQuery();
-               while(rset.next()){ //줄
-			                     out.println("<tr><td>"   
-			                     + rset.getInt("bno")+"</td><td>"
-					             + rset.getString("bname")+"</td><td><a href='detail.jsp?bno="+rset.getInt("bno")+"'>"
-					             + rset.getString("btitle")+"</a></td><td>"
-					             + rset.getString("bdate")+"</td><td>"
-					             + rset.getInt("bhit")+"</td></tr>");
-               }
+               while(rset.next()){ // 줄 시작
+            	    out.println("<tr>"
+            	            + "  <td>" + rset.getInt("bno") + "</td>"
+            	            + "  <td>" + rset.getString("bname") + "</td>"
+            	            + "  <td><a href='detail.jsp?bno=" + rset.getInt("bno") + "'> "+rset.getString("btitle")+" </a></td>"
+            	            + "  <td>" + rset.getString("bdate") + "</td>"
+            	            + "  <td>" + rset.getInt("bhit") + "</td>"
+            	            + "</tr>");
+            	}
        		   
        		   
                //4. jdbc끊기

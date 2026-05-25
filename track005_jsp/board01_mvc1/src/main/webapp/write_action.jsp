@@ -17,7 +17,7 @@ try{
 	    Connection conn = null;	PreparedStatement pstmt = null;
 	    String sql = "insert into mvcboard1 (bname, bpass, btitle, bcontent, bip) values (?,?,?,?,?)";
 		String url = "jdbc:mysql://localhost:3306/mbasic";
-	    String user = "root", pass="1401";
+	    String user = "root", pass="1111";
 	    
 	    
 	    Class.forName("com.mysql.cj.jdbc.Driver");

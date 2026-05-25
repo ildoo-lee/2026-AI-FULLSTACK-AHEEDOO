@@ -40,10 +40,10 @@
       		let btitle = document.getElementById("btitle");
       		let bcontent = document.getElementById("bcontent");
       		
-      		if(bname.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(bpass.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(btitle.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		if(bcontent.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
+      		if(bname.value.trim()==""){alert("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
+      		if(bpass.value.trim()==""){alert("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
+      		if(btitle.value.trim()==""){alert("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
+      		if(bcontent.value.trim()==""){alert("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
       		return true;
       	}
       </script>
