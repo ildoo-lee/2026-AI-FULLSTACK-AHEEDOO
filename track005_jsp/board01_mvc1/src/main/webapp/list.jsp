@@ -31,7 +31,7 @@
 	            Connection conn = null;  PreparedStatement pstmt = null;   ResultSet rset = null;
 	            String sql="select * from   mvcboard1 order by bno desc";
 	            String url="jdbc:mysql://localhost:3306/mbasic";   
-	            String user ="root" , pass="1234";
+	            String user ="root" , pass="1401";
             
                //1. 드라이버로딩
                Class.forName("com.mysql.cj.jdbc.Driver");

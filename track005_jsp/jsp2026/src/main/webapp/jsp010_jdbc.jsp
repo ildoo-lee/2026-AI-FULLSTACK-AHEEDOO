@@ -38,7 +38,7 @@
 		   Connection conn = DriverManager.getConnection(
 				   "jdbc:mysql://localhost:3306/mbasic", //url   db명
 				   "root", //id
-				   "1234"); //pass     //2. jdbc 연동
+				   "1111"); //pass     //2. jdbc 연동
 		   if(conn != null){
 			   out.println("db 연결 성공!");  
 			   conn.close(); //3. jdbc 연동 끊기
@@ -49,7 +49,7 @@
        
        
        
-       %>>   
+       %> 
        </pre>
    </div>
 </body>

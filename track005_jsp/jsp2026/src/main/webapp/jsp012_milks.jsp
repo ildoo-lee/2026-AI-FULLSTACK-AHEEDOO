@@ -50,21 +50,22 @@
        	try{
        	//1. 드라이버 연동
        	Class.forName("com.mysql.cj.jdbc.Driver");
-       	Connection conn = null;
-       	PreparedStatement pstmt = null;
-       	ResultSet rset = null;
        	
        	//2. JDBC 연동
-		conn = DriverManager.getConnection(
+       	Connection conn = null;
+		
+       	conn = DriverManager.getConnection(
        			                    "jdbc:mysql://localhost:3306/mbasic",   // url
        			                    "root",   // user
-       			                    "1401");  // pass
+       			                    "1111");  // pass
        	       	
        	//3. PreparedStatement pstmt 이용해서 milk 테이블의 데이터가져오기
        	//   가격이 낮은 순으로
+       	PreparedStatement pstmt = null;
+       	ResultSet rset = null;
+       	
        	pstmt = conn.prepareStatement("select * from milk order by mprice asc");
-      	
-        rset = pstmt.executeQuery(); // 표
+      	rset = pstmt.executeQuery(); // 표
         while(rset.next()){ //줄
         	out.println("<tr><td>"   + rset.getInt("mno")+"</td><td>"
         			                 + rset.getString("mname")+"</td><td>"
@@ -128,7 +129,7 @@
    		conn = DriverManager.getConnection(
 	   			                    "jdbc:mysql://localhost:3306/mbasic",   // url
 	   			                    "root",   // user
-	   			                    "1401");  // pass
+	   			                    "1111");  // pass
 	   	       	
 	   	//3. PreparedStatement pstmt 이용해서 sql 처리  pstmt.executeQuery()
 	   	

@@ -10,7 +10,7 @@
 
 
 //1. utf-8 설정
-request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8"); // 파라미터 번역기 외부에서 오는 한글 깨지지 않게
 
 //2. getParameter() 이용해서 데이터 받기
 String oname = request.getParameter("oname");
@@ -27,7 +27,7 @@ try{
 	//3-2 jdb연동 DriverManger.getConnection
 	String url = "jdbc:mysql://localhost:3306/mbasic";
 	String sql = "insert into milk_order (oname, onum, oip) values (?,?,?)";
-	conn = DriverManager.getConnection(url, "root", "1401");
+	conn = DriverManager.getConnection(url, "root", "1111");
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, oname);
 	pstmt.setInt(2, onum);

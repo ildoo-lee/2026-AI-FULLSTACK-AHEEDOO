@@ -518,3 +518,4 @@ delete from milk_order;
 alter table milk_order auto_increment = 1;
 
 
+select * from milk;

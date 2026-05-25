@@ -24,13 +24,13 @@ try{
 	
 	
 	// jdbc 연동
-	conn = DriverManager.getConnection(url, "root", "1401");
+	conn = DriverManager.getConnection(url, "root", "1111");
 	
 	//sql 처리
 	pstmt = conn.prepareStatement(sql);
 	//pstmt.setString(1, name);
 	//pstmt.setInt(2, onum);
-	pstmt.setInt(1, ono); // Ip 주소가져오기
+	pstmt.setInt(1, ono);
 	
 	//3-3 insert executeUpdate
 	int result = pstmt.executeUpdate(); // insert, update, deldte 실행한 줄 수 

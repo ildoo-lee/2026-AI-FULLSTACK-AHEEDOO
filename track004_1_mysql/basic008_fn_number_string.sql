@@ -633,6 +633,19 @@ from fn_select_userinfo2;
 
 
 
+create table mcvboard1(
+bno int not null auto_increment primary key,
+bname varchar(20) not null,
+bpass varchar(50) not null,
+btitle varchar(1000) not null,
+bcontent text not null,
+bdate timestamp not null default current_timestamp,
+bhit int not null default 0,
+bip varchar(50) not null
+);
+
+desc  mcvboard1;
+
 
 
 

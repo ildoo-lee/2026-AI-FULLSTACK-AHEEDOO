@@ -19,7 +19,7 @@ try{
 		
 	String url = "jdbc:mysql://localhost:3306/mbasic";
 	String sql = "update milk_order set oname=?, onum=? where ono=?"; //##
-	conn = DriverManager.getConnection(url, "root", "1401");
+	conn = DriverManager.getConnection(url, "root", "1111");
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, oname);
 	pstmt.setInt(2, onum);

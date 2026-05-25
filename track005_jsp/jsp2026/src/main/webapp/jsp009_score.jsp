@@ -54,9 +54,9 @@
 	    let eng=document.getElementById("eng");
 	    let math=document.getElementById("math");
 	    
-	    if(kor.value.trim()==""){
+	    if(kor.value.trim()==""){ // 전 후 공백 없애기
 	        alert("국어 점수를 입력해주세요.");
-	        kor.focus();
+	        kor.focus(); // 커서 강제 소환
 	        return false;
 	    }
 	    if(eng.value.trim()==""){
