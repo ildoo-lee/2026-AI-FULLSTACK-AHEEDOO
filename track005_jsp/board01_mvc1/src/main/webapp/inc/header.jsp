@@ -28,16 +28,16 @@
                 </button>
                 <div class="collapse navbar-collapse" id="mynavbar">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0)">Link</a>
-                    </li>
-                </ul> 
+				    <li class="nav-item">
+				        <a class="nav-link" href="login.jsp">Login</a>
+				    </li>
+				    <li class="nav-item">
+				        <a class="nav-link" href="join.jsp">Join</a>
+				    </li>
+				    <li class="nav-item">
+				        <a class="nav-link" href="mypage.jsp">Mypage</a>
+				    </li>
+				</ul>
                 </div>
             </div>
         </nav>
