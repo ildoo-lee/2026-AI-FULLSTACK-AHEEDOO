@@ -30,7 +30,15 @@ update mvcboard1 set bhit=bhit+1  where bno=1 and bpass=1111;
 update mvcboard1   set  btitle='인사' , bcontent='안녕' where  bno=1  and bpass=1111;
 --            
 --        -5) delete.jsp (글삭제 폼)   delete_action.jsp (글삭제 처리)
-delete from mvcboard1  where  bno=1  and bpass=1111;
+delete from mvcboard1  where  bno=5  and bpass=111;
 -- R 전체파일/상세보기
 -- U 수정 / 조회수 올리기
 -- D 글삭제
+
+alter user 'root'@'localhost' identified BY '1111';
+
+
+
+select b.* , (select count(*) from mvcboard1) `cnt` 
+from mvcboard1 b 
+order by bno desc;

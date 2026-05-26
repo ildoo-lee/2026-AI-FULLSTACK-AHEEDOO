@@ -1,38 +1,42 @@
+
+<%@page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
-<%@include file="inc/header.jsp" %>
 
-   <!--  header -->
-   <!--  header -->
-   <div class="container card my-5">
-      <h3 class="card-header">글 삭제</h3>
-      <form action="#" method="post"  onsubmit="return checkFrom()">
-			
-			<div class="my-3">
-				<label for="bpass">비밀번호</label>
-				<input type="text" class="form-control" id="bpass" name="bpass" />
-			</div>
-			
-						
-			<div class="my-3 text_end">
-			    <button type="reset" class="btn btn-primary" title="글취소">취소</button>
-			    <a href="" class="btn btn-primary" title="목록보러가기">목록</a>
-				<button type="submit" class="btn btn-primary" title="글삭제">글삭제</button>
-			</div>     
-      </form>
-      <script>
-      	function checkFrom(){
-      		
-      		let bpass = document.getElementById("bpass");
-      		     		
-      		if(bpass.value.trim()==""){alter("빈칸입니다.\n확인해주세요."); bname.focus(); return false; }
-      		
-      		return true;
-      	}
-      </script>
-       
-   </div>
-   <!--  footer -->
-   <!--  footer -->
+<% 
 
-<%@include file="inc/footer.jsp" %>
+//1. bno, bpass 넘겨받기
+request.setCharacterEncoding("UTF-8");
+
+int bno = Integer.parseInt(request.getParameter("bno"));
+String bpass = request.getParameter("bpass");
+
+
+
+try{
+//2. delete from mvcboard1 where bno=? and bpass=?
+	Connection conn = null;	PreparedStatement pstmt = null;
+    String sql = "delete from mvcboard1 where bno=? and bpass=?";
+	String url = "jdbc:mysql://localhost:3306/mbasic";
+    String user = "root", pass="1111";
+    	    
+    Class.forName("com.mysql.cj.jdbc.Driver");
+	conn = DriverManager.getConnection(url, user, pass);
+	pstmt = conn.prepareStatement(sql);	
+	
+	pstmt.setInt(1, bno);
+	pstmt.setString(2, bpass);
+		
+//3. 삭제시 list.jsp / 삭제 실패시 비번입력폼 history.go(-1)
+	int result = pstmt.executeUpdate();
+	if(result >0){  out.println("<script> alert('삭제 성공!'); location.href='list.jsp?bno=" + bno + "';</script>");
+	}else{
+		out.println("<script> alert('비밀번호 확인!'); history.go(-1); </script>");
+	}
+	
+	if(pstmt != null){pstmt.close();}
+	if(conn != null){conn.close();}   
+
+	}catch( Exception e){ e.printStackTrace(); }
+
+%>

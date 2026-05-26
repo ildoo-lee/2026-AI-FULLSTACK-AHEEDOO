@@ -38,7 +38,8 @@ try{
 		//4. jsp012_milk.jsp 로 돌아가기
 		if(result >0){  out.println("<script> alert('수정 성공!'); location.href='detail.jsp?bno=" + bno + "';</script>");
 		}else{
-			out.println("<script> alert('비밀번호를 확인하세요!'); location.href='edit.jsp?bno=" + bno + "';</script>");
+			//out.println("<script> alert('비밀번호 확인!'); location.href='edit.jsp?bno=" + bno + "';</script>");
+			out.println("<script> alert('비밀번호 확인!'); history.go(-1); </script>");
 		}
 		
 		if(pstmt != null){pstmt.close();}

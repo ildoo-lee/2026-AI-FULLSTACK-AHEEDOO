@@ -27,34 +27,49 @@
             <%
             try{
             	///////////////////////////////////////////////////////////////////////
-               //-1) list.jsp   전체 리스트 출력   select * from   mvcboard1 order bno desc
+               //-1) list.jsp   전체 리스트 출력   select * from   mvcboard1 order by bno desc
 	            Connection conn = null;  PreparedStatement pstmt = null;   ResultSet rset = null;
-	            String sql="select * from   mvcboard1 order by bno desc";
+	            //String sql="select count(*) from mvcboard1 order by bno desc";
+	            //String sql="select *        from mvcboard1 order by bno desc";
+	            String sql="select b.* , (select count(*) from mvcboard1) `cnt`" 
+	            		 + "from mvcboard1 b order by bno desc";
 	            String url="jdbc:mysql://localhost:3306/mbasic";   
 	            String user ="root" , pass="1111";
-            
-               //1. 드라이버로딩
-               Class.forName("com.mysql.cj.jdbc.Driver");
-                              
-               //2. jdbc연동
-               conn = DriverManager.getConnection(url, user, pass);
-       			                    //"jdbc:mysql://localhost:3306/mbasic",   // url
-       			                    //"root",   // user
-       			                    //"1111");  // pass
-               
-               //3. sql 구문처리
-               pstmt = conn.prepareStatement(sql);
-       		   //select:executeQuery / insert, update, delete,:executeUpdate
-               rset = pstmt.executeQuery();
-               while(rset.next()){ // 줄 시작
-            	    out.println("<tr>"
-            	            + "  <td>" + rset.getInt("bno") + "</td>"
-            	            + "  <td>" + rset.getString("bname") + "</td>"
-            	            + "  <td><a href='detail.jsp?bno=" + rset.getInt("bno") + "'> "+rset.getString("btitle")+" </a></td>"
-            	            + "  <td>" + rset.getString("bdate") + "</td>"
-            	            + "  <td>" + rset.getInt("bhit") + "</td>"
-            	            + "</tr>");
-            	}
+	           
+	              //1. 드라이버로딩
+	              Class.forName("com.mysql.cj.jdbc.Driver");
+	                             
+	              //2. jdbc연동
+	              conn = DriverManager.getConnection(url, user, pass);
+	      			                    //"jdbc:mysql://localhost:3306/mbasic",   // url
+	      			                    //"root",   // user
+	      			                    //"1111");  // pass
+	              
+	              //3. sql 구문처리
+	              //pstmt = conn.prepareStatement(sql);
+	              pstmt = conn.prepareStatement(sql , 
+	                       ResultSet.TYPE_SCROLL_INSENSITIVE, 
+	                       ResultSet.CONCUR_READ_ONLY);
+	      		   //select:executeQuery / insert, update, delete,:executeUpdate
+	              rset = pstmt.executeQuery();
+	              //1) 먼저 전체글 갯수 출력
+			   int cnt = -1;
+	              //       줄
+			   if(rset.next()){
+					cnt = rset.getInt("cnt"); // 칸
+					rset.beforeFirst();           // 다시 처음으로 표부터 처리
+			   }
+       		   
+       		         		   
+			   while(rset.next()) { //줄
+	               out.println("<tr><td>" + cnt--
+	                + "</td><td><a href='detail.jsp?bno="+rset.getInt("bno")+"'>"
+	                + rset.getString("btitle") 
+	                + "</a></td><td>"
+	                + rset.getString("bname") +"</td><td>"
+	                + rset.getString("bdate") +"</td><td>"
+	                + rset.getInt("bhit") +"</td></tr>");
+	            } 
        		   
        		   
                //4. jdbc끊기

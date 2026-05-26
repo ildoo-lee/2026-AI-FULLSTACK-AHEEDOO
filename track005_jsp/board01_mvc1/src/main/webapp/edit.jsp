@@ -35,12 +35,12 @@ try{
 	pstmt = conn.prepareStatement(sql2); pstmt.setInt(1, bno);
 	rset = pstmt.executeQuery(); //표
 	
-	if(rset.next()){
+	if(rset.next()){ // 줄
 	bname = rset.getString("bname");
 	btitle = rset.getString("btitle"); 
 	bcontent = rset.getString("bcontent"); 
 	bhit = rset.getInt("bhit"); 
-	}
+	} //칸
 	
 	//4. jdbc 끊기
 	if(rset != null){rset.close();}
@@ -58,7 +58,7 @@ try{
    
    <div class="container card my-5">
       <h3 class="card-header">글 수정하기</h3>
-      <form action="edit_action.jsp" method="post"  onsubmit="return checkFrom()">
+      <form action="edit_action.jsp?bno=<%=bno %>" method="post"  onsubmit="return checkFrom()">
     
 		    <div class="my-3">
 		        <label for="bno">+ 글번호</label>

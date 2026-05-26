@@ -83,7 +83,7 @@ try{
 				<!-- <button type="reset" class="btn btn-primary" title="글취소">취소</button> -->
 			    
 			    <a href="edit.jsp?bno=<%=bno%>" class="btn btn-primary" title="글수정">수정</a>
-			    <a href="delete_action.jsp?bno=<%=bno%>" class="btn btn-primary" title="글수정">삭제</a>
+			    <a href="delete.jsp?bno=<%=bno%>" class="btn btn-primary" title="글수정">삭제</a>
 			    <a href="list.jsp" class="btn btn-primary" title="목록보러가기">목록</a>
 				
 				<!-- <button type="submit" class="btn btn-primary" title="글등록">글쓰기</button> -->
