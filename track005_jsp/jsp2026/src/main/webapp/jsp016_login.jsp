@@ -4,7 +4,7 @@
 <html  lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 페이지</title>
 <!-- Latest compiled and minified CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -43,12 +43,12 @@
 		<%  /*  out.println(session.getAttribute("email")); */  %>
 		<%   if(session.getAttribute("email")  != null){   %>
 			
-			<div class="alert alert-warming">
+			<div class="alert alert-warning">
 				반갑습니다.  <%=session.getAttribute("email")    %> 님
 			</div>
 			<a href="jsp016_logout.jsp">로그아웃</a>
 			
-		<%   } %>
+		<% } else { %>
 		
 		<!-- <pre class="alert alert-warning">반갑습니다. ***님</pre> -->
 		
@@ -66,10 +66,12 @@
 				<input type="checkbox"   id="check"  name="remember" />      
 			</div>	
 			<div class="my-3"> 
-				<button type="submit"    title="login 하러가기"
-				       class="btn btn-danger"  id="check"  name="remember"  > 로그인 </button> 
+				<button type="submit"    title="login 하러가기" class="btn btn-danger"  > 로그인 </button> 
 			</div>								
 		</form>
+		
+		<% } %>
+		
 		<script>
 		function checklogin(){
 			let email = document.getElementById("email");
