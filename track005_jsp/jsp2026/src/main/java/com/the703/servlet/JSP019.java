@@ -27,6 +27,6 @@ public class JSP019 extends HttpServlet {
 		//2. sql 처리
 		
 		//3. 처리결과 + 경로
-		response.sendRedirect("jsp019_index.jsp?oname+"+oname);		
+		response.sendRedirect("jsp019_index.jsp?oname= "+oname);		
 	}
 }
