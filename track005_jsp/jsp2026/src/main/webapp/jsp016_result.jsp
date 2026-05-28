@@ -28,11 +28,15 @@ try{
 	
 			
 	//3. 로그인 성공시 - session 설정 (session.setAttribute) / jsp016_login.jsp 페이지 넘어가기
-	session.setAttribute("email", email);
-    out.println("<script>alert('로그인 성공!'); location.href='jsp016_login.jsp';</script>");
-    
+	if(rset.next()){
+		session.setAttribute("email", email);
+		out.println("<script>alert('로그인 성공!'); location.href='jsp016_login.jsp';</script>");
+	} else {
+		out.println("<script>alert('아이디 또는 비밀번호가 일치하지 않습니다.'); history.back();</script>");
+	}
+	if(rset != null){rset.close();}
+	if(pstmt != null){pstmt.close();}
+	if(conn != null){conn.close();}
 }catch( Exception e){ e.printStackTrace(); }
-
-
 
 %>

@@ -106,13 +106,13 @@ order by   d.DEPTNO asc;
 
 select d.DEPTNO , DNAME      , EMPNO , ENAME  , JOB       , SAL
 from   DEPT d   left join emp e on    d.DEPTNO = e.DEPTNO   
-order by d.DEPTNO asc;
+order by d.DEPTNO, ename asc;
 
 
 
 select d.DEPTNO , DNAME      , EMPNO , ENAME  , JOB       , SAL
 from     emp e right join DEPT d on    d.DEPTNO = e.DEPTNO   
-order by d.DEPTNO asc;
+order by d.DEPTNO, ename asc;
 
 
 
@@ -164,7 +164,7 @@ CREATE TABLE sub_userinfo
   ban  char(2),
   sns  char(2) default 'y' );
 
-
+desc sub_userinfo;
 
 insert into  sub_userinfo  (name, age , sns , kor , eng, math , ban)
 values  ('first'  , 11  , 'n' , 100 , 100 , 99 , 'A');
@@ -198,6 +198,15 @@ select * from sub_userinfo;
 -- +----+--------+-----+------+------+------+------+------+------+
 -- 3 rows in set (0.02 sec)
 
+-- select *
+-- from   sub_userinfo
+-- where  age >= 평균나이
+
+select *
+from   sub_userinfo
+where  age >= ( select avg(age)  from sub_userinfo );
+
+select * from sub_userinfo;
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -210,7 +219,16 @@ select * from sub_userinfo;
 -- +------+-------+------+------+------+
 -- 2 rows in set (0.00 sec)
 
+-- select ban  , name  , kor  , eng  , math
+-- from   sub_userinfo
+-- where  ban= (first 반);
 
+select ban  , name  , kor  , eng  , math
+from   sub_userinfo
+where  ban= (select ban from sub_userinfo where name = 'first');
+
+
+ 
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -221,8 +239,14 @@ select * from sub_userinfo;
 -- | A    | 95.0000 | 96.0000 | 98.0000 |
 -- +------+---------+---------+---------+
 
+select ban  , avg(kor)`kor`  , avg(eng)`eng`  , avg(math)`math`
+from   sub_userinfo
+where  ban= (select ban from sub_userinfo where name = 'first')
+group by  ban;
+-- order by
+-- limit
 
-
+select * from sub_userinfo;
 
 -- ■진행2. CRUD (SELECT Subquery 연습문제1~13)
 -- --------------------------------------------------------
@@ -236,8 +260,14 @@ select * from sub_userinfo;
 -- +------+
 -- 1 row in set (0.00 sec)
 
+select * from emp;
 
-
+select sal
+from   emp
+where  ename = 'JONES';
+-- group by
+-- order by
+-- limit
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -251,6 +281,13 @@ select * from sub_userinfo;
 -- |  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
 -- +-------+-------+-----------+------+------------+------+------+--------+
 -- 3 rows in set (0.00 sec)
+
+select *
+from   emp
+where  sal > 2975;
+-- group by
+-- order by
+-- limit
 
 
 -- --------------------------------------------------------
@@ -266,6 +303,9 @@ select * from sub_userinfo;
 -- +-------+-------+-----------+------+------------+------+------+--------+
 -- 3 rows in set (0.00 sec)
 
+select *
+from   emp
+where  sal > (select sal from emp where ename = 'JONES');
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -289,14 +329,20 @@ select * from sub_userinfo;
 -- +-------+--------+-----------+------+------------+------+------+--------+
 -- 12 rows in set (0.00 sec)
 
+select *
+from   emp
+where  hiredate < (select hiredate from emp where ename = 'scott');
 
-
-
+select * from emp;
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- -- 연습문제-5
 -- -- emp 테이블에서  20번 부서에 속한 사원중
 -- -- 전체 사원의 평균급여보다 높은 급여를 받는 사원정보와 소속부서 정보를 조회하시오.
+select EMPNO , ENAME , JOB     , SAL  , d.DEPTNO , DNAME    , LOC
+from   emp e join dept d on e.deptno = d.deptno
+where  e.deptno=20 and sal > (select avg(sal) from emp)
+order by e.empno desc;
 -- +-------+-------+---------+------+--------+----------+--------+
 -- | EMPNO | ENAME | JOB     | SAL  | DEPTNO | DNAME    | LOC    |
 -- +-------+-------+---------+------+--------+----------+--------+
@@ -306,6 +352,9 @@ select * from sub_userinfo;
 -- +-------+-------+---------+------+--------+----------+--------+
 -- 3 rows in set (0.00 sec)
 
+select EMPNO , ENAME , JOB     , SAL  , d.DEPTNO , DNAME    , LOC
+from   emp e, dept d
+where  e.sal > (select avg(sal) from emp where d.deptno = 20);
 
 
 
@@ -330,10 +379,16 @@ select * from sub_userinfo;
 -- +-------+--------+----------+------+------------+------+------+--------+
 -- 11 rows in set (0.00 sec)
 
+select *
+from   emp
+where  deptno=20 or deptno=30;
+
+select *
+from   emp
+where  deptno in (20, 30);
 
 
-
-
+select * from emp;
 --  --------------------------------------------------------
 -- --------------------------------------------------------
 -- -- 연습문제-7
@@ -347,7 +402,15 @@ select * from sub_userinfo;
 -- +----------+
 -- 3 rows in set (0.00 sec)
 
+select deptno, MAX(SAL)
+from   emp
+group by deptno
+order by MAX(SAL) desc;
 
+select deptno, MAX(SAL)`max`
+from   emp
+group by deptno
+order by max desc;
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
@@ -362,6 +425,35 @@ select * from sub_userinfo;
 -- |  7902 | FORD  | ANALYST   | 7566 | 1981-12-03 | 3000 | NULL |     20 |
 -- +-------+-------+-----------+------+------------+------+------+--------+
 -- 4 rows in set (0.00 sec)
+
+select   * 
+from     emp 
+where    sal in (select max(sal) from emp where deptno);
+-- group by deptno;
+
+-- select    *
+-- from      emp
+-- where     sal   여러개조건 in  (  각 부서별 최고 급여  )
+
+select   deptno , max(sal)`부서최고급여`
+from     emp 
+-- where    sal in (select max(sal) from emp where deptno)
+group by deptno;
+-- having
+-- order by
+-- limit
+
+-- 2)
+select   deptno , max(sal)`부서최고급여`
+from     emp 
+group by deptno;
+
+-- 3)
+select   *
+from     emp
+where  (deptno, sal) in ( select   deptno, max(sal) from emp  group by deptno );
+                           
+select * from   emp ;
 
 
 
@@ -392,6 +484,7 @@ select * from sub_userinfo;
 -- 3. ALL             : 메인쿼리의 조건식을 서브쿼리의 결과모두가 만족하면 TRUE
 -- 4. EXISTS        :  서브쿼리의 결과가 존재하면 TRUE
 
+
 -- ANY  :  하나라도 일치하면 참
 --     컬럼명   <   ANY (1,2,3)    --   최대값보다 작다                 |(1)   |(2)   |(3)  ★
 --     컬럼명   >   ANY (1,2,3)    --   최소값보다  크다              ★ |(1)   |(2)   |(3)
@@ -399,6 +492,55 @@ select * from sub_userinfo;
 -- ALL    :   모두일치
 --     컬럼명   <   ALL (1,2,3)    --   최소값보다  작다               ★ |(1)   |(2)   |(3)
 --     컬럼명   >   ALL (1,2,3)    --   최대값보다 크다                  |(1)   |(2)   |(3)★
+
+
+-- test용 만드는거와 동시에 데이터 추가
+create table  atest   as         select   1  num  from  dual
+                    union all    select   2       from  dual   
+                    union all    select   3       from  dual   
+                    union all    select   4       from  dual   
+                    union all    select   5       from  dual   
+                    union all    select   6       from  dual;
+
+-- 			    select   1  num  from  dual
+-- union all    select   2       from  dual   
+-- union all    select   3       from  dual   
+-- union all    select   4       from  dual   
+-- union all    select   5       from  dual   
+-- union all    select   6       from  dual;
+
+
+select * from atest;
+
+-- Q1) 1,2,3,4
+select  num  from atest  where num in(3,4,5); -- 3,4,5    
+
+select   num 
+from     atest  
+where    num < any(    select num  from atest  where num in(3,4,5)    )   -- 1줄  5보다 작다
+order by num;
+
+-- Q2) 4,5,6
+select   num 
+from     atest  
+where    num > any(    select num  from atest  where num in(3,4,5)    )  -- 1줄   3보다 크다
+order by num; 
+
+
+-- Q3) 1,2
+select   num 
+from     atest  
+where    num < all(    select num  from atest  where num in(3,4,5)    )  -- all 모두  3보다 작다
+order by num;
+
+
+-- Q4) 
+select   num 
+from     atest  
+where    num > all(    select num  from atest  where num in(3,4,5)    )  -- all 모두  5보다 크다   
+order by num;
+
+
 
 
 -- --------------------------------------------------------
@@ -417,11 +559,23 @@ select * from sub_userinfo;
 -- +-------+-------+-----------+------+------------+------+------+--------+
 -- 4 rows in set (0.00 sec)
 
+-- select    * 
+-- from      emp
+-- where     sal = ANY( 각 부서별 최고 급여와 동일한 급여 )
+
+-- in (subquery)     -  서브쿼리 결과 집합 중 하나와 같으면 true  ( 값이 집합안에 있는지 확인)
+-- any(subquery) = some(subquery)     서브쿼리 결과 집합 중 하나라도 같으면 true
 
 
+select  *
+from    emp
+where   (deptno, sal) = any(select deptno, max(sal) from emp group by deptno );
 
 
+-- in (subquery) - 서브쿼리 결과 집합 중 하나와 같으면 true (값이 집합안에 있는지 확인)
+-- any (subquery) = some (subquery)   서브쿼리 결과 집합 중 하나라도 같으면 true 
 
+-- 'in' 와 '= any'
 
 
 
@@ -441,11 +595,30 @@ select * from sub_userinfo;
 -- +-------+-------+-----------+------+------------+------+------+--------+
 -- 4 rows in set (0.00 sec)
 
+-- select    * 
+-- from      emp
+-- where     sal = some( 각 부서별 최고 급여와 동일한 급여 )
+
+-- in (subquery)     -  서브쿼리 결과 집합 중 하나와 같으면 true  ( 값이 집합안에 있는지 확인)
+-- any(subquery) = some(subquery)     서브쿼리 결과 집합 중 하나라도 같으면 true
+
+select  *
+from    emp
+where   (deptno, sal) = some(select deptno, max(sal)`부서최고급여` from emp group by deptno );
+
 
 -- --------------------------------------------------------
 -- --------------------------------------------------------
 -- -- 연습문제-11
 -- -- emp 테이블에서  부서번호가 30인 사원의 급여를  조회하시오.
+
+-- select sal
+-- from   emp
+-- where  부서번호가 30인 사원
+
+select  sal
+from    emp
+where  deptno=30;
 -- +------+
 -- | SAL  |
 -- +------+
@@ -466,6 +639,7 @@ select * from sub_userinfo;
 -- -- emp 테이블에서  ANY를 이용하여 각 부서별 최고 급여와 동일한 급여를 받는 사원정보를   조회하시오.
 -- -- ※ ANY , SOME 연산자는 서브쿼리가 반환한 여러결과값 중
 -- -- 메인쿼리와 조건식을 사용한 결과가 하나라도 TRUE라면 메인쿼리조건식을 TRUE로 반환해주는 연산자
+
 -- +-------+--------+----------+------+------------+------+------+--------+
 -- | empno | ename  | job      | mgr  | hiredate   | sal  | comm | deptno |
 -- +-------+--------+----------+------+------------+------+------+--------+
@@ -480,9 +654,21 @@ select * from sub_userinfo;
 -- |  7782 | CLARK  | MANAGER  | 7839 | 1981-06-09 | 2450 | NULL |     10 |
 -- +-------+--------+----------+------+------------+------+------+--------+
 -- 9 rows in set (0.00 sec)
+-- select  *
+-- from    emp
+-- where   sal <    ______ (   30번 부서의  )    # 최고 급여보다 작은 급여  / sal <  any(1,2,3)  최대보다 작다  #######
 
+select  *
+from    emp
+where   sal < any(select sal from emp where deptno=30  )
+order by sal, empno asc;
 
+-- 1)
+select sal from emp where deptno=30 order by sal asc;
 
+-- 2) in /  = any  /  = some
+-- sal < any(950, 125, 1500 , 1600 , 2850)   any 한줄
+-- sal > any(950, 125, 1500 , 1600 , 2850)
 
 
 
@@ -508,4 +694,17 @@ select * from sub_userinfo;
 -- +-------+--------+-----------+------+------------+------+------+--------+
 -- 12 rows in set (0.00 sec)
 
+-- 30번 부서 사원들의 최소급여보다 많은 급여를 받는  사원데이터
+--  any 1개라도 맞으면 참   sal >  any(1,2,3) 최대보다 작다  최소급여보다 크다 #######
+--  all 모두 맞아야 참     sal >  all(1,2,3)  최대보다 크다 
+-- select   *
+-- from     emp  
+-- whwere   sal >   ____(30번 부서의)
+
+select sal from emp where deptno=30; -- 950, 125, 1500 , 1600 , 2850
+
+select  *
+from    emp
+where   sal > any(select sal from emp where deptno=30  )
+order by sal desc;
 
