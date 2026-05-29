@@ -21,7 +21,7 @@ public class JoinAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  doGet(request, response); 
 	//1. 데이터 넘겨받기
 	request.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=UTF-8");
+    response.setContentType("text/html; charset=UTF-8");
 	
 	String nickname = request.getParameter("nickname");
 	String bpass    = request.getParameter("bpass");
