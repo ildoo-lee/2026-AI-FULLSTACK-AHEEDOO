@@ -13,7 +13,10 @@
 </head>
 <body>
    <div class="container card my-5">
-      <h3 class="card-header"> <%= request.getParameter("oname ") %>Hi~</h3>
+      <h3 class="card-header">PARAM</h3>
+       <%=request.getParameter("name") %>
+       <hr/>
+       ${param.name}
        
    </div>
 </body>

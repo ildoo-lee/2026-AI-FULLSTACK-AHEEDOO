@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class JoinAction
+ * Servlet implementation class JOINACTION
  */
 @WebServlet("/JoinAction")
 public class JoinAction extends HttpServlet {
@@ -18,7 +18,7 @@ public class JoinAction extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  response.getWriter().append("Served at: ").append(request.getContextPath()); }
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  doGet(request, response); 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 	//1. 데이터 넘겨받기
 	request.setCharacterEncoding("UTF-8");
     response.setContentType("text/html; charset=UTF-8");
@@ -32,11 +32,12 @@ public class JoinAction extends HttpServlet {
 	
 	//3. 경로넘기기
 	request.setAttribute("nickname", nickname);
-	request.setAttribute("bpass", nickname);
-	request.setAttribute("email", nickname);
-	request.setAttribute("mobile", nickname);
+	request.setAttribute("bpass", bpass);
+	request.setAttribute("email", email);
+	request.setAttribute("mobile", mobile);
 	request.getRequestDispatcher("jsp019_result.jsp").forward(request, response);
 	
+	doGet(request, response); 
 	}
 	
 }

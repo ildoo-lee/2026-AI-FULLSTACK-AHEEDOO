@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
+<%@ page  isErrorPage="true" %>  
+<%  response.setStatus(200);%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +15,9 @@
 </head>
 <body>
    <div class="container card my-5">
-      <h3 class="card-header"> <%= request.getParameter("oname ") %>Hi~</h3>
-       
+      <h3 class="card-header">ERROR 404</h3>
+      <p>요청하신 페이지가 없습니다. 관리자에게 문의하세요.</p> 
    </div>
 </body>
 </html>
+<!-- jsp013_6_404.jsp -->

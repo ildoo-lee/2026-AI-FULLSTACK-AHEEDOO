@@ -5,14 +5,8 @@
 
    <div class="container card my-5">
       <h3 class="card-header">로그인</h3>
-      <!-- 2. Login
-		> 로그인폼    -  Get
-		> 로그인처리 - Post
-		1) 처리서블릿   : LoginAction
-		2) 데이터 노출  : x
-		3) 보관데이터   : bpass , email  
-		4) 처리경로     : 처리후 마이페이지로   (MyAction - Get) -->
-      <form action="LoginAction" method="post" onsubmit="return checkFrom()">
+      
+      <form action="login_action.jsp" method="post" onsubmit="return checkFrom()">
 			<div class="my-3">
 				<label for="email">이메일</label>
 				<input type="text" class="form-control" id="email" name="email" />

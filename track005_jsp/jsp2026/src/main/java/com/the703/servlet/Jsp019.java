@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/MilkInsert")
-public class JSP019 extends HttpServlet {
+public class Jsp019 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
-    public JSP019() { super();  }
+    public Jsp019() { super();  }
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {  response.getWriter().append("Served at: ").append(request.getContextPath()); 
 	}
@@ -27,6 +27,6 @@ public class JSP019 extends HttpServlet {
 		//2. sql 처리
 		
 		//3. 처리결과 + 경로
-		response.sendRedirect("jsp019_index.jsp?oname+"+oname);		
+		response.sendRedirect("jsp019_index.jsp?oname= "+oname);		
 	}
 }

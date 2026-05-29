@@ -13,7 +13,7 @@
 		3) 보관데이터   : nickname , bpass , email , mobile
 		4) 처리경로     : 처리후 로그인 폼으로 (LoginAction - Get)
 		-->
-      <form action="JoinAction" method="post" onsubmit="return checkFrom()">
+      <form action="join_action.jsp" method="post" onsubmit="return checkFrom()">
 			<div class="my-3">
 				<label for="nickname">닉네임</label>
 				<input type="text" class="form-control" id="nickname" name="nickname" />
