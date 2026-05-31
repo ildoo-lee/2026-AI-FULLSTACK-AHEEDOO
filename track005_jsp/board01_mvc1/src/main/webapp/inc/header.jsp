@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MVC1-BOARD</title>
+    <title>MVC2-BOARD</title>
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
@@ -17,7 +17,7 @@
     <header> 
         <div class="p-5 bg-primary text-white text-center myvisual">
             <h1>THEJOA703</h1>
-            <p>MVC1 JSP PROJECT</p>
+            <p>MVC2 SERVLET PROJECT</p>
         </div> 
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
             <h2  class="myhidden">주메뉴</h2>
