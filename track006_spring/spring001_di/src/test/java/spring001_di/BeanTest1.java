@@ -28,3 +28,8 @@ public class BeanTest1 {
 	}
 	
 }
+
+
+
+
+
