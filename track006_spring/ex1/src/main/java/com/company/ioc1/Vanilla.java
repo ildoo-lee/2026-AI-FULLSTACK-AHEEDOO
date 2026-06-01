@@ -1,4 +1,4 @@
-package com.company.ioc;
+package com.company.ioc1;
 
 public class Vanilla implements IceCream {
     @Override public String flavor() { return "Vanilla-flavor"; }

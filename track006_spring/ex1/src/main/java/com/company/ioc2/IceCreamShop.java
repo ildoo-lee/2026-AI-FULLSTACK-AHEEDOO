@@ -1,10 +1,22 @@
-package com.company.ioc;
+package com.company.ioc2;
+import javax.annotation.Resource;
 
-import com.company.ioctest.IceCream;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
+@Component("shop")
+@Data  // lombok Ãß°¡~!
 public class IceCreamShop {
+	@Value("${shopName}")
     private String shopName;
-    private IceCream iceCream;
+	
+	//@Autowired  @Qualifier("choco")
+    @Resource(name="${iceCream}")
+	private IceCream iceCream;
 
     public IceCreamShop() { super(); }
 

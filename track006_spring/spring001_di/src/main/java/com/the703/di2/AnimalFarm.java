@@ -4,34 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor; 
 
 @Component("animalFarm")
 @Data
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 public class AnimalFarm {
 	@Value("poppi")
 	private String name;
 	
-	@Autowired @Qualifier("dog")
-	private Animal ani;
+	@Autowired  @Qualifier("dog")
+	private Animal ani;  
 	
-	public String aniSleep() { return name + ">" + ani.sleep();}
-	public String aniEat() { return name + ">" + ani.eat();}
-	public String aniPoo() { return name + ">" + ani.poo();}
+	public String aniSleep() {  return name + ">" + ani.sleep(); }
+	public String aniEat()   {  return name + ">" + ani.eat();   }
+	public String aniPoo()   {  return name + ">" + ani.poo();   } 
 	public void print() {
-		System.out.println( aniSleep());
-		System.out.println( aniEat());
-		System.out.println( aniPoo());
+		System.out.println( aniSleep() );
+		System.out.println( aniEat()   );
+		System.out.println( aniPoo()   );
 	}
-	public String getName() { return name; }
-	public void setName(String name) { this.name = name; }
-	public Animal getAni() { return ani; }
-	public void setAni(Animal ani) { this.ani = ani; }
-	
 }

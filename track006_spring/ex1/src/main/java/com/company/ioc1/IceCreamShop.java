@@ -1,7 +1,6 @@
-package com.company.ioctest;
-
-import com.company.ioctest.IceCream;
-
+package com.company.ioc1;
+import lombok.Data;
+@Data  // lombok Ãß°¡~!
 public class IceCreamShop {
     private String shopName;
     private IceCream iceCream;

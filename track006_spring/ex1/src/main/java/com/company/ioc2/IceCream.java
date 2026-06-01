@@ -1,4 +1,4 @@
-package com.company.ioctest;
+package com.company.ioc2;
 
 public interface IceCream {
     public String flavor();

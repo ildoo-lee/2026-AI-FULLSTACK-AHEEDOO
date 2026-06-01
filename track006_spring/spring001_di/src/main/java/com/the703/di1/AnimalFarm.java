@@ -6,25 +6,19 @@ import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @Data
-@AllArgsConstructor
+@AllArgsConstructor 
 @NoArgsConstructor
 public class AnimalFarm {
-
 	private String name;
-	private Animal ani;
+	private Animal ani; 
 	
-	public String aniSleep() { return name + ">" + ani.sleep();}
-	public String aniEat() { return name + ">" + ani.eat();}
-	public String aniPoo() { return name + ">" + ani.poo();}
-
+	public String aniSleep() {  return name + ">" + ani.sleep(); }
+	public String aniEat()   {  return name + ">" + ani.eat();   }
+	public String aniPoo()   {  return name + ">" + ani.poo();   }
+	
 	public void print() {
-		System.out.println( aniSleep());
-		System.out.println( aniEat());
-		System.out.println( aniPoo());
+		System.out.println( aniSleep() );
+		System.out.println( aniEat()   );
+		System.out.println( aniPoo()   );
 	}
-	public String getName() { return name; }
-	public void setName(String name) { this.name = name; }
-	public Animal getAni() { return ani; }
-	public void setAni(Animal ani) { this.ani = ani; }
-	
 }
