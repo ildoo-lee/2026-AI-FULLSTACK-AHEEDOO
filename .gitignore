@@ -7,9 +7,11 @@ portfolio/
 track005_jsp/tomcat9.0/
 track005_jsp/Servers/
 track005_jsp/tomcat9.0/apache-tomcat-9.0.100/
+track005_jsp/Servers/Tomcat v9.0 Server at localhost-config
 track006_spring/tomcat9.0/
 track006_spring/Servers/
 track006_spring/tomcat9.0/apache-tomcat-9.0.100/
+track006_spring/Servers/Tomcat v9.0 Server at localhost-config
 
 
 # 빌드 결과물 무시
