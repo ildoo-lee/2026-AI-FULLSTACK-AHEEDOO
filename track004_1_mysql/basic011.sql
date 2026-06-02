@@ -708,3 +708,11 @@ from    emp
 where   sal > any(select sal from emp where deptno=30  )
 order by sal desc;
 
+
+insert            : insert into userinfo (email, age) values (? , ?); 
+select(전체)       : select * from userinfo;
+select(해당번호읽기)  : select * from userinfo where no=1; 
+update(해당번호 수정) : update userinfo set email = 'aaa@email.com', age = 30 where no = 1; 
+delete(해당번호삭제)  : delete from userinfo where no = 1;
+
+select now();

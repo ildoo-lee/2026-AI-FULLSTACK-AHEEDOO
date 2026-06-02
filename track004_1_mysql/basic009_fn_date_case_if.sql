@@ -427,3 +427,4 @@ select  ename, job , case
             end`JOB2`
 from emp;
 
+-- userinfo
