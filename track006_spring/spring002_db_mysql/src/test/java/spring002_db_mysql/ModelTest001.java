@@ -18,7 +18,7 @@ import com.the703.dto.UserInfoDto;
 @RunWith(SpringJUnit4ClassRunner.class)  //1. spring 구동
 @ContextConfiguration(locations = "classpath:config/root-context.xml") //2. 설정파일
 
-public class ModelTeat001 {
+public class ModelTest001 {
 	@Autowired ApplicationContext context; //3.Bean (스프링이 관리하는 객체) 생성 ~ 소멸
 	@Autowired DataSource      dataSource;
 	@Autowired SqlSession      sqlSession;
@@ -26,14 +26,14 @@ public class ModelTeat001 {
 	
 	@Autowired UserInfoMapper  userinfo;
 	
-	@Test
+	@Ignore // @Test
 	public void test5() { 
 		//5. 삭제
 		//System.out.println(userinfo.delete(2));
 		
 		//4. 수정
-		UserInfoDto dto = new UserInfoDto();  dto.setEmail("hello@gmail.com");  dto.setAge(100);   dto.setNo(3);
-		System.out.println(userinfo.update(dto));
+		//UserInfoDto dto = new UserInfoDto();  dto.setEmail("hello@gmail.com");  dto.setAge(20);   dto.setNo(3);
+		//System.out.println(userinfo.update(dto));
 		
 		//3. 한명검색
 		//System.out.println(userinfo.select(1));
@@ -46,13 +46,13 @@ public class ModelTeat001 {
 		//System.out.println(userinfo.selectAll());
 	}
 	
-	@Ignore @Test
+	@Test
 	public void test4() { System.out.println(test.now());}
 	
-	@Ignore //@Test
+	@Ignore // @Test
 	public void test1() { System.out.println(context);}
 	
-	@Ignore //@Test
+	@Ignore // @Test
 	public void test2() { System.out.println(dataSource);}
 	
 	@Ignore //@Test

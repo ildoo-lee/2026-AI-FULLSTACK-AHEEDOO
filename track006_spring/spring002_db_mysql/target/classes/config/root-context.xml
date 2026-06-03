@@ -32,12 +32,12 @@
        <property name="mapperLocations">
           <list>
          <value>classpath:config/userinfo-mapper.xml</value>
-         <value>classpath:config/test-mapper.xml</value>
+         <value>classpath:config/test-mapper.xml</value>       <!-- test-mapper.xml 잃기 준비 -->
           </list>
        </property>
     </bean>
     
-    <bean id="SqlSession"  class="org.mybatis.spring.SqlSessionTemplate">
+    <bean id="sqlSession"  class="org.mybatis.spring.SqlSessionTemplate">
     	<constructor-arg ref="sqlSessionFactory" />
     </bean>
 	
