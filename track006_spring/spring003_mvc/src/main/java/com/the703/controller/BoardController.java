@@ -37,7 +37,4 @@ public class BoardController {
     }
 	// Å×½ºÆ® http://localhost:8080/spring003_mvc/board/delete.do
 	
-	
-	
-	
 }
