@@ -10,12 +10,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.the703.dao.BoardMapper;
 import com.the703.dao.TestMapper;
 import com.the703.dto.BoardDto;
+import com.the703.service.BoardService;
 
 @RunWith(SpringJUnit4ClassRunner.class)  //1. spring 구동
 @ContextConfiguration(locations = "classpath:config/root-context.xml")  //2. 설정파일
@@ -27,15 +29,27 @@ public class ModelTest {
 	@Autowired TestMapper testMapper;
 	
 	@Autowired BoardMapper boardMapper;
+	@Autowired BoardService service;
 	
 	
 	@Test
-	public void test4() throws UnknownHostException{
+	public void test4() // throws UnknownHostException
+	{
+		//삽입
+//		BoardDto dto = new BoardDto();
+//		dto.setBname("first"); dto.setBpass("1111");
+//		dto.setBtitle("service-첫번재 글쓰기"); dto.setBcontent("service-내용");
+//		System.out.println(service.insert(dto));
+		
+//		전체리스트
+		System.out.println(service.selectAll());
+		
 		
 //		//삭제
 //		System.out.println(boardMapper.delete(1));
-//		
-//		
+//		BoardDto dto = new BoardDto(); dto.setBno(8);
+//		System.out.println(service.delete(dto));
+		
 //		//수정
 //		BoardDto dto2 = new BoardDto();
 //		dto2.setBname("first"); dto2.setBno(1);
@@ -44,18 +58,9 @@ public class ModelTest {
 		
 //		//검색
 //		System.out.println(boardMapper.select(1));
-		
-		//삽입
-//		BoardDto dto = new BoardDto();
-//		dto.setBname("first"); dto.setBpass("1111");
-//		dto.setBtitle("첫번재 글쓰기"); dto.setBcontent("내용");
-//		dto.setBip(InetAddress.getLocalHost().getHostAddress()); //#1
-//		System.out.println(boardMapper.insert(dto)); //실행한 줄수1
-		
-		//전체검색
-		System.out.println(boardMapper.selectAll());
+//		System.out.println(service.detail(1));
+
 	}
-	
 	
 	
 	

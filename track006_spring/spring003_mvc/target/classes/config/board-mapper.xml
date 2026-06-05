@@ -6,8 +6,9 @@
     values  (   #{bname} , #{bpass} , #{btitle} , #{bcontent} , #{bip} )
   </insert>
   <update         id="update"   parameterType="BoardDto">
-     update  mvcboard2  
-     set  btitle=#{btitle}  , bcontent=#{bcontent}  
+     update  mvcboard2
+       
+     set bhit = #{bhit}+1, btitle= #{btitle}  , bcontent=#{bcontent}  
      where bno= #{bno}
   </update>
   <delete         id="delete"  parameterType="int">
