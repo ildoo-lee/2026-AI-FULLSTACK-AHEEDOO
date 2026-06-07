@@ -28,16 +28,31 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public BoardDto detail(int bno) {
 		// 조회수 올리기
+		dao.updateHit(bno);
 		return dao.select(bno);
 	}
 
-	@Override public BoardDto editView(int bno) {  return dao.select(bno); }
+	@Override 
+	public BoardDto editView(int bno) {  
+		return dao.select(bno); 
+	}
 
-	@Override public int edit(BoardDto dto) { System.out.println("............."+dto); return dao.update(dto); }
-	// 비번맞으면 수정
+	@Override 
+	public int edit(BoardDto dto) { 
+	    // true 1  false 0 count
+	    int count = dao.checkPass(dto); 
+	    
+	    if(count == 1) { return dao.update(dto); } 
+	    else           { return 0; }
+	}
 
-	@Override public int delete(BoardDto dto) { return dao.delete(dto.getBno()); }
-	// 비번맞으면 삭제
+	@Override 
+	public int delete(BoardDto dto) { 
+	    int count = dao.checkPass(dto);
+	    
+	    if(count == 1) { return dao.delete(dto.getBno()); } 
+	    else           { return 0; }
+	}
 	
 
 }
