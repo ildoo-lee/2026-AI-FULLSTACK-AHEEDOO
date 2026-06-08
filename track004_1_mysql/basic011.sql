@@ -716,3 +716,55 @@ update(해당번호 수정) : update userinfo set email = 'aaa@email.com', age =
 delete(해당번호삭제)  : delete from userinfo where no = 1;
 
 select now();
+
+desc userinfo_e;
+
+CREATE TABLE userinfo_e (
+    no INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    age INT NULL,
+    PRIMARY KEY (no)
+);
+select*from userinfo_e;
+
+update userinfo_e
+set age = 1
+where no = 2;
+
+CREATE TABLE mvcboard2 (
+    bno INT NOT NULL AUTO_INCREMENT,
+    bname VARCHAR(20) NOT NULL,
+    bpass VARCHAR(50) NOT NULL,
+    btitle VARCHAR(1000) NOT NULL,
+    bcontent TEXT NOT NULL,
+    bdate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    bhit INT NOT NULL DEFAULT 0,
+    bip VARCHAR(50) NOT NULL,
+    PRIMARY KEY (bno)
+);
+
+select*from mvcboard1;
+
+select*from mvcboard2;
+
+desc mvcboard2;
+
+select now();
+
+alter table mvcboard2 add bfile varchar(500) default 'the703.png' not null;
+
+alter table mvcboard2 
+modify column bfile varchar(500) default 'the703.png' null;
+
+insert   into mvcboard2 (bname , bpass , btitle ,  bcontent , bip ,  bfile) 
+select   bname , bpass , btitle ,  bcontent , bip ,  bfile  from  mvcboard2;
+
+-- Paging
+-- 최신글 기준으로 10개씩 가져오기
+select * from mvcboard2 order by bno desc limit 0, 10;  -- 어디서부터 , 몇개
+select * from mvcboard2 order by bno desc limit 10, 10;  -- 그 다음 10개부터 , 10개
+select * from mvcboard2 order by bno desc limit 20, 10;
+
+-- 전체 개시글 갯수
+select count(*) from mvcboard2;
+

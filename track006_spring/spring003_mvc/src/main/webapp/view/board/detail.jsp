@@ -37,6 +37,10 @@ window.addEventListener("load" , function(){
       		<textarea  class="form-control"    id="bcontent" 
       		           name="bcontent"  readonly >${dto.bcontent}</textarea>
       	</div>
+      	<div>
+      		<img src="${pageContext.request.contextPath}/upload/${dto.bfile}"
+      		     alt="${dto.btitle}" class="w-50" />
+      	</div>
       	<div  class="my-3  text-end"> 
       		<a href="${pageContext.request.contextPath}/board/edit.do?bno=${dto.bno}" 
       		   class="btn btn-outline-primary"  title="글수정">수정</a>

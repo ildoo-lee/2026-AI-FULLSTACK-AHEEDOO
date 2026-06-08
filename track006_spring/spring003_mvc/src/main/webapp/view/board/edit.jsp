@@ -8,6 +8,7 @@
    <div class="container  my-5">
       <h3>글 수정</h3>
       <form  action ="${pageContext.request.contextPath}/board/edit.do?bno=${dto.bno}"  
+             enctype="multipart/form-data"
              method="post"   onsubmit="return checkForm()">
       	<div  class="my-3">
       		<label for="bname"   class="form-label">이름</label>
@@ -26,6 +27,15 @@
       	<div  class="my-3">
       		<label for="bcontent"  class="form-label">내용</label>
       		<textarea  class="form-control"    id="bcontent"  name="bcontent"  >${dto.bcontent}</textarea>
+      	</div>
+      	<div  class="my-3">
+      		<label for="bfile"   class="form-label">기존파일</label>
+      		<input type="bfile"   class="form-control"    id="bfile"  name="bfile" 
+      		       value="${dto.bfile}" readonly />
+      	</div>
+      	<div  class="my-3">
+      		<label for="file"   class="form-label">파일업로드</label>
+      		<input type="file"   class="form-control"    id="file"  name="file"  />
       	</div>
       	<div  class="my-3  text-end"> 
       		<button type="reset"   class="btn btn-outline-primary"  title="글수정취소">취소</button>

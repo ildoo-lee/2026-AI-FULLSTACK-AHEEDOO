@@ -1,5 +1,6 @@
 package com.the703.dao;
 
+import java.util.HashMap;
 import java.util.List; 
 import com.the703.dto.BoardDto;
 
@@ -13,4 +14,11 @@ public interface BoardMapper {
    
    public  List<BoardDto>  selectAll();
    public       BoardDto   select(int bno);
+   
+   /* paging */
+   /* paging */
+   public List<BoardDto>   select10(HashMap<String, Integer> map);
+   
+   public int              selectCnt(); 
+   
 }

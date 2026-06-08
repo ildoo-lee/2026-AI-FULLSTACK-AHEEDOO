@@ -3,22 +3,17 @@
 <mapper namespace="com.the703.dao.BoardMapper">
   
   <insert         id="insert"   parameterType="BoardDto" >
-    insert into  mvcboard2 (bname , bpass , btitle , bcontent , bip)  
-    values  (   #{bname} , #{bpass} , #{btitle} , #{bcontent} , #{bip} )
+    insert into  mvcboard2 (bname , bpass , btitle , bcontent , bip , bfile )  
+    values  (   #{bname} , #{bpass} , #{btitle} , #{bcontent} , #{bip} , #{bfile} )
   </insert>
   
   <update         id="update"   parameterType="BoardDto">
      update  mvcboard2
        
-     set <!-- bhit = #{bhit}+1,  --> btitle= #{btitle}  , bcontent=#{bcontent}  
+     set <!-- bhit = #{bhit}+1,  --> btitle= #{btitle}  , bcontent=#{bcontent} , bfile=#{bfile} 
      where bno= #{bno}
   </update>
   
-  <update         id="updateHit" parameterType="int">
-     update mvcboard2
-     set bhit = bhit + 1
-     where bno = #{bno}
-  </update>
   
   <delete         id="delete"  parameterType="int">
     delete  from mvcboard2  where bno= #{bno} 
@@ -38,6 +33,24 @@
      from mvcboard2 
      where bno = #{bno} and bpass = #{bpass}
   </select>
+  
+  
+  <update         id="updateHit" parameterType="int">
+     update mvcboard2
+     set bhit = bhit + 1
+     where bno = #{bno}
+  </update>
+  
+  <!-- Paging -->
+  <!-- Paging -->
+  <select resultType="BoardDto" id="select10"   parameterType="java.util.HashMap">
+  	select * from mvcboard2 order by bno desc limit #{start}  ,  #{end}
+  </select>
+  
+  <select resultType="int"  id="selectCnt">
+  	select count(*) from mvcboard2
+  </select>
+  
   
 </mapper>
 
