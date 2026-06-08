@@ -1,13 +1,17 @@
 package com.the703.service;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.web.multipart.MultipartFile;
+ 
 import com.the703.dao.BoardMapper;
 import com.the703.dto.BoardDto;
 
@@ -19,7 +23,22 @@ public class BoardServiceImpl implements BoardService {
 	@Override public List<BoardDto> selectAll() {  return dao.selectAll(); }
 
 	@Override
-	public int insert(BoardDto dto) {
+	public int insert(BoardDto dto , MultipartFile file) {
+		
+		String fileName   = "the703.png";
+		
+		if(!file.isEmpty()) {
+			fileName = file.getOriginalFilename();
+			String uploadPath = "C:/file/";
+			File demp = new File(uploadPath + fileName);
+			
+			try {file.transferTo(demp);} 
+			catch (IllegalStateException e) {e.printStackTrace();} 
+			catch (IOException e) {	e.printStackTrace();}
+		}
+		
+		dto.setBfile(fileName);
+		
 		try {dto.setBip(InetAddress.getLocalHost().getHostAddress());}
 		catch(UnknownHostException e) {e.printStackTrace();}
 		return dao.insert(dto);
@@ -37,22 +56,71 @@ public class BoardServiceImpl implements BoardService {
 		return dao.select(bno); 
 	}
 
+	// Duplicate me  - 겹치는애가 2개라는뜻
+	// 조건이 좀 달라지셔야할꺼같아요...... count ==1 을 넣으시면 무조건 로그인만하면 다른사람들 글까지 수정이 가능한 상황입니다. 
 	@Override 
-	public int edit(BoardDto dto) { 
+	public int edit(BoardDto dto , MultipartFile file) { 
 	    // true 1  false 0 count
-	    int count = dao.checkPass(dto); 
+//	    int count = dao.checkPass(dto); 
+//	    
+//	    if(count == 1) { return dao.update(dto); } 
+//	    else           { return 0; }
 	    
-	    if(count == 1) { return dao.update(dto); } 
-	    else           { return 0; }
+	  
+		// 해당
+		int result = -1;   // 비번 안맞음
+			
+		BoardDto find = dao.select( dto.getBno() );  // 해당유저찾기
+			if(find.getBpass().equals( dto.getBpass() )) {  // 글번호의 비번과 사용자가 입력한 비번이 같은지 확인
+		        String fileName = dto.getBfile(); // #1. 기본파일명으로 들어간거 넣어놓고
+		    	
+		    	if(!file.isEmpty()) {
+		    		fileName = file.getOriginalFilename();
+		    		String uploadPath="C:/file/";
+		    		File demp = new File(uploadPath + fileName);
+		    		
+		    		try { file.transferTo(demp); }   //#2. 파일올리기
+		            catch (IOException e) { e.printStackTrace(); }
+		            
+		         }
+		         dto.setBfile(fileName);  // #3. 파일명셋팅
+		         result = dao.update(dto);    
+	      } 
+	      return result;
 	}
 
-	@Override 
-	public int delete(BoardDto dto) { 
-	    int count = dao.checkPass(dto);
-	    
-	    if(count == 1) { return dao.delete(dto.getBno()); } 
-	    else           { return 0; }
-	}
+//	@Override  
+//	public int delete(BoardDto dto) { 
+//		int count = dao.checkPass(dto);
+//		
+//		if(count == 1) { return dao.delete(dto.getBno()); } 
+//		else { return 0; }
+//	} 
 	
+	@Override  
+	public int delete(BoardDto dto) { 
+	    int result = 0;
+	    BoardDto find = dao.select( dto.getBno() ); // 원본 글 꺼내기
+	    
+	    if(find.getBpass().equals( dto.getBpass() )) { // 진짜 주인이 맞는지 확인
+	        result = dao.delete(dto.getBno()); // 일치하면 그때만 진짜 삭제
+	    }
+	    return result;
+	}
+	    
+	 /*  paging   */
+	 /*  paging   */	    
+	@Override
+	public List<BoardDto> select10(int pstartno)  {  
+	    HashMap<String, Integer> map = new HashMap<>();
+		map.put("start", (pstartno-1)*10);  /// 
+		map.put("end", 10);
+		return dao.select10(map); 
+	}
+
+	@Override
+	public int selectCnt() {return dao.selectCnt();}
+
+ 
 
 }

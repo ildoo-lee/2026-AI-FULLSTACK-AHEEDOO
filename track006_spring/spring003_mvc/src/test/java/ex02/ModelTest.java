@@ -2,8 +2,11 @@ package ex02;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.HashMap;
 
 import javax.sql.DataSource;
+
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -31,8 +34,18 @@ public class ModelTest {
 	@Autowired BoardMapper boardMapper;
 	@Autowired BoardService service;
 	
+	@Test public void test5() {
+		//2. 최신글 10개씩
+		HashMap<String, Integer> map = new HashMap();
+		map.put("start" , 0);
+		map.put("end" , 10);
+		System.out.println( boardMapper.select10(map));
+		
+		//1. 전체갯수
+		System.out.println( boardMapper.selectCnt());	
+	}
 	
-	@Test
+	@Ignore @Test
 	public void test4() // throws UnknownHostException
 	{
 		//삽입
@@ -42,7 +55,7 @@ public class ModelTest {
 //		System.out.println(service.insert(dto));
 		
 //		전체리스트
-		System.out.println(service.selectAll());
+		//System.out.println(service.selectAll());
 		
 		
 //		//삭제
