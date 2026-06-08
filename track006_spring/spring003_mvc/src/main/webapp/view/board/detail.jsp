@@ -9,7 +9,7 @@ window.addEventListener("load" , function(){
 	let result='${result}' // el
 	console.log(result);
 	
-	if(result=="글쓰기 실패"){alert(result); history.go(-1);} // 알림창, 뒤로 가기
+	if(result=="글쓰기 실패" || result=="정확한 비밀번호를 입력하세요!"){alert(result); history.go(-1);} // 알림창, 뒤로 가기
 	else if(result.length != 0){alert(result);            }
 });
 

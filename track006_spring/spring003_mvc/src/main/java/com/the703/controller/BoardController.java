@@ -35,7 +35,7 @@ public class BoardController {
 		String result="글쓰기 실패";
 		
 		if(service.insert(dto) > 0){ result="글쓰기 성공";}
-		rttr.addFlashAttribute("result" , result); // Flash - 1번만 동작
+		rttr.addFlashAttribute("result" , result); // Flash - 한번만 동작
 		return "redirect:/board/list.do"; //response.sendRediect + alert (X)
 	}
 	
@@ -63,10 +63,10 @@ public class BoardController {
 	@RequestMapping(value="/board/edit.do" , method=RequestMethod.POST)
 	public String edit_post(BoardDto dto , RedirectAttributes rttr) { 
 		//알림창
-		String result="비밀번호 확인!";
+		String result="정확한 비밀번호를 입력하세요!";
 		
 		if(service.edit(dto) > 0){ result="수정 성공";}
-		rttr.addFlashAttribute("result" , result);
+		rttr.addFlashAttribute("result" , result); // flash 한번만 동작
 		return "redirect:/board/detail.do?bno="+dto.getBno();
 	}
 	
@@ -76,21 +76,17 @@ public class BoardController {
 	@RequestMapping(value="/board/delete.do" , method=RequestMethod.GET)
     public String delete(int bno , Model model) { return "board/delete"; }
 	// 테스트 http://localhost:8080/spring003_mvc/board/delete.do
-	//■5. 글삭제 기능
-	@RequestMapping(value="/board/delete.do" , method=RequestMethod.POST)
-	public String delete_post(int bno , RedirectAttributes rttr) { 
-		//알림창
-		BoardDto dto = new BoardDto();  dto.setBno(bno);
-		
-		String result="비밀번호 확인!";
-		
-		if(service.delete(dto) > 0){ result="삭제 성공";}
-		rttr.addFlashAttribute("result" , result);
-		return "redirect:/board/list.do";
-	}
-	
-	
-	
-	
+	//■5. 글삭제 기능 ( NULL 오류 해결 )
+		@RequestMapping(value="/board/delete.do" , method=RequestMethod.POST)
+		// int bno → BoardDto dto로 통째로 받아서 bno와 bpass 모두
+		public String delete_post(BoardDto dto , RedirectAttributes rttr) { 
+			
+			String result = "정확한 비밀번호를 입력하세요!";
+			
+			// bpass NULL 아님
+			if(service.delete(dto) > 0) { result = "삭제 성공"; }
+			rttr.addFlashAttribute("result" , result);
+			return "redirect:/board/list.do";
+		}
 	
 }
