@@ -13,7 +13,7 @@
     <link href="./css/board.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container my-3 bg-info">
+	<div class="container my-3 bg-info text white p-3 rounded text-center">
 		member
 	</div>
 </body>

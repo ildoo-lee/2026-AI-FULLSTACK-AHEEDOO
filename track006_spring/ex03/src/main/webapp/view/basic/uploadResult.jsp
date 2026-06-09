@@ -21,11 +21,8 @@
    </div>   
    <div class="my-3">
       <label for="name"  class="form-label">파일</label>
-      <img src="${pageContext.request.contextPath}/upload/${file}"  alt=""/>
-   </div>   
+      <img src="${pageContext.request.contextPath}/upload/${file}"  alt="" />
+   </div>
 </div>
 </body>
 </html>
-
-
-
