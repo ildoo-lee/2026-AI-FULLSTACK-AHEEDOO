@@ -767,4 +767,62 @@ select * from mvcboard2 order by bno desc limit 20, 10;
 
 -- 전체 개시글 갯수
 select count(*) from mvcboard2;
+update mvcboard2 
+set bfile = null;
 
+
+select*from users;
+desc users;
+
+set sql_safe_updates = 0;
+update mvcboard2 set bfile = null;
+set sql_safe_updates = 1;
+
+-- 1. 안전모드 해제
+set sql_safe_updates = 0;
+
+-- 2. 중복된 aaa@gmail.com 데이터를 싹 지우기
+delete from users where email = 'aaa@gmail.com';
+
+-- 3. 안전모드 다시 켜기
+set sql_safe_updates = 1;
+
+
+
+insert into users (nickname, bpass, email, mobile, bip)
+values            ( #{nickname}, #{bpass}, #{email}, #{mobile}, #{bip} );
+
+select count(*) from users where email=#{email}  and bpass=#{bpass};
+select       *  from users where uno=#{uno};
+select email    from users where email=#{email};
+
+select*from users;
+
+insert into users (nickname, bpass, email, mobile, bip)  
+values ('first', '1111', 'first@gmail.com', '010-1111-1111', '192.168.40.46');
+
+insert into users (nickname, bpass, email, mobile)  
+values ('first', '1111', 'first@gmail.com', '010-1111-1111');
+
+CREATE TABLE authorities (
+    Field VARCHAR(50) NOT NULL,
+    auto VARCHAR(50) NOT NULL
+);
+
+desc authorities;
+
+alter table authorities change field email varchar(50) not null;
+
+select*from authorities;
+
+insert into authorities (email, auth) 
+values ('first@gmail.com', 'ROLE_MEMBER');
+
+insert into authorities (email, auth) 
+values (#{email}, #{auth});
+
+select u.email, u.bpass, a.auth
+from users u left join authorities a on u.email = a.email
+where u.email = 'first@gmail.com';
+
+alter table authorities change auto auth varchar(50) not null;

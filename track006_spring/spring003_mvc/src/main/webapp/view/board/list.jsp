@@ -35,12 +35,11 @@ window.addEventListener("load" , function(){
                     <th scope="col">HIT</th>
                 </tr>
             </thead>
-            <tbody>
             <tfoot><tr><td colspan="5">
                <ul class="pagination  justify-content-center"> 
                
                <!-- 이전 -->
-               <c:if test="${paging.start > 1}">
+               <c:if test="${paging.start > paging.bottomlist}">
 				    <li class="page-item">
 				        <a href="?pstartno=${paging.start - 1}" class="page-link">이전</a>
 				    </li>
@@ -53,7 +52,7 @@ window.addEventListener("load" , function(){
                		</li>
                </c:forEach>
                
-               <!-- 다음 -->
+               <!-- 다음 - 다음 글이 있다면 - 하단의 전체가 > end 이렇다면 -->
                <c:if test="${paging.end < paging.pagetotal}">
 				    <li class="page-item">
 				        <a href="?pstartno=${paging.end + 1}" class="page-link">다음</a>
@@ -63,9 +62,13 @@ window.addEventListener("load" , function(){
             </ul></td></tr>
             </tfoot>
 
+            <tbody>
 			<c:forEach var="dto"   items="${list}"   varStatus="status">
-				<tr>   <!-- 전체갯수    -   상태.갯수     -->
-					<td>${ list.size() - status.index  }</td>
+				<tr>   <!-- 전체갯수 - 1  256 하나씩 빼기
+				            전체갯수 - 0  256~247 - 전체갯수 - 10 246~237  전체갯수 - 30 246~237
+				            상태.갯수     -->
+					<td>${ dto.bno  }</td>
+					<%-- <td>${ list.size() - status.index  }</td> --%>
 					<td>
 						<a href="${pageContext.request.contextPath}/board/detail.do?bno=${dto.bno}">
 							${ dto.btitle  }
