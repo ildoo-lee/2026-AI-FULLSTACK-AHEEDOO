@@ -815,14 +815,34 @@ alter table authorities change field email varchar(50) not null;
 
 select*from authorities;
 
+select * from users;
+
 insert into authorities (email, auth) 
 values ('first@gmail.com', 'ROLE_MEMBER');
 
 insert into authorities (email, auth) 
-values (#{email}, #{auth});
+values (#{email}, #{auth} );
 
 select u.email, u.bpass, a.auth
 from users u left join authorities a on u.email = a.email
 where u.email = 'first@gmail.com';
 
 alter table authorities change auto auth varchar(50) not null;
+
+alter table authorities add bpass varchar(100) not null after email;
+
+set sql_safe_updates = 0;
+
+update authorities 
+set bpass = '1111' 
+where email = 'first@gmail.com';
+
+set sql_safe_updates = 1;
+
+alter table users   modify  bpass varchar(500) not null;
+
+
+
+select*from authorities;
+
+select * from users;

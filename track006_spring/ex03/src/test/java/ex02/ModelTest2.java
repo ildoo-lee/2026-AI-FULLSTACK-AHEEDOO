@@ -27,10 +27,17 @@ public class ModelTest2 {
 	
 	/* security */
 	/* security */
-	@Test public void test2() {
-		/* 로그인시 인가 - 이메일 문자열 하나만 던져서 권한까지 엮인 정보 가져오기 */
+	@Test public void test3() {
 		AuthDto dto2 = new AuthDto();    dto2.setEmail("a@a");
-		System.out.println(user.readAuth(dto2));
+		System.out.println(service.readAuth(dto2));
+	
+	
+	/* security */
+	/* security */
+	//@Ignore @Test public void test2() {
+		/* 로그인시 인가 - 이메일 문자열 하나만 던져서 권한까지 엮인 정보 가져오기 */
+//		AuthDto dto2 = new AuthDto();    dto2.setEmail("a@a");
+//		System.out.println(user.readAuth(dto2));
 		
 		/* 권한2개 - 회원 ADMIN (insert가 아니라 insertAuth를 호출해야 함) */
 //		AuthDto dto1 = new AuthDto();   

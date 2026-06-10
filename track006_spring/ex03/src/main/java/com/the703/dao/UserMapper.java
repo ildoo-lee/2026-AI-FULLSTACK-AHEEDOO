@@ -13,7 +13,8 @@ public interface UserMapper {
     
     // ◀ 아래 2줄이 UserMapper 자바 파일 안에 똑같이 추가되어 있어야 빨간줄이 풀립니다.
     public int insertAuth(AuthDto dto); 
-    public AuthListDto readAuth(AuthDto dto); // xml에서 이메일로 찾기로 하셨다면 String email  ## 
+    public AuthListDto readAuth(AuthDto dto); // xml에서 이메일로 찾기로 하셨다면 String email  ##
+    public UserDto findByEmailUserInfo(String email);
 }
 
 
