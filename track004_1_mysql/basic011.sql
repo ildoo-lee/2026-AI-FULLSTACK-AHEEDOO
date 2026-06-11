@@ -842,7 +842,7 @@ set sql_safe_updates = 1;
 alter table users   modify  bpass varchar(500) not null;
 
 
-
+select*from users;
 select*from authorities;
 
-select * from users;
+select * from mvcboard2;
