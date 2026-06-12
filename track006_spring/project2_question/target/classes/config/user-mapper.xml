@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.the703.dao.UserMapper"> 
+  
+  <select resultMap="authListMap" id="readAuth" parameterType="string">
+     select    u.email,  u.bpass,  a.auth
+     from      users u    left   join authorities a    on u.email   = a.email  
+     where     u.email =#{email} 
+  </select>
+  
+  <resultMap id="authListMap" type="AuthUserDto">
+       <result property="email" column="email"  />
+       <result property="bpass" column="bpass"  />
+       <collection property="authList" resultMap="authMap"  />
+  </resultMap>
+  
+  <resultMap id="authMap" type="AuthDto" > 
+       <result property="auth" column="auth"   />
+  </resultMap>  
+  
+  
+  <insert id="insertAuth" parameterType="com.the703.dto.AuthDto">
+     insert into authorities (email, auth) values (#{email}, #{auth})
+  </insert>
+  
+  <insert id="insert" parameterType="com.the703.dto.UserDto">
+     insert into users (email, bpass, nickname, mobile, bip) 
+     values (#{email}, #{bpass}, #{nickname}, #{mobile}, #{bip})
+  </insert>
+
+
+  <select id="findByEmail" resultType="string">
+     select email from users where email = #{email}
+  </select>
+
+  <select id="findByEmailUserInfo" resultType="com.the703.dto.UserDto">
+     select * from users where email = #{email}
+  </select>
+
+
+  <select id="findByNickname" resultType="string">
+     select nickname from users where nickname = #{nickname}
+  </select>
+
+</mapper>

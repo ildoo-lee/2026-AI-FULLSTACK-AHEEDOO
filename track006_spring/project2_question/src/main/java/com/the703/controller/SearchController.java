@@ -1,0 +1,55 @@
+package com.the703.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+import com.the703.service.UserService;
+
+@RestController
+public class SearchController {
+
+    @Autowired 
+    UserService userService;
+
+    @ResponseBody
+    @RequestMapping(
+        value="/doubleEmail", 
+        method=RequestMethod.GET, 
+        produces=MediaType.APPLICATION_JSON_UTF8_VALUE
+    )
+    public Map<String, Object> doubleEmail(@RequestParam("email") String email) {
+        Map<String, Object> result = new HashMap<>();
+        String find = userService.findByEmail(email);
+        
+        if (find != null) { 
+            result.put("exists", true); 
+        } else { 
+            result.put("exists", false); 
+        }
+        return result;
+    }
+
+    @ResponseBody
+    @RequestMapping(
+        value="/doubleNickname", 
+        method=RequestMethod.GET, 
+        produces=MediaType.APPLICATION_JSON_UTF8_VALUE
+    )
+    public Map<String, Object> doubleNickname(@RequestParam("nickname") String nickname) {
+        Map<String, Object> result = new HashMap<>();
+        String find = userService.findByNickname(nickname);
+        
+        if (find != null) { 
+            result.put("exists", true); 
+        } else { 
+            result.put("exists", false); 
+        }
+        return result;
+    }
+}
