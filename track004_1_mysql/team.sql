@@ -1,11 +1,11 @@
-CREATE TABLE region_sido (
-    sido_no INT AUTO_INCREMENT PRIMARY KEY,
-    sido_name VARCHAR(50) NOT NULL
+create table region_sido (
+    sido_no int auto_increment primary key,
+    sido_name varchar(50) not null
 );
 
-CREATE TABLE region_sigungu (
-    sigungu_no INT AUTO_INCREMENT PRIMARY KEY,
-    sido_no INT NOT NULL,
-    sigungu_name VARCHAR(50) NOT NULL,
-    FOREIGN KEY (sido_no) REFERENCES region_sido(sido_no)
+create table region_sigungu (
+    sigungu_no int auto_increment primary key,
+    sido_no int not null,
+    sigungu_name varchar(50) not null,
+    foreign key (sido_no) references region_sido(sido_no)
 );

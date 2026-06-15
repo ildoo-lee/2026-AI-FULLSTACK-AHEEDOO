@@ -846,3 +846,6 @@ select*from users;
 select*from authorities;
 
 select * from mvcboard2;
+
+desc users;
+desc mvcboard2;

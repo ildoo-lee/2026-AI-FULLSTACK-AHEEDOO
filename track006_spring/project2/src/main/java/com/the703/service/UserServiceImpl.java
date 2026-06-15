@@ -9,4 +9,6 @@ public class UserServiceImpl implements UserService {
 	
 	@Override public AuthUserDto readAuth(String email) {  return service.readAuth(email);	}
 
+	@Override public String findByEmail(String email) {  return null; }
+
 }
